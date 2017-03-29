@@ -5,11 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Blog Archive - My Octopress Blog</title>
-  <meta name="author" content="Your Name">
+  <title>Blog Archive - Dd's home</title>
+  <meta name="author" content="Dong Du">
 
   
-  <meta name="description" content=" Blog Archive Recent Posts ">
+  <meta name="description" content=" Blog Archive 2017 Hello
+Mar 30 2017 posted in work Recent Posts Hello GitHub Repos Status updating... @Ddnirvana on GitHub ">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -21,7 +22,7 @@
   <link rel="canonical" href="http://dongd.info/blog/archives/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <link href="/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
+  <link href="/atom.xml" rel="alternate" title="Dd's home" type="application/atom+xml">
   <script src="/javascripts/modernizr-2.0.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
@@ -36,9 +37,9 @@
 
 <body   >
   <header role="banner"><hgroup>
-  <h1><a href="/">My Octopress Blog</a></h1>
+  <h1><a href="/">Dd's home</a></h1>
   
-    <h2>A blogging framework for hackers.</h2>
+    <h2>Dong Du's blog,welcome everyoen ^_^ .</h2>
   
 </hgroup>
 
@@ -73,6 +74,23 @@
   
   <div id="blog-archives">
 
+
+
+  
+  <h2>2017</h2>
+
+<article>
+  
+<h1><a href="/blog/2017/03/30/hello/">Hello</a></h1>
+<time datetime="2017-03-30T00:14:10+08:00" pubdate><span class='month'>Mar</span> <span class='day'>30</span> <span class='year'>2017</span></time>
+
+<footer>
+  <span class="categories">posted in <a class='category' href='/blog/categories/work/'>work</a></span>
+</footer>
+
+
+</article>
+
 </div>
 
   
@@ -86,7 +104,40 @@
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
     
+      <li class="post">
+        <a href="/blog/2017/03/30/hello/">Hello</a>
+      </li>
+    
   </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/Ddnirvana">@Ddnirvana</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'Ddnirvana',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
 </section>
 
 
@@ -100,7 +151,7 @@
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2017 - Your Name -
+  Copyright &copy; 2017 - Dong Du -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 
