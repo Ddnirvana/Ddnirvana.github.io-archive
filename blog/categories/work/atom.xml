@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Work | Dd's home]]></title>
+  <title><![CDATA[Category: work | Dd's home]]></title>
   <link href="http://dongd.info/blog/categories/work/atom.xml" rel="self"/>
   <link href="http://dongd.info/"/>
-  <updated>2017-03-30T00:18:32+08:00</updated>
+  <updated>2017-04-01T21:40:53+08:00</updated>
   <id>http://dongd.info/</id>
   <author>
     <name><![CDATA[Dong Du]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Hello]]></title>
+    <title type="html"><![CDATA[hello]]></title>
     <link href="http://dongd.info/blog/2017/03/30/hello/"/>
     <updated>2017-03-30T00:14:10+08:00</updated>
     <id>http://dongd.info/blog/2017/03/30/hello</id>
