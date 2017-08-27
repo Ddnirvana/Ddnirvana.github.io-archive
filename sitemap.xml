@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+<loc>http://dongd.info/blog/2017/08/27/ATC17_papers_read_1/</loc>
+<lastmod>2017-08-27T18:55:10+08:00</lastmod>
+</url>
+<url>
 <loc>http://dongd.info/blog/2017/03/30/hello/</loc>
 <lastmod>2017-03-30T00:14:10+08:00</lastmod>
 </url>
@@ -12,5 +16,11 @@
 </url>
 <url>
 <loc>http://dongd.info/blog/categories/work/</loc>
+</url>
+<url>
+<loc>http://dongd.info/blog/categories/paper/</loc>
+</url>
+<url>
+<loc>http://dongd.info/blog/categories/reading/</loc>
 </url>
 </urlset>

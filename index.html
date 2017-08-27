@@ -9,9 +9,7 @@
   <meta name="author" content="Dong Du">
 
   
-  <meta name="description" content="hello,world 这是blog的第一篇测试博客。
-希望能够坚持下来记录博客的习惯↖(^ω^)↗
-">
+  <meta name="description" content="ATC‘17 paper 阅读（一） 转载请注明出处 会议全称：2017 USENIX Annual Technical Conference，官方链接 没有什么用的前言 ATC算是系统方面非常好的会了，一直想着过一遍今年ATC的paper，不过一直看得间间断断的。就着实验室放假的时间， &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -72,6 +70,218 @@
       
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2017/08/27/ATC17_papers_read_1/">ATC17 Papers Read 1</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2017-08-27T18:55:10+08:00" pubdate data-updated="true"></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h1>ATC‘17 paper 阅读（一）</h1>
+
+<p><strong>转载请注明出处</strong></p>
+
+<p>会议全称：2017 USENIX Annual Technical Conference，<a href="https://www.usenix.org/conference/atc17">官方链接</a></p>
+
+<h3>没有什么用的前言</h3>
+
+<p>ATC算是系统方面非常好的会了，一直想着过一遍今年ATC的paper，不过一直看得间间断断的。就着实验室放假的时间，写一波今年ATC paper的笔记，也当是促使自己读完今年ATC的paper了。</p>
+
+<p>paper和对应的slides都可以在上面的官方链接中的Program中找到。</p>
+
+<h3>Sessin: Kernel</h3>
+
+<p>这个session里面有四篇文章</p>
+
+<ul>
+<li>Lock-in-Pop: Securing Privileged Operating System Kernels by Keeping on the Beaten Path</li>
+<li>Fast and Precise Retrieval of Forward and Back Porting Information for Linux Device Drivers</li>
+<li>Optimizing the TLB Shootdown Algorithm with Page Access Tracking</li>
+<li>Falcon: Scaling IO Performance in Multi-SSD Volumes</li>
+</ul>
+
+
+<h4>1. Lock-in-Pop: Securing Privileged Operating System Kernels by Keeping on the Beaten Path</h4>
+
+<p>作者是Yiwen Li, Brendan Dolan-Gavitt, Sam Weber, and Justin Cappos, New York University。</p>
+
+<p>这篇paper算是我比较感兴趣的paper之一，系统安全的工作。</p>
+
+<p><strong>paper</strong></p>
+
+<p>这篇paper的Motivation是是说，现在的linux kernel的bug非常多，并且每年都会不断产生新的功能。
+<img src="/home/dd/Documents/mark_down/figures/atc17_yiwen_1.png" alt="图来自Yiwen Li slides" /></p>
+
+<p>此前针对与减少kernel的bug基本上可以分为两类：
+1. 将kernel的代码按照模块进行分类，比如设备驱动部分的bug就比其他部分多（设备驱动往往是有设备厂商来写的，代码质量很难保证）
+2. kernel的“旧”代码比新加入的代码的bug少。（因为旧的代码实现经过了较长时间的使用，即使存在bug也已经fix掉了）</p>
+
+<p>基于这两种标准，此前的相关工作有：split kernel：在kernel启动后，将不使用的设备驱动代码从内核中移除，减少设备驱动带来的bug(todo，确认一下），（todo，关于旧代码的bug更少的工作是？）</p>
+
+<p>这篇paper的标题中的Lock-in-Pop的Pop，指的是这篇paper提出的一种新的不同于上面两种指标的衡量kernel代码的bug的新指标：popular path。这篇paper提出，在kernel的popular path中的bug数量，远少于其他的部分。</p>
+
+<p>这个观点其实直观上来看还是相当道理的，popular path在这里指的是内核中经常被使用的代码，相比于那些不经常使用的代码，popular path的部分使用的较多，维护者会花更多时间和经历去保证它的正确性，并且这部分代码即使曾经存在bug也更容易被发现然后fix掉。</p>
+
+<p>关于这个metrix，paper中给出作者们的数据是：在占kernel总代码1/3的fast path code中出现的bug占kernel总bug的3%.（kernel版本3.13.0 &amp; 3.14.1）</p>
+
+<p>基于这个metrix，作者在这篇paper中提出了一个新的系统Lind，这个系统针对的是类似容器这样的操作系统虚拟化的场景。Lind用到的核心组件是Google的NaCl和Repy Sandbox，系统的核心想法很简单：通过确定下来哪些syscall，以及他们对应的哪些参数使用，是在kernel中的popular path的，只运行lind中的application使用这些syscall以及对应的参数。NaCl和Repy Sandbox的作用就是拦截下来应用的系统调用，并且将不被允许的系统调用在SafePosix这一层重新实现一下。</p>
+
+<p><img src="/home/dd/Documents/mark_down/figures/atc17_yiwen_2.png" title="图片来自作者slides或paper" alt="图片来自作者slides或paper" /></p>
+
+<p>从最后的evaluation来看，Lind测试了的应用程序包括grep，wget，netcat，apache这些。可见Lind的机制对于大部分的application还是能够很好地兼容的，而且不需要修改应用程序和内核这两点也是非常好的特点。</p>
+
+<p><img src="/home/dd/Documents/mark_down/figures/atc17_yiwen_3.png" title="图片来自作者slides或paper" alt="图片来自作者slides或paper" /></p>
+
+<p>上面的测试结果来看，Lind对于application的性能还是会有相当的损失的。最慢的情况下会慢到6.25倍。这主要是因为Lind需要对很多系统调用重新实现，这部分会带来很多额外的开销。</p>
+
+<p>这个系统是开源的，具体链接见论文，不过我还没有实际的跑过。</p>
+
+<p><strong>思考</strong></p>
+
+<p>这篇paper的工作其实感觉很不错。不过有几个细节需要在考虑一下。</p>
+
+<p>关于popular path，这个想法说实话很直观，我觉得之前之所以没有人从popular path去分析bug是因为很难界定kernel中的哪些代码是popular path的。在看paper的过程中，我充满期待的想知道作者们是怎么处理这个问题的，但是事实上他们的处理方法非常……直接。他们在paper中说他们找了几个学生，在一个新的系统上进行办公，使用各种常见的软件（办公软件，聊天软件，debian的软件库中下载量最大的几十个软件等等），系统上运行的kernel开启了gcov，可以对执行到的kernel的代码进行记录，然后经过一段时间的使用，看kernel中被执行到的路径的情况。</p>
+
+<p>这种方法其实我觉得其实很难说是一个漂亮的或者让人信服的方法。他们分析出来的popular path以1/3的代码量却只存在3%的bug，这个结果应该说是非常吸引人的结果，个人觉得也是他们的这个方法最终能够立得住的重要的基础。</p>
+
+<h4>2. Fast and Precise Retrieval of Forward and Back Porting Information for Linux Device Drivers</h4>
+
+<p>paper的作者：Julia Lawall, Derek Palinski, Lukas Gnirke, Gilles Muller，来自：Sorbonne Universites/UPMC/Inria/LIP6</p>
+
+<p><strong>paper</strong>
+Linux系统是现在使用地非常广泛的系统，从云端到IOT设备都有Linux系统的身影。为了能够让Linux Kernel在不同的硬件平台上使用，Linux Kernel提供了一套内核模块（kernel module）的机制，来让开发者撰写特定硬件的驱动程序，在不修改Linux Kernel的情况下支持新硬件的使用。</p>
+
+<p>Linux Kernel目前的代码量已经非常大了，开发者很难对整体的Linux Kernel都有着非常深刻的掌握。开发者通常通过Linux Kernel提供的各种接口来使用Linux kernel的各种功能。比如为了支持一个新的网卡设备，开发人员所开发的网卡驱动程序在能够正确操纵网卡硬件的同时，还要在上层的网络协议栈中注册对应的接口来让上层的协议栈能够实现用上网络设备。</p>
+
+<p>作为一个开源的系统，Linux Kernel有着大量的维护人员，不断地为Linux Kernel提供着新的功能，完善着代码。这会带来一个问题，就是内核中提供的接口变化得十分地迅速。paper中给出了一个数据：Linux 3.8 (February 2013)到 Linux 4.9 (December 2016)这两个版本之间, 原先kernel中暴露给kernel module的19,473函数中的2,439个被废弃了，而又有10,056 个新的函数被暴露给kernel module。从这个数据可以看出内核中的接口变化其实是非常大的。</p>
+
+<p>而这种kernel暴露给kernel module接口的易变性，使得在之前版本的kernel中可以运行的驱动程序，在新的版本中可能就无法运行了（由于之前使用的接口被废弃了或者是接口的使用发生了变化）。这也是这篇paper想要解决的问题，如何能够方便地帮助开发者将一个在旧版本的内核中可以运行的驱动程序移植到新版本的内核中。</p>
+
+<p>论文中，将开发者移植驱动程序的方法归结为： ①尝试自己在新版本的内核中直接编译原有的驱动程序代码 ②编译器会提示对应的错误信息（如果发生了接口修改的问题） ③开发人员根据错误信息通过kernel git中的信息或者是google查找解决方案。</p>
+
+<p><img src="/home/dd/Documents/mark_down/figures/atc17_lawall_1.png" title="图片来自作者slides或paper" alt="图片来自作者slides或paper" /></p>
+
+<p>上面是一个具体的例子，可以看到其中提示suspend这个field已经没有了。</p>
+
+<p>这篇paper同样遵循上面给出的移植驱动程序的流程，但是提出了两个工具gcc-reduce 和 prequel，来帮助开发者更快地定位到需要查找的信息。</p>
+
+<p>先来说prequel这个工具，这个工具的功能是说，它通过一个输入的patch query language(PQL)，在两个版本之间变化的patch中找到和对应问题相关的patch，来帮助开发者解决移植接口变化的问题。以上面的图为例，通过prequel， 开发者可以查找，在kernel的哪个patch中，spi_driver这个结构中的resume和suspend接口被删除了。其实git中已经提供了类似的功能，git log -G和git log -S可以查找比如在哪些patch中，某一行的suspend或resume被删除了。然而原始的git的问题在于它没有上下文的语义，比如我只能查找到所有的suspend被删除的patch，但是这些suspend并不是spi_driver中的suspend，其实和我们的需求不相关。这也是prequel的最大的特点，就是在git的所有patch中进行查找的时候，会考虑各种context。</p>
+
+<p>gcc-reduce这个工具则要更直接地多了，这个工具会根据生成的错误信息生成对应的prequel的查询语句，也就是说编译一次，如果出现错误开发者可以直接得到prequel返回的和错误信息相关的patch，而不需要自己手动去写PQL语句。具体的实现包括将gcc的错误信息进行分类，根据不同的分类生成对应的PQL语句，以及对于超出分类的错误信息提交给用户自己判断如何进行prequel的查询。</p>
+
+<p>prequel和gcc-reduce由于需要查询大量的patch，每个patch往往还会涉及到大量的文件，这会带来不小的开销，论文里面有一小节在介绍如何进行优化能够更减少这样的开销，不过这样的优化会带来一些false negatives的情况。具体细节可以看论文。</p>
+
+<p>测试方面，作者测试了33个驱动，使用这套工具可以解决在一直的时候遇到的3/4的问题，并且gcc-reduce和prequel能够在30s内返回查询的结果。</p>
+
+<p>工具是开源的，具体的地址见论文。</p>
+
+<p><strong>思考</strong>
+稍微吐槽一下，这篇paper除了evaluation之外，没有介绍的图，只有代码和伪代码的图……</p>
+
+<p>其实仔细想想会发现这篇paper所提出的工具非常简单，基本上可以说就是一个patch的查找工具。在这样简单的基本工作上，他们的工作能够中ATC，个人感觉是因为他们找了一个很好的问题：驱动在跨内核版本的迁移问题。通过相应的数据，说明了这个问题的客观存在以及重要性，并且通过非常solid的测试结果（实际移植了33个驱动并且开源出来），来证明工具的有效性，这才使得整个工作瞬间变得不一样了。</p>
+
+<h4>3.Optimizing the TLB Shootdown Algorithm with Page Access Tracking</h4>
+
+<p>作者是Nadav Amit，来自VMware Research。
+Nadav Amit小哥的paper今年已经看到几篇了：今年HotOS的hypercallbacks是他的工作，感觉挺有意思的；17年ASPLOS的Page Fault Support for Network Controllers也是他的工作，之前听学长讲过这篇；还有之前看到的关于网络虚拟化相关的paper，比如ELI等，也有这个小哥参与的，他在ELI后面还做了一系列和IOMMU相关的工作。</p>
+
+<p><strong>paper</strong></p>
+
+<p><img src="/home/dd/Documents/mark_down/figures/atc17_amit_1.png" title="图片来自作者slides或paper" alt="图片来自作者slides或paper" /></p>
+
+<p>现在的OS，一般都会使用虚拟地址来对内存操作，这是因为内存的虚拟化可以使得进程间有非常好的隔离性，另一方面能够更好地使用内存资源。而使用虚拟地址，意味着我们需要一种转换机制，能够在CPU运行的时候，从将虚拟地址转换为真正需要的物理地址，这种转换机制就页表：page table了。页表的结构如上图，页表也存在内存当中，由一个根寄存器指向它（x86系统下页表根指针存在cr3寄存器中），这个根寄存器存的是页表的物理地址，当CPU需要去查找一个虚拟地址对应的物理地址的时候，会从这个根寄存器所在的第一级页表开始一级级往下走，最终获取到对应的物理地址，再从内存中根据物理地址读写对应的内存。</p>
+
+<p>当然，每一次访存操作都需要走页表显然是会比较慢的。Cache是系统中一个很常见的优化方式，为了减少走页表的次数，每个CPU中会有一个TLB（translation lookaside buffer）。这个buffer其实本质上就是一个cache，它缓存一个虚拟地址到物理地址的映射。也就是说，当CPU需要访问某个虚拟地址A的时候，会首先在TLB中查找一下A是否已经在TLB中了，如果A已经在了，就直接获得对应的物理地址，这叫一次tlb hit，如果不在TLB中则走一次页表，获取到A对应的物理地址B，并且将A->B这样的映射缓存入TLB，这是一次tlb miss。TLB在现在的架构中已经是十分常见的一部分了。</p>
+
+<p>和Cache不同，硬件（比如X86）一般是不会维护TLB的一致性的，这个任务被交给了系统软件来处理。这意味着，比如在Linux系统中内核需要切换一个运行的进程了，不仅仅需要切换进程对应的页表，还需要把旧的TLB清空，否则会导致访问到之前的页表说映射的内存。x86下不能直接访问TLB的内容，而是提供了一些相关的指令来flush tlb。清空TLB会带来一些性能开销，并且每次清空TLB之后，最初的一系列访存操作会频繁触发TLB miss，整体来看对性能的影响很大。相关的优化包括为每个页表分配一个ASID，然后在TLB的每一项中记录这ASID，查找TLB的时候会看对应的entry里的ASID与当前运行程序的ASID是否相同，相同才使用。这其实很好地环节了部分TLB的问题，另一个更难处理的问题则出现在多核的环境下。</p>
+
+<p>由于TLB是每个核一个的，当一个程序（比如多进程）同时在多个核上运行的时候，如果其中一个触发了对于页表的修改，这就意味着不仅需要将当前核上的对应的TLB刷掉，还需要将其他核心上运行的相关的TLB刷掉，这就是一次TLB shootdown。一次TLB shootdown：当前core flush tlb， 发送IPI请求给其他core（当前core等待其他core的返回），其他core处理IPI然后刷TLB，其他core返回IPI处理结果，当前core完成一次TLB shootdown操作。可以看到，为了保证多核环境下的TLB的一致性，其实是需要比较大的开销的。</p>
+
+<p>为了解决tlb shootdown的问题，现有的解决方法大体可以分为硬件方法和软件方法这两类。 硬件方法的核心在于修改硬件来使得硬件能够维护TLB的一致性，相关的工作有Translation-lookaside buffer consistency（Teller‘90），DiDi:Mitigating the performance impact of TLB shootdowns using a shared TLB directory（Villavieja’11，PACT上的）等。软件方法中，现在OS采用的方法如Batching（Scalability of microkernel-based systems,Uhlig'05），只flush使用对应的address space的core，权衡full flush和individual flush来最优化结果。此外，还有学术上最新的软件类型的方法：Explicit software control（Boyd-Wickizer’10, Tene’11），Replicated paging hierarchy（Clements’13, Gerofi’13）。这些工作虽然都能在某些具体的场景下减缓TLB shootdown的问题，但是都存在他们的不足之处。比如replicated paging，需要非常多额外的内存去存储replicated的页表，并且在更新页表的时候，也需要保证多个拷贝页表同时去更新，这都会带来额外的性能开销。</p>
+
+<p>这篇工作针对于两种情况： short-lived private mappings 以及long lived idle mappings进行了优化，能够在Linux系统上减少90%的tlb shootdown。long-lived idle mappings是指在某个core上，关于某个PTE的映射在比较长的时间中已经没有再使用了，甚至与在该core上已经执行了tlb full flush过，那么这种情况下当其他的core在判断需要通知哪些remote cores去刷tlb的时候就不需要通知这种core了。作者们使用的技术叫做tlb version tracking，核心点在于当需要执行tlb shootdown的时候看一下remote的core上面的pte 对应的tlb的version是多少，如果对应version表示该core已经不存在这个pte对应的tlb了则可以避免这一次shootdown。</p>
+
+<p>针对于short-lived private mapping的处理是核心部分，这里利用了x86架构下页表中的一个特殊的标记位：access bit。</p>
+
+<p><img src="/home/dd/Documents/mark_down/figures/atc17_amit_2.png" title="图片来自作者slides或paper" alt="图片来自作者slides或paper" /></p>
+
+<p>access bit会在CPU走页表查找某个page的时候，将对应的PTE中的这个bit设置上，OS可以去清空这个bit。这个bit最初是给kernel做memory reclamation的。这里如何运用这个硬件特性来做tlb shootdonw的优化呢。</p>
+
+<p>假设现在有两个core，分别为core1和core2。有一个多线程的程序分别在两个core上都运行着。此时在core1上运行的程序触发了一个page fault（虚拟地址va 对应的物理页没有映射），此时在core1将PTE修改好后，更新了自己的tlb，然后这个时候va在页表中对应的PTE的access bit就已经被设置上了，core1的OS主动地清掉这个bit。当core1之后再次修改va对应的PTE的时候，去看一下对应的PTE中access bit有没有被设置上，如果有，那么说明<strong>“有可能”</strong>的核也去访问了对应的PTE，这个时候就需要去做tlb shootdown了，如果没有设置上的话，就一定可以保证不需要做TLB shootdown了。</p>
+
+<p>上面讲的是一个最初的方案，事实上存在的问题是在第一个core将PTE修改好之后，到第一个core访问PTE并且将PTE中的access bit清掉是存在一个time windows的，在这个windows中其他的core有可能已经将PTE缓存到了TLB中了。解决的方法很巧妙，通过再引入每个core一个的second page table。second page table和当前的page table相同，只是不需要包含所有的映射，只要有部分映射就可以了。在修改PTE的时候，先把页表切换到second page table，然后在second page table中将对应的PTE设置好，然后访问对应的页，这个时候CPU会将pte的缓存放入tlb中，再把second page table中的对应的PTE的access bit设置上，而对于原先的page table，这个bit仍然是clear的。这个时候再把页表切回原先的page table，就可以做到原先的page table的PTE是clear的，但是tlb已经被加载了最新的PTE的结果。并且在这个过程中其他的core使用原先的Pagetable 访问新的PTE的话，也会将page table中的access bit设置上。</p>
+
+<p>测试部分的话，micro benchmark的结果显示能够减少很多的TLB shootdown。可见整个设计方案还是比较好的。</p>
+
+<p><img src="/home/dd/Documents/mark_down/figures/atc17_amit_3.png" title="图片来自作者slides或paper" alt="图片来自作者slides或paper" /></p>
+
+<p>macro测试部分则显得不是很好了，最终的性能提升甚至到不了1.15，而且core不同的时候的测试结果感觉很不同，也看不出中间存在什么特殊的走势。</p>
+
+<p><img src="/home/dd/Documents/mark_down/figures/atc17_amit_4.png" title="图片来自作者slides或paper" alt="图片来自作者slides或paper" /></p>
+
+<p>对于TLB shootdown本来就不多的例子，这篇论文的方法大概会带来9%左右的overhead，当然作者argue说如果硬件能够提供部分支持的话这样的overhead是可以避免的。</p>
+
+<p><strong>思考</strong></p>
+
+<p>和之前的paper不同，这篇paper所解决的问题是一个非常经典的系统问题，并且已经有了大量的之前的研究工作了。这篇paper比较出彩的地方在于利用了现有的硬件(access bit)去解决tlb shootdown的问题，并且能够减少90%的tlb shootdown，这个数据可以说是非常漂亮的，此外，利用了一个second page table去保证加载tlb和清除clear bit这两个步骤的原子性也是一个非常好的技术点。相比之下，long-lived部分感觉就是为了使得整个论文更加充实而加上的了。让我比较诧异的是最终的macro benchmark测的结果显示并没有什么整体上的性能提升，感觉瞬间懵逼，因为论文前面的部分其实说明了这个问题的严重性，但是在测试的部分其实却看不出来这点。</p>
+
+<p>整体来看，这篇paper还是挺好的，充满很多关于tlb的技术点（尤其对于我来说之前这类paper研究的也不多），看完之后也能学到很多东西，ATC这个会议也是很适合这篇paper的，其他系统的会议的话PC们可能就不一定会买账了……</p>
+
+<h4>4.Falcon: Scaling IO Performance in Multi-SSD Volumes</h4>
+
+<p>作者是Pradeep Kumar and H. Howie Huang, 来自The George Washington University。
+<strong>paper</strong></p>
+
+<p>这篇论文宏观上来看是针对于multi-SSD volume这种新场景下的优化，目前的比如Linux中的现有方案都不能权衡好性能和应用的易用性。下面这张图就是对比的几个系统，可以看出来性能最好的其实就是application自己用多个thread管理多个SSD的使用，当然这种方案会带来的问题是应用端的复杂度就会很高了，而kernel managed 的方案都存在各种性能上的问题。这篇paper想达到两者同时最优的方案。</p>
+
+<p><img src="/home/dd/Documents/mark_down/figures/atc17_kumar_1.png" title="图片来自作者slides或paper" alt="图片来自作者slides或paper" /></p>
+
+<p>下面是现有的LInux下的IO的流和中间的状态的切换。这篇paper的insight是说现有的方案中有很多IO batching和IO serving捆绑的情况，而这样的设计其实并不利于multi-SSD volume的使用。</p>
+
+<p><img src="/home/dd/Documents/mark_down/figures/atc17_kumar_2.png" title="图片来自作者slides或paper" alt="图片来自作者slides或paper" /></p>
+
+<p>最终的设计方案也是按照这个思路去解决的，核心就是分离出了两个模块，分别处理IO batching和IO servicing。</p>
+
+<p><img src="/home/dd/Documents/mark_down/figures/atc17_kumar_3.png" title="图片来自作者slides或paper" alt="图片来自作者slides或paper" /></p>
+
+<p>最终的测试方面，相比于现在的系统，在8-SSD volume的配置下，Falcon能够提高随机文件读写的速度分别为1.77倍和1.59倍，对于各种测试的应用程序显示的性能结果是1.69×倍的提升。</p>
+
+<p><strong>思考</strong>
+这篇paper感觉可以学到很多东西，不过的确和自己的研究方向差的有点远。核心的思想能够看出来是为了挺高并行性的，能够支持现有的系统，并且最终的性能测试的结果也不错，算是一篇很好的工作。设计的和IO子系统相关的背景介绍其实也不错，不过技术细节还没有完全想清楚具体是怎么做的（毕竟很多概念都是第一次知道……），笔记记得也就粗略一点了。等之后再空点或者想了解一下IO这块的时候再回来补下这块的笔记吧！</p>
+
+<h4>Session1 小节</h4>
+
+<p>第一个ATC的session是关于Kernel的，其实更具体点说就是Linux Kernel的相关的四篇paper。四篇paper具体涉及的方向就差很多了，Security的，IO的，TLB以及driverd。不过每篇paper的质量都很高，而且对相关领域的背景介绍也都很深入。Linux Kernel现在的使用非常广泛，很多系统的工作也是基于Linux Kernel来做的，感觉要做系统的话对于Linux Kernel的理解必须要很深入才行，不仅仅是自己研究的方向，其他的方面也要能够有些了解，这样有时候才能借鉴到其他方向的一些比较好的解决方法，也能够结合不同的系统方面来进行设计。</p>
+
+<p>现在写的这些也就仅仅是自己看paper的一些笔记把，ATC17相关的paper还会继续慢慢看然后敦促自己写完笔记。不过理解一篇paper尤其是不一定是自己所熟悉的领域的paper还是挺耗时的TT，继续加油吧～</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2017/03/30/hello/">Hello</a></h1>
     
     
@@ -117,6 +327,10 @@
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2017/08/27/ATC17_papers_read_1/">ATC17 papers read 1</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2017/03/30/hello/">hello</a>

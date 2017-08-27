@@ -1,24 +1,96 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Dd's home]]></title>
-  <link href="http://dongd.info/atom.xml" rel="self"/>
-  <link href="http://dongd.info/"/>
-  <updated>2017-08-27T19:15:54+08:00</updated>
-  <id>http://dongd.info/</id>
-  <author>
-    <name><![CDATA[Dong Du]]></name>
-    
-  </author>
-  <generator uri="http://octopress.org/">Octopress</generator>
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>ATC17 papers read 1 - Dd's home</title>
+  <meta name="author" content="Dong Du">
 
   
-  <entry>
-    <title type="html"><![CDATA[ATC17 papers read 1]]></title>
-    <link href="http://dongd.info/blog/2017/08/27/ATC17_papers_read_1/"/>
-    <updated>2017-08-27T18:55:10+08:00</updated>
-    <id>http://dongd.info/blog/2017/08/27/ATC17_papers_read_1</id>
-    <content type="html"><![CDATA[<h1>ATC‘17 paper 阅读（一）</h1>
+  <meta name="description" content="ATC‘17 paper 阅读（一） 转载请注明出处 会议全称：2017 USENIX Annual Technical Conference，官方链接 没有什么用的前言 ATC算是系统方面非常好的会了，一直想着过一遍今年ATC的paper，不过一直看得间间断断的。就着实验室放假的时间， &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://dongd.info/blog/2017/08/27/ATC17_papers_read_1/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Dd's home" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Dd's home</a></h1>
+  
+    <h2>Dong Du's blog,welcome everyoen ^_^ .</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:dongd.info" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">ATC17 Papers Read 1</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2017-08-27T18:55:10+08:00" pubdate data-updated="true"></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><h1>ATC‘17 paper 阅读（一）</h1>
 
 <p><strong>转载请注明出处</strong></p>
 
@@ -51,7 +123,7 @@
 <p><strong>paper</strong></p>
 
 <p>这篇paper的Motivation是是说，现在的linux kernel的bug非常多，并且每年都会不断产生新的功能。
-<img src="http://dongd.info/home/dd/Documents/mark_down/figures/atc17_yiwen_1.png" alt="图来自Yiwen Li slides" /></p>
+<img src="/home/dd/Documents/mark_down/figures/atc17_yiwen_1.png" alt="图来自Yiwen Li slides" /></p>
 
 <p>此前针对与减少kernel的bug基本上可以分为两类：
 1. 将kernel的代码按照模块进行分类，比如设备驱动部分的bug就比其他部分多（设备驱动往往是有设备厂商来写的，代码质量很难保证）
@@ -67,11 +139,11 @@
 
 <p>基于这个metrix，作者在这篇paper中提出了一个新的系统Lind，这个系统针对的是类似容器这样的操作系统虚拟化的场景。Lind用到的核心组件是Google的NaCl和Repy Sandbox，系统的核心想法很简单：通过确定下来哪些syscall，以及他们对应的哪些参数使用，是在kernel中的popular path的，只运行lind中的application使用这些syscall以及对应的参数。NaCl和Repy Sandbox的作用就是拦截下来应用的系统调用，并且将不被允许的系统调用在SafePosix这一层重新实现一下。</p>
 
-<p><img src="http://dongd.info/home/dd/Documents/mark_down/figures/atc17_yiwen_2.png" title="图片来自作者slides或paper" alt="图片来自作者slides或paper" /></p>
+<p><img src="/home/dd/Documents/mark_down/figures/atc17_yiwen_2.png" title="图片来自作者slides或paper" alt="图片来自作者slides或paper" /></p>
 
 <p>从最后的evaluation来看，Lind测试了的应用程序包括grep，wget，netcat，apache这些。可见Lind的机制对于大部分的application还是能够很好地兼容的，而且不需要修改应用程序和内核这两点也是非常好的特点。</p>
 
-<p><img src="http://dongd.info/home/dd/Documents/mark_down/figures/atc17_yiwen_3.png" title="图片来自作者slides或paper" alt="图片来自作者slides或paper" /></p>
+<p><img src="/home/dd/Documents/mark_down/figures/atc17_yiwen_3.png" title="图片来自作者slides或paper" alt="图片来自作者slides或paper" /></p>
 
 <p>上面的测试结果来看，Lind对于application的性能还是会有相当的损失的。最慢的情况下会慢到6.25倍。这主要是因为Lind需要对很多系统调用重新实现，这部分会带来很多额外的开销。</p>
 
@@ -100,7 +172,7 @@ Linux系统是现在使用地非常广泛的系统，从云端到IOT设备都有
 
 <p>论文中，将开发者移植驱动程序的方法归结为： ①尝试自己在新版本的内核中直接编译原有的驱动程序代码 ②编译器会提示对应的错误信息（如果发生了接口修改的问题） ③开发人员根据错误信息通过kernel git中的信息或者是google查找解决方案。</p>
 
-<p><img src="http://dongd.info/home/dd/Documents/mark_down/figures/atc17_lawall_1.png" title="图片来自作者slides或paper" alt="图片来自作者slides或paper" /></p>
+<p><img src="/home/dd/Documents/mark_down/figures/atc17_lawall_1.png" title="图片来自作者slides或paper" alt="图片来自作者slides或paper" /></p>
 
 <p>上面是一个具体的例子，可以看到其中提示suspend这个field已经没有了。</p>
 
@@ -128,7 +200,7 @@ Nadav Amit小哥的paper今年已经看到几篇了：今年HotOS的hypercallbac
 
 <p><strong>paper</strong></p>
 
-<p><img src="http://dongd.info/home/dd/Documents/mark_down/figures/atc17_amit_1.png" title="图片来自作者slides或paper" alt="图片来自作者slides或paper" /></p>
+<p><img src="/home/dd/Documents/mark_down/figures/atc17_amit_1.png" title="图片来自作者slides或paper" alt="图片来自作者slides或paper" /></p>
 
 <p>现在的OS，一般都会使用虚拟地址来对内存操作，这是因为内存的虚拟化可以使得进程间有非常好的隔离性，另一方面能够更好地使用内存资源。而使用虚拟地址，意味着我们需要一种转换机制，能够在CPU运行的时候，从将虚拟地址转换为真正需要的物理地址，这种转换机制就页表：page table了。页表的结构如上图，页表也存在内存当中，由一个根寄存器指向它（x86系统下页表根指针存在cr3寄存器中），这个根寄存器存的是页表的物理地址，当CPU需要去查找一个虚拟地址对应的物理地址的时候，会从这个根寄存器所在的第一级页表开始一级级往下走，最终获取到对应的物理地址，再从内存中根据物理地址读写对应的内存。</p>
 
@@ -144,7 +216,7 @@ Nadav Amit小哥的paper今年已经看到几篇了：今年HotOS的hypercallbac
 
 <p>针对于short-lived private mapping的处理是核心部分，这里利用了x86架构下页表中的一个特殊的标记位：access bit。</p>
 
-<p><img src="http://dongd.info/home/dd/Documents/mark_down/figures/atc17_amit_2.png" title="图片来自作者slides或paper" alt="图片来自作者slides或paper" /></p>
+<p><img src="/home/dd/Documents/mark_down/figures/atc17_amit_2.png" title="图片来自作者slides或paper" alt="图片来自作者slides或paper" /></p>
 
 <p>access bit会在CPU走页表查找某个page的时候，将对应的PTE中的这个bit设置上，OS可以去清空这个bit。这个bit最初是给kernel做memory reclamation的。这里如何运用这个硬件特性来做tlb shootdonw的优化呢。</p>
 
@@ -154,11 +226,11 @@ Nadav Amit小哥的paper今年已经看到几篇了：今年HotOS的hypercallbac
 
 <p>测试部分的话，micro benchmark的结果显示能够减少很多的TLB shootdown。可见整个设计方案还是比较好的。</p>
 
-<p><img src="http://dongd.info/home/dd/Documents/mark_down/figures/atc17_amit_3.png" title="图片来自作者slides或paper" alt="图片来自作者slides或paper" /></p>
+<p><img src="/home/dd/Documents/mark_down/figures/atc17_amit_3.png" title="图片来自作者slides或paper" alt="图片来自作者slides或paper" /></p>
 
 <p>macro测试部分则显得不是很好了，最终的性能提升甚至到不了1.15，而且core不同的时候的测试结果感觉很不同，也看不出中间存在什么特殊的走势。</p>
 
-<p><img src="http://dongd.info/home/dd/Documents/mark_down/figures/atc17_amit_4.png" title="图片来自作者slides或paper" alt="图片来自作者slides或paper" /></p>
+<p><img src="/home/dd/Documents/mark_down/figures/atc17_amit_4.png" title="图片来自作者slides或paper" alt="图片来自作者slides或paper" /></p>
 
 <p>对于TLB shootdown本来就不多的例子，这篇论文的方法大概会带来9%左右的overhead，当然作者argue说如果硬件能够提供部分支持的话这样的overhead是可以避免的。</p>
 
@@ -175,15 +247,15 @@ Nadav Amit小哥的paper今年已经看到几篇了：今年HotOS的hypercallbac
 
 <p>这篇论文宏观上来看是针对于multi-SSD volume这种新场景下的优化，目前的比如Linux中的现有方案都不能权衡好性能和应用的易用性。下面这张图就是对比的几个系统，可以看出来性能最好的其实就是application自己用多个thread管理多个SSD的使用，当然这种方案会带来的问题是应用端的复杂度就会很高了，而kernel managed 的方案都存在各种性能上的问题。这篇paper想达到两者同时最优的方案。</p>
 
-<p><img src="http://dongd.info/home/dd/Documents/mark_down/figures/atc17_kumar_1.png" title="图片来自作者slides或paper" alt="图片来自作者slides或paper" /></p>
+<p><img src="/home/dd/Documents/mark_down/figures/atc17_kumar_1.png" title="图片来自作者slides或paper" alt="图片来自作者slides或paper" /></p>
 
 <p>下面是现有的LInux下的IO的流和中间的状态的切换。这篇paper的insight是说现有的方案中有很多IO batching和IO serving捆绑的情况，而这样的设计其实并不利于multi-SSD volume的使用。</p>
 
-<p><img src="http://dongd.info/home/dd/Documents/mark_down/figures/atc17_kumar_2.png" title="图片来自作者slides或paper" alt="图片来自作者slides或paper" /></p>
+<p><img src="/home/dd/Documents/mark_down/figures/atc17_kumar_2.png" title="图片来自作者slides或paper" alt="图片来自作者slides或paper" /></p>
 
 <p>最终的设计方案也是按照这个思路去解决的，核心就是分离出了两个模块，分别处理IO batching和IO servicing。</p>
 
-<p><img src="http://dongd.info/home/dd/Documents/mark_down/figures/atc17_kumar_3.png" title="图片来自作者slides或paper" alt="图片来自作者slides或paper" /></p>
+<p><img src="/home/dd/Documents/mark_down/figures/atc17_kumar_3.png" title="图片来自作者slides或paper" alt="图片来自作者slides或paper" /></p>
 
 <p>最终的测试方面，相比于现在的系统，在8-SSD volume的配置下，Falcon能够提高随机文件读写的速度分别为1.77倍和1.59倍，对于各种测试的应用程序显示的性能结果是1.69×倍的提升。</p>
 
@@ -195,19 +267,144 @@ Nadav Amit小哥的paper今年已经看到几篇了：今年HotOS的hypercallbac
 <p>第一个ATC的session是关于Kernel的，其实更具体点说就是Linux Kernel的相关的四篇paper。四篇paper具体涉及的方向就差很多了，Security的，IO的，TLB以及driverd。不过每篇paper的质量都很高，而且对相关领域的背景介绍也都很深入。Linux Kernel现在的使用非常广泛，很多系统的工作也是基于Linux Kernel来做的，感觉要做系统的话对于Linux Kernel的理解必须要很深入才行，不仅仅是自己研究的方向，其他的方面也要能够有些了解，这样有时候才能借鉴到其他方向的一些比较好的解决方法，也能够结合不同的系统方面来进行设计。</p>
 
 <p>现在写的这些也就仅仅是自己看paper的一些笔记把，ATC17相关的paper还会继续慢慢看然后敦促自己写完笔记。不过理解一篇paper尤其是不一定是自己所熟悉的领域的paper还是挺耗时的TT，继续加油吧～</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[hello]]></title>
-    <link href="http://dongd.info/blog/2017/03/30/hello/"/>
-    <updated>2017-03-30T00:14:10+08:00</updated>
-    <id>http://dongd.info/blog/2017/03/30/hello</id>
-    <content type="html"><![CDATA[<h1>hello,world</h1>
+</div>
 
-<p>这是blog的第一篇测试博客。
-希望能够坚持下来记录博客的习惯↖(^ω^)↗</p>
-]]></content>
-  </entry>
+
+  <footer>
+    <p class="meta">
+      
   
-</feed>
+
+<span class="byline author vcard">Posted by <span class="fn">Dong Du</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2017-08-27T18:55:10+08:00" pubdate data-updated="true"></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/paper/'>paper</a>, <a class='category' href='/blog/categories/reading/'>reading</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://dongd.info/blog/2017/08/27/ATC17_papers_read_1/" data-via="" data-counturl="http://dongd.info/blog/2017/08/27/ATC17_papers_read_1/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2017/03/30/hello/" title="Previous Post: hello">&laquo; hello</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2017/08/27/ATC17_papers_read_1/">ATC17 papers read 1</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/03/30/hello/">hello</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/Ddnirvana">@Ddnirvana</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'Ddnirvana',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos',
+            blacklist: ''
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2017 - Dong Du -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
