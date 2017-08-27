@@ -4,7 +4,7 @@
   <title><![CDATA[Dd's home]]></title>
   <link href="http://dongd.info/atom.xml" rel="self"/>
   <link href="http://dongd.info/"/>
-  <updated>2017-08-27T19:17:32+08:00</updated>
+  <updated>2017-08-27T19:23:09+08:00</updated>
   <id>http://dongd.info/</id>
   <author>
     <name><![CDATA[Dong Du]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[ATC17 papers read 1]]></title>
     <link href="http://dongd.info/blog/2017/08/27/ATC17_papers_read_1/"/>
-    <updated>2017-08-27T18:55:10+08:00</updated>
+    <updated>2017-08-27T00:00:00+08:00</updated>
     <id>http://dongd.info/blog/2017/08/27/ATC17_papers_read_1</id>
     <content type="html"><![CDATA[<h1>ATC‘17 paper 阅读（一）</h1>
 
@@ -51,7 +51,7 @@
 <p><strong>paper</strong></p>
 
 <p>这篇paper的Motivation是是说，现在的linux kernel的bug非常多，并且每年都会不断产生新的功能。
-<img src="http://dongd.info/home/dd/Documents/mark_down/figures/atc17_yiwen_1.png" alt="图来自Yiwen Li slides" /></p>
+<img src="http://dongd.info/images/paper_read/atc17/atc17_yiwen_1.png" alt="图来自Yiwen Li slides" /></p>
 
 <p>此前针对与减少kernel的bug基本上可以分为两类：
 1. 将kernel的代码按照模块进行分类，比如设备驱动部分的bug就比其他部分多（设备驱动往往是有设备厂商来写的，代码质量很难保证）
