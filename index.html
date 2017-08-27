@@ -125,8 +125,9 @@
 
 <p><strong>paper</strong></p>
 
-<p>这篇paper的Motivation是是说，现在的linux kernel的bug非常多，并且每年都会不断产生新的功能。
-<img src="/images/paper_read/atc17/atc17_yiwen_1.png" alt="图来自Yiwen Li slides" /></p>
+<p>这篇paper的Motivation是是说，现在的linux kernel的bug非常多，并且每年都会不断产生新的功能。</p>
+
+<p><img src="/images/paper_read/atc17/atc17_yiwen_1.png" alt="图来自Yiwen Li slides" /></p>
 
 <p>此前针对与减少kernel的bug基本上可以分为两类：
 1. 将kernel的代码按照模块进行分类，比如设备驱动部分的bug就比其他部分多（设备驱动往往是有设备厂商来写的，代码质量很难保证）
@@ -142,11 +143,11 @@
 
 <p>基于这个metrix，作者在这篇paper中提出了一个新的系统Lind，这个系统针对的是类似容器这样的操作系统虚拟化的场景。Lind用到的核心组件是Google的NaCl和Repy Sandbox，系统的核心想法很简单：通过确定下来哪些syscall，以及他们对应的哪些参数使用，是在kernel中的popular path的，只运行lind中的application使用这些syscall以及对应的参数。NaCl和Repy Sandbox的作用就是拦截下来应用的系统调用，并且将不被允许的系统调用在SafePosix这一层重新实现一下。</p>
 
-<p><img src="/home/dd/Documents/mark_down/figures/atc17_yiwen_2.png" title="图片来自作者slides或paper" alt="图片来自作者slides或paper" /></p>
+<p><img src="/images/paper_read/atc17/atc17_yiwen_2.png" title="图片来自作者slides或paper" alt="图片来自作者slides或paper" /></p>
 
 <p>从最后的evaluation来看，Lind测试了的应用程序包括grep，wget，netcat，apache这些。可见Lind的机制对于大部分的application还是能够很好地兼容的，而且不需要修改应用程序和内核这两点也是非常好的特点。</p>
 
-<p><img src="/home/dd/Documents/mark_down/figures/atc17_yiwen_3.png" title="图片来自作者slides或paper" alt="图片来自作者slides或paper" /></p>
+<p><img src="/images/paper_read/atc17/atc17_yiwen_3.png" title="图片来自作者slides或paper" alt="图片来自作者slides或paper" /></p>
 
 <p>上面的测试结果来看，Lind对于application的性能还是会有相当的损失的。最慢的情况下会慢到6.25倍。这主要是因为Lind需要对很多系统调用重新实现，这部分会带来很多额外的开销。</p>
 
@@ -175,7 +176,7 @@ Linux系统是现在使用地非常广泛的系统，从云端到IOT设备都有
 
 <p>论文中，将开发者移植驱动程序的方法归结为： ①尝试自己在新版本的内核中直接编译原有的驱动程序代码 ②编译器会提示对应的错误信息（如果发生了接口修改的问题） ③开发人员根据错误信息通过kernel git中的信息或者是google查找解决方案。</p>
 
-<p><img src="/home/dd/Documents/mark_down/figures/atc17_lawall_1.png" title="图片来自作者slides或paper" alt="图片来自作者slides或paper" /></p>
+<p><img src="/images/paper_read/atc17/atc17_lawall_1.png" title="图片来自作者slides或paper" alt="图片来自作者slides或paper" /></p>
 
 <p>上面是一个具体的例子，可以看到其中提示suspend这个field已经没有了。</p>
 
@@ -203,7 +204,7 @@ Nadav Amit小哥的paper今年已经看到几篇了：今年HotOS的hypercallbac
 
 <p><strong>paper</strong></p>
 
-<p><img src="/home/dd/Documents/mark_down/figures/atc17_amit_1.png" title="图片来自作者slides或paper" alt="图片来自作者slides或paper" /></p>
+<p><img src="/images/paper_read/atc17/atc17_amit_1.png" title="图片来自作者slides或paper" alt="图片来自作者slides或paper" /></p>
 
 <p>现在的OS，一般都会使用虚拟地址来对内存操作，这是因为内存的虚拟化可以使得进程间有非常好的隔离性，另一方面能够更好地使用内存资源。而使用虚拟地址，意味着我们需要一种转换机制，能够在CPU运行的时候，从将虚拟地址转换为真正需要的物理地址，这种转换机制就页表：page table了。页表的结构如上图，页表也存在内存当中，由一个根寄存器指向它（x86系统下页表根指针存在cr3寄存器中），这个根寄存器存的是页表的物理地址，当CPU需要去查找一个虚拟地址对应的物理地址的时候，会从这个根寄存器所在的第一级页表开始一级级往下走，最终获取到对应的物理地址，再从内存中根据物理地址读写对应的内存。</p>
 
@@ -219,7 +220,7 @@ Nadav Amit小哥的paper今年已经看到几篇了：今年HotOS的hypercallbac
 
 <p>针对于short-lived private mapping的处理是核心部分，这里利用了x86架构下页表中的一个特殊的标记位：access bit。</p>
 
-<p><img src="/home/dd/Documents/mark_down/figures/atc17_amit_2.png" title="图片来自作者slides或paper" alt="图片来自作者slides或paper" /></p>
+<p><img src="/images/paper_read/atc17/atc17_amit_2.png" title="图片来自作者slides或paper" alt="图片来自作者slides或paper" /></p>
 
 <p>access bit会在CPU走页表查找某个page的时候，将对应的PTE中的这个bit设置上，OS可以去清空这个bit。这个bit最初是给kernel做memory reclamation的。这里如何运用这个硬件特性来做tlb shootdonw的优化呢。</p>
 
@@ -229,11 +230,11 @@ Nadav Amit小哥的paper今年已经看到几篇了：今年HotOS的hypercallbac
 
 <p>测试部分的话，micro benchmark的结果显示能够减少很多的TLB shootdown。可见整个设计方案还是比较好的。</p>
 
-<p><img src="/home/dd/Documents/mark_down/figures/atc17_amit_3.png" title="图片来自作者slides或paper" alt="图片来自作者slides或paper" /></p>
+<p><img src="/images/paper_read/atc17/atc17_amit_3.png" title="图片来自作者slides或paper" alt="图片来自作者slides或paper" /></p>
 
 <p>macro测试部分则显得不是很好了，最终的性能提升甚至到不了1.15，而且core不同的时候的测试结果感觉很不同，也看不出中间存在什么特殊的走势。</p>
 
-<p><img src="/home/dd/Documents/mark_down/figures/atc17_amit_4.png" title="图片来自作者slides或paper" alt="图片来自作者slides或paper" /></p>
+<p><img src="/images/paper_read/atc17/atc17_amit_4.png" title="图片来自作者slides或paper" alt="图片来自作者slides或paper" /></p>
 
 <p>对于TLB shootdown本来就不多的例子，这篇论文的方法大概会带来9%左右的overhead，当然作者argue说如果硬件能够提供部分支持的话这样的overhead是可以避免的。</p>
 
@@ -250,15 +251,15 @@ Nadav Amit小哥的paper今年已经看到几篇了：今年HotOS的hypercallbac
 
 <p>这篇论文宏观上来看是针对于multi-SSD volume这种新场景下的优化，目前的比如Linux中的现有方案都不能权衡好性能和应用的易用性。下面这张图就是对比的几个系统，可以看出来性能最好的其实就是application自己用多个thread管理多个SSD的使用，当然这种方案会带来的问题是应用端的复杂度就会很高了，而kernel managed 的方案都存在各种性能上的问题。这篇paper想达到两者同时最优的方案。</p>
 
-<p><img src="/home/dd/Documents/mark_down/figures/atc17_kumar_1.png" title="图片来自作者slides或paper" alt="图片来自作者slides或paper" /></p>
+<p><img src="/images/paper_read/atc17/atc17_kumar_1.png" title="图片来自作者slides或paper" alt="图片来自作者slides或paper" /></p>
 
 <p>下面是现有的LInux下的IO的流和中间的状态的切换。这篇paper的insight是说现有的方案中有很多IO batching和IO serving捆绑的情况，而这样的设计其实并不利于multi-SSD volume的使用。</p>
 
-<p><img src="/home/dd/Documents/mark_down/figures/atc17_kumar_2.png" title="图片来自作者slides或paper" alt="图片来自作者slides或paper" /></p>
+<p><img src="/images/paper_read/atc17/atc17_kumar_2.png" title="图片来自作者slides或paper" alt="图片来自作者slides或paper" /></p>
 
 <p>最终的设计方案也是按照这个思路去解决的，核心就是分离出了两个模块，分别处理IO batching和IO servicing。</p>
 
-<p><img src="/home/dd/Documents/mark_down/figures/atc17_kumar_3.png" title="图片来自作者slides或paper" alt="图片来自作者slides或paper" /></p>
+<p><img src="/images/paper_read/atc17/atc17_kumar_3.png" title="图片来自作者slides或paper" alt="图片来自作者slides或paper" /></p>
 
 <p>最终的测试方面，相比于现在的系统，在8-SSD volume的配置下，Falcon能够提高随机文件读写的速度分别为1.77倍和1.59倍，对于各种测试的应用程序显示的性能结果是1.69×倍的提升。</p>
 
