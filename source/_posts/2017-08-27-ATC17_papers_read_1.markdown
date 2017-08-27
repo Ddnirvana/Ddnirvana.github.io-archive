@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "ATC17 papers read 1"
-date: 2017-08-27 18:55:10 +0800
+doate: 2017-08-27 18:55:10 +0800
 comments: true
 categories: paper reading 
 ---
@@ -34,7 +34,7 @@ paper和对应的slides都可以在上面的官方链接中的Program中找到�
 **paper**
 
 这篇paper的Motivation是是说，现在的linux kernel的bug非常多，并且每年都会不断产生新的功能。
-![图来自Yiwen Li slides](/home/dd/Documents/mark_down/figures/atc17_yiwen_1.png) 
+![图来自Yiwen Li slides](/images/paper_read/atc17/atc17_yiwen_1.png) 
 
 此前针对与减少kernel的bug基本上可以分为两类：
 1. 将kernel的代码按照模块进行分类，比如设备驱动部分的bug就比其他部分多（设备驱动往往是有设备厂商来写的，代码质量很难保证）
