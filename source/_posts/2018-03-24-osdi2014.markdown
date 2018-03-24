@@ -1,0 +1,50 @@
+---
+layout: post
+title: "OSDI2014"
+date: 2018-03-24 22:56:28 +0800
+comments: true
+categories: 
+---
+
+# OSDI 2014
+
+### 最前面
+因为刚好看到youtube上面有OSDI 2014的视频，链接：
+https://www.youtube.com/watch?v=WG3b2hE4i6U&list=PLbRoZ5Rrl5ldOufH9TxNQYehPQ_lC0tNX&index=1
+所以准备听一下上面的talk回顾一下osdi14的工作。
+
+下面是记的笔记，仅供理思路之用。
+
+### Arrakis: The Operating System is the Control Plane
+[link](https://www.usenix.org/node/186141) 
+
+这篇paper的Motivation是说： 现有的hardware device十分快，但是将server Application（比如redis）跑在传统的OS比如linux上面，仍然存在很大的开销。
+
+![motivation](http://dongd.info/images/paper_read/osdi14/arrakis_motivation.png  "motivation")
+
+如上图，使用linux kernel的话，在一次redis的set/get request中，kernel占据的时间其实占了相当大的比例。这是因为kernel的功能非常多，包含了access control等等的逻辑，而这些kernel的处理逻辑放在data plane上肯定会导致整体的性能更差的。
+
+基于这样的数据和观察，这篇paper提出的arrakis希望将kernel的功能从dataplane中隔离处理，只让kernel 负责control plane；其余的部分交给硬件和软件来处理。
+
+arrakis是基于现有的硬件技术来实现的，更具体一点就是SRIOV。paper中用的包括一个10G的Ethernet NIC和一个RAID设备都是支持SRIOV的。SRIOV作为PCI协议的扩展，在将来会出现在更多类型的设备上是完全有可能的。
+
+使用SRIOV后，很多kernel实时做control plane的事情都可以变成硬件来guarantee了。举个例子，原先kernel要做资源隔离，现在只需要在app启动的时候让kernel在device中配置好配置文件，就可以让硬件来自动保证app只能访问到特定的资源了。
+
+
+![IO ARCH](http://dongd.info/images/paper_read/osdi14/arrakis_io_arch.png  "motivation")
+
+ 最后的整个IO的architecture如上图。
+
+应用层和libOS(作control plane) 的部分并没有很多亮点，这里不讲。
+
+最后的效果还是很不错的。
+
+![evaluation](http://dongd.info/images/paper_read/osdi14/arrakis_evaluation.png  "evaluation")
+
+这篇paper是这年OSDI的best paper。虽然听talk感觉小哥讲得很不错而且回答问题也答得很好，但是也没有想到竟然能拿下best paper。
+主要还是因为这篇paper解决的问题其实并不是很新的问题，netmap，dune(以及同年的IX) 都是同样的motivation。提问环节也有人问到这个问题。从作者的回答来看，arrakis和之前最大的特点其实是解决问题的思路不同，这篇paper的核心是说如何通过结合最新的硬件来实现尽可能地将kernel从data plane中移除。而netmap这类工作的优化其实很依赖于batching这样的技术，最终结果是虽然throughput会提升但是难免会有latency的损失。
+
+
+notes: 截图均来自paper作者的slides/paper。
+
+---
