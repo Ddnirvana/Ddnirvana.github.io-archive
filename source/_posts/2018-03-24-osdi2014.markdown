@@ -3,7 +3,7 @@ layout: post
 title: "OSDI2014"
 date: 2018-03-24 22:56:28 +0800
 comments: true
-categories: 
+categories: paper reading
 ---
 
 # OSDI 2014
