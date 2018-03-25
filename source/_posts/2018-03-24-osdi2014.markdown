@@ -8,14 +8,15 @@ categories: paper reading
 
 # OSDI 2014
 
-### 最前面
+## 最前面
 因为刚好看到youtube上面有OSDI 2014的视频，链接：
 https://www.youtube.com/watch?v=WG3b2hE4i6U&list=PLbRoZ5Rrl5ldOufH9TxNQYehPQ_lC0tNX&index=1
 所以准备听一下上面的talk回顾一下osdi14的工作。
 
 下面是记的笔记，仅供理思路之用。
+---
 
-### Arrakis: The Operating System is the Control Plane
+## Arrakis: The Operating System is the Control Plane
 [link](https://www.usenix.org/node/186141) 
 
 这篇paper的Motivation是说： 现有的hardware device十分快，但是将server Application（比如redis）跑在传统的OS比如linux上面，仍然存在很大的开销。
@@ -46,5 +47,22 @@ arrakis是基于现有的硬件技术来实现的，更具体一点就是SRIOV�
 
 
 notes: 截图均来自paper作者的slides/paper。
+
+---
+
+## IX: A Protected Dataplane Operating System for High Throughput and Low Latency
+
+
+motivation和arrakis很像，解决的方案也很像。
+不过在IX里面，虽然仍然通过划分control/data plane，但是后续的做法仍然不同。IX是基于之前的dune的系统，而基于dune的方案的好处在于： 可以让application直接访问硬件的同时，仍然能够实现现有的linux kernel中的各种接口服务（在dune中通过hypercall来抓发syscall的request)。
+
+
+![IO ARCH](http://dongd.info/images/paper_read/osdi14/ix_io_arch.png  "motivation")
+
+IX的架构如上，其实是一个三层的架构，传统的OS，如linux kernel，在root-mode ring 0跑着。IX的application在non-root mode的ring3跑着，其中还有一个libIX提供基本的库作为接口。而在non-root mode的ring 0运行的是IX，这是一个负责简单的data plane(也许还有部分的control plane的功能）的一个libOS，仅负责处理application对于hardware device（比如NIC）的快速访问。
+
+最终的IO性能的提升，仍然需要batching这样的技术。为了在提高throughput的同时减少latency的影响，IX使用了adaptive batching的技术。
+
+个人感觉这篇paper基本上就只是拿dune的框架做的一个具体的应用而已。BTW，arrakis和ix两篇工作最终都是力争在throughput提高的同时，lateny也能降低或者至少不变；虽然通常来说这两者很难同时做到，但是……毕竟是OSDI级别的工作……
 
 ---
