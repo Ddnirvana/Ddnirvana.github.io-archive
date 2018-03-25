@@ -52,15 +52,15 @@
 	</div>
 	<div class="entry-content"><h1>OSDI 2014</h1>
 
-<h3>最前面</h3>
+<h2>最前面</h2>
 
 <p>因为刚好看到youtube上面有OSDI 2014的视频，链接：
 <a href="https://www.youtube.com/watch?v=WG3b2hE4i6U&amp;list=PLbRoZ5Rrl5ldOufH9TxNQYehPQ_lC0tNX&amp;index=1">https://www.youtube.com/watch?v=WG3b2hE4i6U&amp;list=PLbRoZ5Rrl5ldOufH9TxNQYehPQ_lC0tNX&amp;index=1</a>
 所以准备听一下上面的talk回顾一下osdi14的工作。</p>
 
-<p>下面是记的笔记，仅供理思路之用。</p>
+<h2>下面是记的笔记，仅供理思路之用。</h2>
 
-<h3>Arrakis: The Operating System is the Control Plane</h3>
+<h2>Arrakis: The Operating System is the Control Plane</h2>
 
 <p><a href="https://www.usenix.org/node/186141">link</a></p>
 
@@ -90,6 +90,21 @@
 主要还是因为这篇paper解决的问题其实并不是很新的问题，netmap，dune(以及同年的IX) 都是同样的motivation。提问环节也有人问到这个问题。从作者的回答来看，arrakis和之前最大的特点其实是解决问题的思路不同，这篇paper的核心是说如何通过结合最新的硬件来实现尽可能地将kernel从data plane中移除。而netmap这类工作的优化其实很依赖于batching这样的技术，最终结果是虽然throughput会提升但是难免会有latency的损失。</p>
 
 <p>notes: 截图均来自paper作者的slides/paper。</p>
+
+<hr />
+
+<h2>IX: A Protected Dataplane Operating System for High Throughput and Low Latency</h2>
+
+<p>motivation和arrakis很像，解决的方案也很像。
+不过在IX里面，虽然仍然通过划分control/data plane，但是后续的做法仍然不同。IX是基于之前的dune的系统，而基于dune的方案的好处在于： 可以让application直接访问硬件的同时，仍然能够实现现有的linux kernel中的各种接口服务（在dune中通过hypercall来抓发syscall的request)。</p>
+
+<p><img src="http://dongd.info/images/paper_read/osdi14/ix_io_arch.png" title="motivation" alt="IO ARCH" /></p>
+
+<p>IX的架构如上，其实是一个三层的架构，传统的OS，如linux kernel，在root-mode ring 0跑着。IX的application在non-root mode的ring3跑着，其中还有一个libIX提供基本的库作为接口。而在non-root mode的ring 0运行的是IX，这是一个负责简单的data plane(也许还有部分的control plane的功能）的一个libOS，仅负责处理application对于hardware device（比如NIC）的快速访问。</p>
+
+<p>最终的IO性能的提升，仍然需要batching这样的技术。为了在提高throughput的同时减少latency的影响，IX使用了adaptive batching的技术。</p>
+
+<p>个人感觉这篇paper基本上就只是拿dune的框架做的一个具体的应用而已。BTW，arrakis和ix两篇工作最终都是力争在throughput提高的同时，lateny也能降低或者至少不变；虽然通常来说这两者很难同时做到，但是……毕竟是OSDI级别的工作……</p>
 
 <hr />
 </div>
