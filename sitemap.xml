@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+<loc>http://dongd.info/blog/2019/02/20/osdi-archive/</loc>
+<lastmod>2019-02-20T21:19:25+08:00</lastmod>
+</url>
+<url>
 <loc>http://dongd.info/blog/2019/02/02/dong-bei-travel/</loc>
 <lastmod>2019-02-02T23:27:02+08:00</lastmod>
 </url>
@@ -40,5 +44,8 @@
 </url>
 <url>
 <loc>http://dongd.info/blog/categories/life/</loc>
+</url>
+<url>
+<loc>http://dongd.info/blog/categories/papers/</loc>
 </url>
 </urlset>

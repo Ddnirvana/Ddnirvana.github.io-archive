@@ -1,0 +1,125 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>OSDI archive | Dd's home</title>
+
+	<meta name="author" content="Dong Du"> 
+	
+	<meta name="description" content="This blog will be used to record my life and work~"> <meta name="keywords" content="">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link href="/atom.xml" rel="alternate" title="Dd's home" type="application/atom+xml">
+	<link rel="canonical" href="">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<link href="/stylesheets/font-awesome.min.css" rel="stylesheet" type="text/css">
+	
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	
+</head>
+
+
+
+<body>
+	<header id="header">
+<div class="inner">
+  <ul class="navigation">
+    <li><a href="/"><h1>Dd's home</h1></a></li>
+    <li><a href="/" class="is-selected">Blog</a></li>
+    <li><a href="http://github.com/Ddnirvana" target="blank">Github</a></li>
+  </ul>
+</div></header>
+
+	<div id="content" class="inner"><article class="post">
+	<h2 class="title">OSDI Archive</h2>
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+
+<time datetime="2019-02-20T21:19:25+08:00" pubdate data-updated="true">Feb 20th, 2019</time></div>
+	</div>
+	<div class="entry-content"><p>Although the program of each OSDI conference can be easily found in the network, an archive page can help us to soonly review the history published work on OSDI. :)</p>
+
+<p>This page will be updated continuously~ (if not, you can notify me through email)</p>
+
+<p>[TOC]</p>
+
+<h2>OSDI 2018</h2>
+
+<h3>Understanding Failures</h3>
+
+<p><strong><font color=#005493>Capturing and Enhancing In Situ System Observability for Failure Detection</font></strong></p>
+
+<p>Peng Huang, <em>Johns Hopkins University;</em> Chuanxiong Guo, <em>ByteDance Inc.;</em> Jacob R. Lorch and Lidong Zhou, <em>Microsoft Research;</em> Yingnong Dang, <em>Microsoft</em></p>
+
+<p><strong>Abstract</strong> Real-world distributed systems suffer unavailability due to various types of failure. But, despite enormous effort, many failures, especially gray failures, still escape detection. In this paper, we argue that the missing piece in failure detection is detecting what the requesters of a failing component see. This insight leads us to the design and implementation of Panorama, a system designed to enhance \emph{system observability} by taking advantage of the interactions between a system&rsquo;s components. By providing a systematic channel and analysis tool, Panorama turns a component into a logical observer so that it not only handles errors, but also \emph{reports} them. Furthermore, Panorama incorporates techniques for making such observations even when indirection exists between components. Panorama can easily integrate with popular distributed systems and detect all 15 \emph{real-world} gray failures that we reproduced in less than 7 s, whereas existing approaches detect only one of them in under 300 s.</p>
+
+<p><strong><font color=#005493>REPT: Reverse Debugging of Failures in Deployed Software</font></strong></p>
+
+<p>Weidong Cui and Xinyang Ge, <em>Microsoft Research Redmond;</em> Baris Kasikci, <em>University of Michigan;</em> Ben Niu, <em>Microsoft Research Redmond;</em> Upamanyu Sharma, <em>University of Michigan;</em> Ruoyu Wang, <em>Arizona State University;</em> Insu Yun, <em>Georgia Institute of Technology</em></p>
+
+<p><strong><em>Awarded Best Paper!</em></strong></p>
+
+<p><strong>Abstract</strong> Debugging software failures in deployed systems is important because they impact real users and customers. However, debugging such failures is notoriously hard in practice because developers have to rely on limited information such as memory dumps. The execution history is usually unavailable because high-fidelity program tracing is not affordable in deployed systems.</p>
+
+<p>In this paper, we present REPT, a practical system that enables reverse debugging of software failures in deployed systems. REPT reconstructs the execution history with high fidelity by combining online lightweight hardware tracing of a program&rsquo;s control flow with offline binary analysis that recovers its data flow. It is seemingly impossible to recover data values thousands of instructions before the failure due to information loss and concurrent execution. REPT tackles these challenges by constructing a partial execution order based on timestamps logged by hardware and iteratively performing forward and backward execution with error correction.</p>
+
+<p>We design and implement REPT, deploy it on Microsoft Windows, and integrate it into Windows Debugger. We evaluate REPT on 16 real-world bugs and show that it can recover data values accurately (92% on average) and efficiently (less than 20 seconds) for these bugs. We also show that it enables effective reverse debugging for 14 bugs.</p>
+
+<h3>Operating Systems</h3>
+</div>
+
+
+<div class="sharing">
+  
+  <div class="sns-tw">
+    <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js  ';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </div>
+  
+  
+  
+</div>
+</article>
+</div>
+	<footer id="footer" class="inner"><div class="aboutme">
+<hr>
+  <div class="profile">
+    <a href="http://twitter.com/"><img class="icon" src=""></a>
+
+    <h3>Dong Du</h3>
+    <p><a href="http://twitter.com/">@</a></p>
+
+    <div class="codes">
+      <h4>Codes</h4>
+      <div class="github"><a href="https://github.com/Ddnirvana">github.com/Ddnirvana</a></div>
+    </div>
+  </div>
+
+  <div class="float_clear"></div>
+
+</div>
+Copyright &copy; 2019
+ Dong Du 
+<br>
+Powered by Octopress.
+
+
+
+</footer>
+	
+
+</body>
+</html>
