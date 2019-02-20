@@ -4,7 +4,7 @@
   <title><![CDATA[Dd's home]]></title>
   <link href="http://dongd.info/atom.xml" rel="self"/>
   <link href="http://dongd.info/"/>
-  <updated>2019-02-20T21:55:01+08:00</updated>
+  <updated>2019-02-20T22:16:02+08:00</updated>
   <id>http://dongd.info/</id>
   <author>
     <name><![CDATA[Dong Du]]></name>
@@ -22,17 +22,19 @@
 
 <p>This page will be updated continuously~ (if not, you can notify me through email)</p>
 
-<h2 id="osdi-2018">OSDI 2018</h2>
+<h2>OSDI 2018</h2>
 
-<h3 id="understanding-failures">Understanding Failures</h3>
+<h3>Understanding Failures</h3>
 
-<p><strong>&lt;font color=#005493&gt;Capturing and Enhancing In Situ System Observability for Failure Detection&lt;/font&gt;</strong></p>
+<p><strong><font color=#005493>Capturing and Enhancing In Situ System Observability for Failure Detection</font></strong></p>
 
 <p>Peng Huang, <em>Johns Hopkins University;</em> Chuanxiong Guo, <em>ByteDance Inc.;</em> Jacob R. Lorch and Lidong Zhou, <em>Microsoft Research;</em> Yingnong Dang, <em>Microsoft</em></p>
 
-<p><strong>Abstract</strong> Real-world distributed systems suffer unavailability due to various types of failure. But, despite enormous effort, many failures, especially gray failures, still escape detection. In this paper, we argue that the missing piece in failure detection is detecting what the requesters of a failing component see. This insight leads us to the design and implementation of Panorama, a system designed to enhance \emph{system observability} by taking advantage of the interactions between a system’s components. By providing a systematic channel and analysis tool, Panorama turns a component into a logical observer so that it not only handles errors, but also \emph{reports} them. Furthermore, Panorama incorporates techniques for making such observations even when indirection exists between components. Panorama can easily integrate with popular distributed systems and detect all 15 \emph{real-world} gray failures that we reproduced in less than 7 s, whereas existing approaches detect only one of them in under 300 s.</p>
+<p><strong>Abstract</strong> Real-world distributed systems suffer unavailability due to various types of failure. But, despite enormous effort, many failures, especially gray failures, still escape detection. In this paper, we argue that the missing piece in failure detection is detecting what the requesters of a failing component see. This insight leads us to the design and implementation of Panorama, a system designed to enhance \emph{system observability} by taking advantage of the interactions between a system&rsquo;s components. By providing a systematic channel and analysis tool, Panorama turns a component into a logical observer so that it not only handles errors, but also \emph{reports} them. Furthermore, Panorama incorporates techniques for making such observations even when indirection exists between components. Panorama can easily integrate with popular distributed systems and detect all 15 \emph{real-world} gray failures that we reproduced in less than 7 s, whereas existing approaches detect only one of them in under 300 s.</p>
 
-<p><strong>&lt;font color=#005493&gt;REPT: Reverse Debugging of Failures in Deployed Software&lt;/font&gt;</strong></p>
+<p><a href="https://www.usenix.org/conference/osdi18/presentation/huang">AVAILABLE</a></p>
+
+<p><strong><font color=#005493>REPT: Reverse Debugging of Failures in Deployed Software</font></strong></p>
 
 <p>Weidong Cui and Xinyang Ge, <em>Microsoft Research Redmond;</em> Baris Kasikci, <em>University of Michigan;</em> Ben Niu, <em>Microsoft Research Redmond;</em> Upamanyu Sharma, <em>University of Michigan;</em> Ruoyu Wang, <em>Arizona State University;</em> Insu Yun, <em>Georgia Institute of Technology</em></p>
 
@@ -40,11 +42,855 @@
 
 <p><strong>Abstract</strong> Debugging software failures in deployed systems is important because they impact real users and customers. However, debugging such failures is notoriously hard in practice because developers have to rely on limited information such as memory dumps. The execution history is usually unavailable because high-fidelity program tracing is not affordable in deployed systems.</p>
 
-<p>In this paper, we present REPT, a practical system that enables reverse debugging of software failures in deployed systems. REPT reconstructs the execution history with high fidelity by combining online lightweight hardware tracing of a program’s control flow with offline binary analysis that recovers its data flow. It is seemingly impossible to recover data values thousands of instructions before the failure due to information loss and concurrent execution. REPT tackles these challenges by constructing a partial execution order based on timestamps logged by hardware and iteratively performing forward and backward execution with error correction.</p>
+<p>In this paper, we present REPT, a practical system that enables reverse debugging of software failures in deployed systems. REPT reconstructs the execution history with high fidelity by combining online lightweight hardware tracing of a program&rsquo;s control flow with offline binary analysis that recovers its data flow. It is seemingly impossible to recover data values thousands of instructions before the failure due to information loss and concurrent execution. REPT tackles these challenges by constructing a partial execution order based on timestamps logged by hardware and iteratively performing forward and backward execution with error correction.</p>
 
 <p>We design and implement REPT, deploy it on Microsoft Windows, and integrate it into Windows Debugger. We evaluate REPT on 16 real-world bugs and show that it can recover data values accurately (92% on average) and efficiently (less than 20 seconds) for these bugs. We also show that it enables effective reverse debugging for 14 bugs.</p>
 
-<h3 id="operating-systems">Operating Systems</h3>
+<p><a href="https://www.usenix.org/conference/osdi18/presentation/weidong">AVAILABLE</a></p>
+
+<p><strong><font color=#005493>Finding Crash-Consistency Bugs with Bounded Black-Box Crash Testingn</font></strong></p>
+
+<p>Jayashree Mohan, Ashlie Martinez, Soujanya Ponnapalli, and Pandian Raju, <em>University of Texas at Austin;</em> Vijay Chidambaram, <em>University of Texas at Austin and VMware Research</em></p>
+
+<p><strong>Abstract</strong> We present a new approach to testing file-system crash consistency: bounded black-box crash testing (B3). B3 tests the file system in a black-box manner using workloads of file-system operations. Since the space of possible workloads is infinite, B3 bounds this space based on parameters such as the number of file-system operations or which operations to include, and exhaustively generates workloads within this bounded space. Each workload is tested on the target file system by simulating power-loss crashes while the workload is being executed, and checking if the file system recovers to a correct state after each crash. B3 builds upon insights derived from our study of crash-consistency bugs reported in Linux file systems in the last five years. We observed that most reported bugs can be reproduced using small workloads of three or fewer file-system operations on a newly-created file system, and that all reported bugs result from crashes after fsync() related system calls. We build two tools, CrashMonkey and Ace, to demonstrate the effectiveness of this approach. Our tools are able to find 24 out of the 26 crash-consistency bugs reported in the last five years. Our tools also revealed 10 new crash-consistency bugs in widely-used, mature Linux file systems, seven of which existed in the kernel since 2014. The new bugs result in severe consequences like broken rename atomicity and loss of persisted files.</p>
+
+<p><a href="https://www.usenix.org/conference/osdi18/presentation/mohan">AVAILABLE</a></p>
+
+<p><strong><font color=#005493>An Analysis of Network-Partitioning Failures in Cloud Systems</font></strong></p>
+
+<p>Ahmed Alquraan, Hatem Takruri, Mohammed Alfatafta, and Samer Al-Kiswany, <em>University of Waterloo</em></p>
+
+<p><strong>Abstract</strong> We present a comprehensive study of 136 system failures attributed to network-partitioning faults from 25 widely used distributed systems. We found that the majority of the failures led to catastrophic effects, such as data loss, reappearance of deleted data, broken locks, and system crashes. The majority of the failures can easily manifest once a network partition occurs: They require little to no client input, can be triggered by isolating a single node, and are deterministic. However, the number of test cases that one must consider is extremely large. Fortunately, we identify ordering, timing, and network fault characteristics that significantly simplify testing. Furthermore, we found that a significant number of the failures are due to design flaws in core system mechanisms. We found that the majority of the failures could have been avoided by design reviews, and could have been discovered by testing with network-partitioning fault injection. We built NEAT, a testing framework that simplifies the coordination of multiple clients and can inject different types of network-partitioning faults. We used NEAT to test seven popular systems and found and reported 32 failures.</p>
+
+<p><a href="https://www.usenix.org/conference/osdi18/presentation/alquraan">AVAILABLE</a></p>
+
+<h3>Operating Systems</h3>
+
+<p><strong><font color=#005493>LegoOS: A Disseminated, Distributed OS for Hardware Resource Disaggregation</font></strong></p>
+
+<p>Yizhou Shan, Yutong Huang, Yilun Chen, and Yiying Zhang, <em>Purdue University</em></p>
+
+<p><strong>Abstract</strong> The monolithic server model where a server is the unit of deployment, operation, and failure is meeting its limits in the face of several recent hardware and application trends. To improve heterogeneity, elasticity, resource utilization, and failure handling in datacenters, we believe that datacenters should break monolithic servers into disaggregated, network-attached hardware components. Despite the promising benefits of hardware resource disaggregation, no existing OSes or software systems can properly manage it. We propose a new OS model called the splitkernel to manage disaggregated systems. Splitkernel disseminates traditional OS functionalities into loosely-coupled monitors, each of which runs on and manages a hardware component. Using the splitkernel model, we built LegoOS, a new OS designed for hardware resource disaggregation. LegoOS appears to users as a set of distributed servers. Internally, LegoOS cleanly separates processor, memory, and storage devices both at the hardware level and the OS level. We implemented LegoOS from scratch and evaluated it by emulating hardware components using commodity servers. Our evaluation results show that LegoOS’s performance is comparable to monolithic Linux servers, while largely improving resource packing and failure rate over monolithic clusters.</p>
+
+<p><strong><font color=#005493>The benefits and costs of writing a POSIX kernel in a high-level language</font></strong></p>
+
+<p>Cody Cutler, M. Frans Kaashoek, and Robert T. Morris, MIT CSAIL</p>
+
+<p><strong>Abstract</strong> This paper presents an evaluation of the use of a high-level language (HLL) with garbage collection to implement a monolithic POSIX-style kernel. The goal is to explore if it is reasonable to use an HLL instead of C for such kernels, by examining performance costs, implementation challenges, and programmability and safety benefits.</p>
+
+<p>The paper contributes Biscuit, a kernel written in Go that implements enough of POSIX (virtual memory, mmap, TCP/IP sockets, a logging file system, poll, etc.) to execute significant applications. Biscuit makes lib- eral use of Go&rsquo;s HLL features (closures, channels, maps, interfaces, garbage collected heap allocation), which sub- jectively made programming easier. The most challenging puzzle was handling the possibility of running out of ker- nel heap memory; Biscuit benefited from the analyzability of Go source to address this challenge.</p>
+
+<p>On a set of kernel-intensive benchmarks (including NG- INX and Redis) the fraction of kernel CPU time Biscuit spends on HLL features (primarily garbage collection and thread stack expansion checks) ranges up to 13%. The longest single GC-related pause suffered by NGINX was 115 microseconds; the longest observed sum of GC delays to a complete NGINX client request was 600 microsec- onds. In experiments comparing nearly identical system call, page fault, and context switch code paths written in Go and C, the Go version was 5% to 15% slower.</p>
+
+<p><strong><font color=#005493>Sharing, Protection, and Compatibility for Reconfigurable Fabric with AmorphOS</font></strong></p>
+
+<p>Ahmed Khawaja, Joshua Landgraf, and Rohith Prakash, UT Austin; Michael Wei and Eric Schkufza, VMware Research Group; Christopher J. Rossbach, UT Austin and VMware Research Group</p>
+
+<p><strong>Abstract</strong> Cloud providers such as Amazon and Microsoft have begun to support on-demand FPGA acceleration in the cloud, and hardware vendors will support FPGAs in future processors. At the same time, technology advancements such as 3D stacking, through-silicon vias (TSVs), and FinFETs have greatly increased FPGA density. The massive parallelism of current FPGAs can support not only extremely large applications, but multiple applications simultaneously as well.</p>
+
+<p>System support for FPGAs, however, is in its infancy. Unlike software, where resource configurations are limited to simple dimensions of compute, memory, and I/O, FPGAs provide a multi-dimensional sea of resources known as the FPGA fabric: logic cells, floating point units, memories, and I/O can all be wired together, leading to spatial constraints on FPGA resources. Current stacks either support only a single application or statically partition the FPGA fabric into fixed-size slots. These designs cannot efficiently support diverse workloads: the size of the largest slot places an artificial limit on application size, and oversized slots result in wasted FPGA resources and reduced concurrency.</p>
+
+<p>This paper presents AmorphOS, which encapsulates user FPGA logic in morphable tasks, or Morphlets. Morphlets provide isolation and protection across mutually distrustful protection domains, extending the guarantees of software processes. Morphlets can morph, dynamically altering their deployed form based on resource requirements and availability. To build Morphlets, developers provide a parameterized hardware design that interfaces with AmorphOS, along with a mesh, which specifies external resource requirements. AmorphOS explores the parameter space, generating deployable Morphlets of varying size and resource requirements. AmorphOS multiplexes Morphlets on the FPGA in both space and time to maximize FPGA utilization.</p>
+
+<p>We implement AmorphOS on Amazon F1 and Microsoft Catapult. We show that protected sharing and dynamic scalability support on workloads such as DNN inference and blockchain mining improves aggregate throughput up to 4x and 23x on Catapult and F1 respectively.</p>
+
+<p><strong><font color=#005493>Adaptive Dynamic Checkpointing for Safe Efficient Intermittent Computing</font></strong></p>
+
+<p>Kiwan Maeng and Brandon Lucia, Carnegie Mellon University</p>
+
+<p><strong>Abstract</strong> Energy-harvesting devices have the potential to be the foundation of emerging, sensor-rich application domains where the use of batteries is infeasible, such as in space and civil infrastructure. Programming on an energy-harvesting device is difficult because the device operates only intermittently, as energy is available. Intermittent operation requires the programmer to reason about energy to understand data consistency and forward progress of their program. Energy varies with input and environment, making intermittent programming difficult. Existing systems for intermittent execution provide an unfamiliar programming abstraction and fail to adapt to energy changes forcing a compromise of either performance or assurance of forward progress. This paper presents Chinchilla, a compiler and runtime system that allows running unmodified C code efficiently on an energy-harvesting device with little additional programmer effort and no additional hardware support. Chinchilla overprovisions code with checkpoints to assure the system makes progress, even with scarce energy. Chinchilla disables checkpoints dynamically to efficiently adapt to energy conditions. Experiments show that Chinchilla improves programmability, is performant, and makes it simple to statically check the absence of non-termination. Comparing to two systems from prior work, Alpaca and Ratchet, Chinchilla makes progress when Alpaca cannot, and has 125% mean speedup against Ratchet.</p>
+
+<h3>Scheduling</h3>
+
+<p>Session Chair: Christos Kozyrakis, Stanford University</p>
+
+<p><strong><font color=#005493>Arachne: Core-Aware Thread Management</font></strong></p>
+
+<p>Henry Qin, Qian Li, Jacqueline Speiser, Peter Kraft, and John Ousterhout, Stanford University</p>
+
+<p>Arachne is a new user-level implementation of threads that provides both low latency and high throughput for applications with extremely short-lived threads (only a few microseconds). Arachne is core-aware: each application determines how many cores it needs, based on its load; it always knows exactly which cores it has been allocated, and it controls the placement of its threads on those cores. A central core arbiter allocates cores between applications. Adding Arachne to memcached improved SLO-compliant throughput by 37%, reduced tail latency by more than 10x, and allowed memcached to coexist with background applications with almost no performance impact. Adding Arachne to the RAMCloud storage system increased its write throughput by more than 2.5x. The Arachne threading library is optimized to minimize cache misses; it can initiate a new user thread on a different core (with load balancing) in 320 ns. Arachne is implemented entirely at user level on Linux; no kernel modifications are needed.</p>
+
+<p><strong><font color=#005493>Principled Schedulability Analysis for Distributed Storage Systems using Thread Architecture Models</font></strong></p>
+
+<p>Suli Yang, Ant Financial Services Group; Jing Liu, Andrea C. Arpaci-Dusseau, and Remzi H. Arpaci-Dusseau, UW-Madison</p>
+
+<p>AVAILABLE MEDIA
+Hide details  ▾<br/>
+In this paper, we present an approach to systematically examine the schedulability of distributed storage systems, identify their scheduling problems, and enable effective scheduling in these systems. We use Thread Architecture Models (TAMs) to describe the behavior and interactions of different threads in a system, and show both how to construct TAMs for existing systems and utilize TAMs to identify critical scheduling problems. We identify five common problems that prevent a system from providing schedulability and show that these problems arise in existing systems such as HBase, Cassandra, MongoDB, and Riak, making it difficult or impossible to realize various scheduling disciplines. We demonstrate how to address these schedulability problems by developing Tamed-HBase and Muzzled-HBase, sets of modifications to HBase that can realize the desired scheduling disciplines, including fairness and priority scheduling, even when presented with challenging workloads.</p>
+
+<p><strong><font color=#005493>Adaptive Dynamic Checkpointing for Safe Efficient Intermittent Computing</font></strong></p>
+
+<p>µTune: Auto-Tuned Threading for OLDI Microservices
+Akshitha Sriraman and Thomas F. Wenisch, University of Michigan</p>
+
+<p>AVAILABLE MEDIA
+Hide details  ▾<br/>
+Modern On-Line Data Intensive (OLDI) applications have evolved from monolithic systems to instead comprise numerous, distributed microservices interacting via Remote Procedure Calls (RPCs). Microservices face sub-millisecond (sub-ms) RPC latency goals, much tighter than their monolithic counterparts that must meet ≥ 100 ms latency targets. Sub-ms–scale threading and concurrency design effects that were once insignificant for such monolithic services can now come to dominate in the sub-ms–scale microservice regime. We investigate how threading design critically impacts microservice tail latency by developing a taxonomy of threading models—a structured understanding of the implications of how microservices manage concurrency and interact with RPC interfaces under wide-ranging loads. We develop μTune, a system that has two features: (1) a novel framework that abstracts threading model implementation from application code, and (2) an automatic load adaptation system that curtails microservice tail latency by exploiting inherent latency trade-offs revealed in our taxonomy to transition among threading models. We study μTune in the context of four OLDI applications to demonstrate up to 1.9x tail latency improvement over static threading choices and state-of-the-art adaptation techniques.</p>
+
+<p><strong><font color=#005493>Adaptive Dynamic Checkpointing for Safe Efficient Intermittent Computing</font></strong></p>
+
+<p>RobinHood: Tail Latency Aware Caching &ndash; Dynamic Reallocation from Cache-Rich to Cache-Poor
+Daniel S. Berger and Benjamin Berg, Carnegie Mellon University; Timothy Zhu, Pennsylvania State University; Siddhartha Sen, Microsoft Research; Mor Harchol-Balter, Carnegie Mellon University</p>
+
+<p>AVAILABLE MEDIA
+Hide details  ▾<br/>
+Tail latency is of great importance in user-facing web services. However, maintaining low tail latency is challenging, because a single request to a web application server results in multiple queries to complex, diverse backend services (databases, recommender systems, ad systems, etc.). A request is not complete until all of its queries have completed. We analyze a Microsoft production system and find that backend query latencies vary by more than two orders of magnitude across backends and over time, resulting in high request tail latencies.</p>
+
+<p>We propose a novel solution for maintaining low request tail latency: repurpose existing caches to mitigate the effects of backend latency variability, rather than just caching popular data. Our solution, RobinHood, dynamically reallocates cache resources from the cache-rich (backends which don&rsquo;t affect request tail latency) to the cache-poor (backends which affect request tail latency). We evaluate RobinHood with production traces on a 50-server cluster with 20 different backend systems. Surprisingly, we find that RobinHood can directly address tail latency even if working sets are much larger than the cache size. In the presence of load spikes, RobinHood meets a 150ms P99 goal 99.7% of the time, whereas the next best policy meets this goal only 70% of the time.</p>
+
+<hr />
+
+<ul>
+<li></li>
+</ul>
+
+
+<p>Available Media</p>
+
+<p>](/conference/osdi18/preview1)](/conference/osdi18/preview1)</p>
+
+<h2>Monday, October 8, 2018</h2>
+
+<h3>7:30 am–8:45 am</h3>
+
+<h2>Continental Breakfast</h2>
+
+<p>Costa Del Sol Patios</p>
+
+<h3>8:45 am–9:00 am</h3>
+
+<h2>Opening Remarks and Jay Lepreau Best Paper Awards</h2>
+
+<p>Program Co-Chairs: Andrea Arpaci-Dusseau, <em>University of Wisconsin—Madison</em>, and Geoff Voelker, <em>University of California, San Diego</em></p>
+
+<h3>9:00 am–10:20 am</h3>
+
+<h2>Understanding Failures</h2>
+
+<p>Session Chair: Ranjita Bhagwan, <em>Microsoft Research India</em></p>
+
+<h2><a href="http://dongd.info/conference/osdi18/presentation/huang">Capturing and Enhancing In Situ System Observability for Failure Detection</a></h2>
+
+<p>Peng Huang, <em>Johns Hopkins University;</em> Chuanxiong Guo, <em>ByteDance Inc.;</em> Jacob R. Lorch and Lidong Zhou, <em>Microsoft Research;</em> Yingnong Dang, <em>Microsoft</em></p>
+
+<p>Available Media</p>
+
+<p><a href="http://dongd.info/conference/osdi18/presentation/huang"></a>](/conference/osdi18/presentation/huang)](/conference/osdi18/presentation/huang)</p>
+
+<p>Real-world distributed systems suffer unavailability due to various types of failure. But, despite enormous effort, many failures, especially gray failures, still escape detection. In this paper, we argue that the missing piece in failure detection is detecting what the requesters of a failing component see. This insight leads us to the design and implementation of Panorama, a system designed to enhance \emph{system observability} by taking advantage of the interactions between a system&rsquo;s components. By providing a systematic channel and analysis tool, Panorama turns a component into a logical observer so that it not only handles errors, but also \emph{reports} them. Furthermore, Panorama incorporates techniques for making such observations even when indirection exists between components. Panorama can easily integrate with popular distributed systems and detect all 15 \emph{real-world} gray failures that we reproduced in less than 7 s, whereas existing approaches detect only one of them in under 300 s.</p>
+
+<h2><a href="http://dongd.info/conference/osdi18/presentation/weidong">REPT: Reverse Debugging of Failures in Deployed Software</a></h2>
+
+<p>Weidong Cui and Xinyang Ge, <em>Microsoft Research Redmond;</em> Baris Kasikci, <em>University of Michigan;</em> Ben Niu, <em>Microsoft Research Redmond;</em> Upamanyu Sharma, <em>University of Michigan;</em> Ruoyu Wang, <em>Arizona State University;</em> Insu Yun, <em>Georgia Institute of Technology</em><br/>
+<strong><em>Awarded Best Paper!</em></strong></p>
+
+<p>Available Media</p>
+
+<p><a href="http://dongd.info/conference/osdi18/presentation/weidong"></a>](/conference/osdi18/presentation/weidong)](/conference/osdi18/presentation/weidong)</p>
+
+<p>Debugging software failures in deployed systems is important because they impact real users and customers. However, debugging such failures is notoriously hard in practice because developers have to rely on limited information such as memory dumps. The execution history is usually unavailable because high-fidelity program tracing is not affordable in deployed systems.</p>
+
+<p>In this paper, we present REPT, a practical system that enables reverse debugging of software failures in deployed systems. REPT reconstructs the execution history with high fidelity by combining online lightweight hardware tracing of a program&rsquo;s control flow with offline binary analysis that recovers its data flow. It is seemingly impossible to recover data values thousands of instructions before the failure due to information loss and concurrent execution. REPT tackles these challenges by constructing a partial execution order based on timestamps logged by hardware and iteratively performing forward and backward execution with error correction.</p>
+
+<p>We design and implement REPT, deploy it on Microsoft Windows, and integrate it into Windows Debugger. We evaluate REPT on 16 real-world bugs and show that it can recover data values accurately (92% on average) and efficiently (less than 20 seconds) for these bugs. We also show that it enables effective reverse debugging for 14 bugs.</p>
+
+<h2><a href="http://dongd.info/conference/osdi18/presentation/mohan">Finding Crash-Consistency Bugs with Bounded Black-Box Crash Testing</a></h2>
+
+<p>Jayashree Mohan, Ashlie Martinez, Soujanya Ponnapalli, and Pandian Raju, <em>University of Texas at Austin;</em> Vijay Chidambaram, <em>University of Texas at Austin and VMware Research</em></p>
+
+<p>Available Media</p>
+
+<p><a href="http://dongd.info/conference/osdi18/presentation/mohan"></a>](/conference/osdi18/presentation/mohan)](/conference/osdi18/presentation/mohan)</p>
+
+<p>We present a new approach to testing file-system crash consistency: bounded black-box crash testing (B3). B3 tests the file system in a black-box manner using workloads of file-system operations. Since the space of possible workloads is infinite, B3 bounds this space based on parameters such as the number of file-system operations or which operations to include, and exhaustively generates workloads within this bounded space. Each workload is tested on the target file system by simulating power-loss crashes while the workload is being executed, and checking if the file system recovers to a correct state after each crash. B3 builds upon insights derived from our study of crash-consistency bugs reported in Linux file systems in the last five years. We observed that most reported bugs can be reproduced using small workloads of three or fewer file-system operations on a newly-created file system, and that all reported bugs result from crashes after fsync() related system calls. We build two tools, CrashMonkey and Ace, to demonstrate the effectiveness of this approach. Our tools are able to find 24 out of the 26 crash-consistency bugs reported in the last five years. Our tools also revealed 10 new crash-consistency bugs in widely-used, mature Linux file systems, seven of which existed in the kernel since 2014. The new bugs result in severe consequences like broken rename atomicity and loss of persisted files.</p>
+
+<h3>Additional media</h3>
+
+<ul>
+<li><a href="https://arxiv.org/abs/1810.02904">Extended version on arXiv</a></li>
+<li><a href="https://www.youtube.com/watch?v=6fiomPVK8o0&amp;feature=youtu.be">YouTube Demo</a></li>
+</ul>
+
+
+<h2><a href="http://dongd.info/conference/osdi18/presentation/alquraan">An Analysis of Network-Partitioning Failures in Cloud Systems</a></h2>
+
+<p>Ahmed Alquraan, Hatem Takruri, Mohammed Alfatafta, and Samer Al-Kiswany, <em>University of Waterloo</em></p>
+
+<p>Available Media</p>
+
+<p><a href="http://dongd.info/conference/osdi18/presentation/alquraan"></a>](/conference/osdi18/presentation/alquraan)](/conference/osdi18/presentation/alquraan)</p>
+
+<p>We present a comprehensive study of 136 system failures attributed to network-partitioning faults from 25 widely used distributed systems. We found that the majority of the failures led to catastrophic effects, such as data loss, reappearance of deleted data, broken locks, and system crashes. The majority of the failures can easily manifest once a network partition occurs: They require little to no client input, can be triggered by isolating a single node, and are deterministic. However, the number of test cases that one must consider is extremely large. Fortunately, we identify ordering, timing, and network fault characteristics that significantly simplify testing. Furthermore, we found that a significant number of the failures are due to design flaws in core system mechanisms. We found that the majority of the failures could have been avoided by design reviews, and could have been discovered by testing with network-partitioning fault injection. We built NEAT, a testing framework that simplifies the coordination of multiple clients and can inject different types of network-partitioning faults. We used NEAT to test seven popular systems and found and reported 32 failures.</p>
+
+<h3>10:20 am–10:50 am</h3>
+
+<h2>Break with Refreshments</h2>
+
+<p>Costa Del Sol Patios</p>
+
+<h3>10:50 am–12:10 pm</h3>
+
+<h2>Operating Systems</h2>
+
+<p>Session Chair: Don Porter, <em>The University of North Carolina at Chapel Hill</em></p>
+
+<h2><a href="http://dongd.info/conference/osdi18/presentation/shan">LegoOS: A Disseminated, Distributed OS for Hardware Resource Disaggregation</a></h2>
+
+<p>Yizhou Shan, Yutong Huang, Yilun Chen, and Yiying Zhang, <em>Purdue University</em><br/>
+<strong><em>Awarded Best Paper!</em></strong></p>
+
+<p>Available Media</p>
+
+<p><a href="http://dongd.info/conference/osdi18/presentation/shan"></a>](/conference/osdi18/presentation/shan)](/conference/osdi18/presentation/shan)</p>
+
+<p>The monolithic server model where a server is the unit of deployment, operation, and failure is meeting its limits in the face of several recent hardware and application trends. To improve heterogeneity, elasticity, resource utilization, and failure handling in datacenters, we believe that datacenters should break monolithic servers into disaggregated, network-attached hardware components. Despite the promising benefits of hardware resource disaggregation, no existing OSes or software systems can properly manage it. We propose a new OS model called the splitkernel to manage disaggregated systems. Splitkernel disseminates traditional OS functionalities into loosely-coupled monitors, each of which runs on and manages a hardware component. Using the splitkernel model, we built LegoOS, a new OS designed for hardware resource disaggregation. LegoOS appears to users as a set of distributed servers. Internally, LegoOS cleanly separates processor, memory, and storage devices both at the hardware level and the OS level. We implemented LegoOS from scratch and evaluated it by emulating hardware components using commodity servers. Our evaluation results show that LegoOS’s performance is comparable to monolithic Linux servers, while largely improving resource packing and failure rate over monolithic clusters.</p>
+
+<h2><a href="http://dongd.info/conference/osdi18/presentation/cutler">The benefits and costs of writing a POSIX kernel in a high-level language</a></h2>
+
+<p>Cody Cutler, M. Frans Kaashoek, and Robert T. Morris, <em>MIT CSAIL</em></p>
+
+<p>Available Media</p>
+
+<p><a href="http://dongd.info/conference/osdi18/presentation/cutler"></a>](/conference/osdi18/presentation/cutler)](/conference/osdi18/presentation/cutler)</p>
+
+<p>This paper presents an evaluation of the use of a high-level language (HLL) with garbage collection to implement a monolithic POSIX-style kernel. The goal is to explore if it is reasonable to use an HLL instead of C for such kernels, by examining performance costs, implementation challenges, and programmability and safety benefits.</p>
+
+<p>The paper contributes Biscuit, a kernel written in Go that implements enough of POSIX (virtual memory, mmap, TCP/IP sockets, a logging file system, poll, etc.) to execute significant applications. Biscuit makes lib- eral use of Go&rsquo;s HLL features (closures, channels, maps, interfaces, garbage collected heap allocation), which sub- jectively made programming easier. The most challenging puzzle was handling the possibility of running out of ker- nel heap memory; Biscuit benefited from the analyzability of Go source to address this challenge.</p>
+
+<p>On a set of kernel-intensive benchmarks (including NG- INX and Redis) the fraction of kernel CPU time Biscuit spends on HLL features (primarily garbage collection and thread stack expansion checks) ranges up to 13%. The longest single GC-related pause suffered by NGINX was 115 microseconds; the longest observed sum of GC delays to a complete NGINX client request was 600 microsec- onds. In experiments comparing nearly identical system call, page fault, and context switch code paths written in Go and C, the Go version was 5% to 15% slower.</p>
+
+<h2><a href="http://dongd.info/conference/osdi18/presentation/khawaja">Sharing, Protection, and Compatibility for Reconfigurable Fabric with AmorphOS</a></h2>
+
+<p>Ahmed Khawaja, Joshua Landgraf, and Rohith Prakash, <em>UT Austin;</em> Michael Wei and Eric Schkufza, <em>VMware Research Group;</em> Christopher J. Rossbach, <em>UT Austin and VMware Research Group</em></p>
+
+<p>Available Media</p>
+
+<p><a href="http://dongd.info/conference/osdi18/presentation/khawaja"></a>](/conference/osdi18/presentation/khawaja)](/conference/osdi18/presentation/khawaja)</p>
+
+<p>Cloud providers such as Amazon and Microsoft have begun to support on-demand FPGA acceleration in the cloud, and hardware vendors will support FPGAs in future processors. At the same time, technology advancements such as 3D stacking, through-silicon vias (TSVs), and FinFETs have greatly increased FPGA density. The massive parallelism of current FPGAs can support not only extremely large applications, but multiple applications simultaneously as well.</p>
+
+<p>System support for FPGAs, however, is in its infancy. Unlike software, where resource configurations are limited to simple dimensions of compute, memory, and I/O, FPGAs provide a multi-dimensional sea of resources known as the FPGA fabric: logic cells, floating point units, memories, and I/O can all be wired together, leading to spatial constraints on FPGA resources. Current stacks either support only a single application or statically partition the FPGA fabric into fixed-size slots. These designs cannot efficiently support diverse workloads: the size of the largest slot places an artificial limit on application size, and oversized slots result in wasted FPGA resources and reduced concurrency.</p>
+
+<p>This paper presents AmorphOS, which encapsulates user FPGA logic in morphable tasks, or Morphlets. Morphlets provide isolation and protection across mutually distrustful protection domains, extending the guarantees of software processes. Morphlets can morph, dynamically altering their deployed form based on resource requirements and availability. To build Morphlets, developers provide a parameterized hardware design that interfaces with AmorphOS, along with a mesh, which specifies external resource requirements. AmorphOS explores the parameter space, generating deployable Morphlets of varying size and resource requirements. AmorphOS multiplexes Morphlets on the FPGA in both space and time to maximize FPGA utilization.</p>
+
+<p>We implement AmorphOS on Amazon F1 and Microsoft Catapult. We show that protected sharing and dynamic scalability support on workloads such as DNN inference and blockchain mining improves aggregate throughput up to 4x and 23x on Catapult and F1 respectively.</p>
+
+<h2><a href="http://dongd.info/conference/osdi18/presentation/maeng">Adaptive Dynamic Checkpointing for Safe Efficient Intermittent Computing</a></h2>
+
+<p>Kiwan Maeng and Brandon Lucia, <em>Carnegie Mellon University</em></p>
+
+<p>Available Media</p>
+
+<p><a href="http://dongd.info/conference/osdi18/presentation/maeng"></a>](/conference/osdi18/presentation/maeng)</p>
+
+<p>Energy-harvesting devices have the potential to be the foundation of emerging, sensor-rich application domains where the use of batteries is infeasible, such as in space and civil infrastructure. Programming on an energy-harvesting device is difficult because the device operates only intermittently, as energy is available. Intermittent operation requires the programmer to reason about energy to understand data consistency and forward progress of their program. Energy varies with input and environment, making intermittent programming difficult. Existing systems for intermittent execution provide an unfamiliar programming abstraction and fail to adapt to energy changes forcing a compromise of either performance or assurance of forward progress. This paper presents Chinchilla, a compiler and runtime system that allows running unmodified C code efficiently on an energy-harvesting device with little additional programmer effort and no additional hardware support. Chinchilla overprovisions code with checkpoints to assure the system makes progress, even with scarce energy. Chinchilla disables checkpoints dynamically to efficiently adapt to energy conditions. Experiments show that Chinchilla improves programmability, is performant, and makes it simple to statically check the absence of non-termination. Comparing to two systems from prior work, Alpaca and Ratchet, Chinchilla makes progress when Alpaca cannot, and has 125% mean speedup against Ratchet.</p>
+
+<h3>12:10 pm–2:00 pm</h3>
+
+<h2>Symposium Luncheon</h2>
+
+<p><em>Sponsored by Google</em><br/>
+Costa Del Sol Patios</p>
+
+<h3>2:00 pm–3:20 pm</h3>
+
+<h2>Scheduling</h2>
+
+<p>Session Chair: Christos Kozyrakis, <em>Stanford University</em></p>
+
+<h2><a href="http://dongd.info/conference/osdi18/presentation/qin">Arachne: Core-Aware Thread Management</a></h2>
+
+<p>Henry Qin, Qian Li, Jacqueline Speiser, Peter Kraft, and John Ousterhout, <em>Stanford University</em></p>
+
+<p>Available Media</p>
+
+<p><a href="http://dongd.info/conference/osdi18/presentation/qin"></a>](/conference/osdi18/presentation/qin)](/conference/osdi18/presentation/qin)</p>
+
+<p>Arachne is a new user-level implementation of threads that provides both low latency and high throughput for applications with extremely short-lived threads (only a few microseconds). Arachne is <em>core-aware</em>: each application determines how many cores it needs, based on its load; it always knows exactly which cores it has been allocated, and it controls the placement of its threads on those cores. A central core arbiter allocates cores between applications. Adding Arachne to memcached improved SLO-compliant throughput by 37%, reduced tail latency by more than 10x, and allowed memcached to coexist with background applications with almost no performance impact. Adding Arachne to the RAMCloud storage system increased its write throughput by more than 2.5x. The Arachne threading library is optimized to minimize cache misses; it can initiate a new user thread on a different core (with load balancing) in 320 ns. Arachne is implemented entirely at user level on Linux; no kernel modifications are needed.</p>
+
+<h2><a href="http://dongd.info/conference/osdi18/presentation/yang">Principled Schedulability Analysis for Distributed Storage Systems using Thread Architecture Models</a></h2>
+
+<p>Suli Yang, <em>Ant Financial Services Group;</em> Jing Liu, Andrea C. Arpaci-Dusseau, and Remzi H. Arpaci-Dusseau, <em>UW-Madison</em></p>
+
+<p>Available Media</p>
+
+<p><a href="http://dongd.info/conference/osdi18/presentation/yang"></a>](/conference/osdi18/presentation/yang)](/conference/osdi18/presentation/yang)</p>
+
+<p>In this paper, we present an approach to systematically examine the <em>schedulability</em> of distributed storage systems, identify their scheduling problems, and enable effective scheduling in these systems. We use <em>Thread Architecture Models (TAMs)</em> to describe the behavior and interactions of different threads in a system, and show both how to construct TAMs for existing systems and utilize TAMs to identify critical scheduling problems. We identify five common problems that prevent a system from providing schedulability and show that these problems arise in existing systems such as HBase, Cassandra, MongoDB, and Riak, making it difficult or impossible to realize various scheduling disciplines. We demonstrate how to address these schedulability problems by developing Tamed-HBase and Muzzled-HBase, sets of modifications to HBase that can realize the desired scheduling disciplines, including fairness and priority scheduling, even when presented with challenging workloads.</p>
+
+<h2><a href="http://dongd.info/conference/osdi18/presentation/sriraman">µTune: Auto-Tuned Threading for OLDI Microservices</a></h2>
+
+<p>Akshitha Sriraman and Thomas F. Wenisch, <em>University of Michigan</em></p>
+
+<p>Available Media</p>
+
+<p><a href="http://dongd.info/conference/osdi18/presentation/sriraman"></a>](/conference/osdi18/presentation/sriraman)](/conference/osdi18/presentation/sriraman)</p>
+
+<p>Modern On-Line Data Intensive (OLDI) applications have evolved from monolithic systems to instead comprise numerous, distributed microservices interacting via Remote Procedure Calls (RPCs). Microservices face sub-millisecond (sub-ms) RPC latency goals, much tighter than their monolithic counterparts that must meet ≥ 100 ms latency targets. Sub-ms–scale threading and concurrency design effects that were once insignificant for such monolithic services can now come to dominate in the sub-ms–scale microservice regime. We investigate how threading design critically impacts microservice tail latency by developing a taxonomy of threading models—a structured understanding of the implications of how microservices manage concurrency and interact with RPC interfaces under wide-ranging loads. We develop μTune, a system that has two features: (1) a novel framework that abstracts threading model implementation from application code, and (2) an automatic load adaptation system that curtails microservice tail latency by exploiting inherent latency trade-offs revealed in our taxonomy to transition among threading models. We study μTune in the context of four OLDI applications to demonstrate up to 1.9x tail latency improvement over static threading choices and state-of-the-art adaptation techniques.</p>
+
+<h2><a href="http://dongd.info/conference/osdi18/presentation/berger">RobinHood: Tail Latency Aware Caching &ndash; Dynamic Reallocation from Cache-Rich to Cache-Poor</a></h2>
+
+<p>Daniel S. Berger and Benjamin Berg, <em>Carnegie Mellon University;</em> Timothy Zhu, <em>Pennsylvania State University;</em> Siddhartha Sen, <em>Microsoft Research;</em> Mor Harchol-Balter, <em>Carnegie Mellon University</em></p>
+
+<p>Available Media</p>
+
+<p><a href="http://dongd.info/conference/osdi18/presentation/berger"></a>](/conference/osdi18/presentation/berger)](/conference/osdi18/presentation/berger)</p>
+
+<p>Tail latency is of great importance in user-facing web services. However, maintaining low tail latency is challenging, because a single request to a web application server results in multiple queries to complex, diverse backend services (databases, recommender systems, ad systems, etc.). A request is not complete until all of its queries have completed. We analyze a Microsoft production system and find that backend query latencies vary by more than two orders of magnitude across backends and over time, resulting in high request tail latencies.</p>
+
+<p>We propose a novel solution for maintaining low request tail latency: repurpose existing caches to mitigate the effects of backend latency variability, rather than just caching popular data. Our solution, RobinHood, dynamically reallocates cache resources from the cache-rich (backends which don&rsquo;t affect request tail latency) to the cache-poor (backends which affect request tail latency). We evaluate RobinHood with production traces on a 50-server cluster with 20 different backend systems. Surprisingly, we find that RobinHood can directly address tail latency even if working sets are much larger than the cache size. In the presence of load spikes, RobinHood meets a 150ms P99 goal 99.7% of the time, whereas the next best policy meets this goal only 70% of the time.</p>
+
+<h3>3:20 pm–3:50 pm</h3>
+
+<h2>Break with Refreshments</h2>
+
+<p><em>Sponsored by Microsoft</em><br/>
+Costa Del Sol Patios</p>
+
+<h3>3:50 pm–5:10 pm</h3>
+
+<h2>Data</h2>
+
+<p>Session Chair: Irene Zhang, <em>Microsoft Research</em></p>
+
+<h2><a href="http://dongd.info/conference/osdi18/presentation/gjengset">Noria: dynamic, partially-stateful data-flow for high-performance web applications</a></h2>
+
+<p>Jon Gjengset, Malte Schwarzkopf, Jonathan Behrens, and Lara Timbó Araújo, <em>MIT CSAIL;</em> Martin Ek, <em>Norwegian University of Science and Technology;</em> Eddie Kohler, <em>Harvard University;</em> M. Frans Kaashoek and Robert Morris, <em>MIT CSAIL</em></p>
+
+<p>Available Media</p>
+
+<p><a href="http://dongd.info/conference/osdi18/presentation/gjengset"></a>](/conference/osdi18/presentation/gjengset)](/conference/osdi18/presentation/gjengset)</p>
+
+<p>We introduce <em>partially-stateful data-flow</em>, a new streaming data-flow model that supports eviction and reconstruction of data-flow state on demand. By avoiding state explosion and supporting live changes to the data-flow graph, this model makes data-flow viable for building long-lived, low-latency applications, such as web applications. Our implementation, <em>Noria</em>, simplifies the backend infrastructure for read-heavy web applications while improving their performance.</p>
+
+<p>A Noria application supplies a relational schema and a set of parameterized queries, which Noria compiles into a data-flow program that pre-computes results for reads and incrementally applies writes. Noria makes it easy to write high-performance applications without manual performance tuning or complex-to-maintain caching layers. Partial statefulness helps Noria limit its in-memory state without prior data-flow systems’ restriction to windowed state, and helps Noria adapt its data-flow to schema and query changes while on-line. Unlike prior data-flow systems, Noria also shares state and computation across related queries, eliminating duplicate work.</p>
+
+<p>On a real web application’s queries, our prototype scales to 5× higher load than a hand-optimized MySQL baseline. Noria also outperforms a typical MySQL/memcached stack and the materialized views of a commercial database. It scales to tens of millions of reads and millions of writes per second over multiple servers, outperforming a state-of-the-art streaming data-flow system.</p>
+
+<h2><a href="http://dongd.info/conference/osdi18/presentation/wei">Deconstructing RDMA-enabled Distributed Transactions: Hybrid is Better!</a></h2>
+
+<p>Xingda Wei, Zhiyuan Dong, Rong Chen, and Haibo Chen, <em>Shanghai Jiao Tong University</em></p>
+
+<p>Available Media</p>
+
+<p><a href="http://dongd.info/conference/osdi18/presentation/wei"></a>](/conference/osdi18/presentation/wei)](/conference/osdi18/presentation/wei)</p>
+
+<p>There is currently an active debate on which RDMA primitive (i.e., one-sided or two-sided) is optimal for distributed transactions. Such a debate has led to a number of optimizations based on one RDMA primitive, which was shown with better performance than the other. In this paper, we perform a systematic comparison be- tween different RDMA primitives with a combination of various optimizations using representative OLTP workloads. More specifically, we first implement and compare different RDMA primitives with existing and our new optimizations upon a single well-tuned execution framework. This gives us insights into the performance characteristics of different RDMA primitives. Then we investigate the implementation of optimistic concurrency control (OCC) by comparing different RDMA primitives using a phase-by-phase approach with various transactions from TPC-C, SmallBank, and TPC-E. Our results show that no single primitive (one-sided or two-sided) wins over the other on all phases. We further conduct an end-to-end comparison of prior designs on the same codebase and find none of them is optimal. Based on the above studies, we build DrTM+H, a new hybrid distributed transaction system that always embraces the optimal RDMA primitives at each phase of transactional execution. Evaluations using popular OLTP workloads including TPC-C and SmallBank show that DrTM+H achieves over 7.3 and 90.4 million transactions per second on a 16-node RDMA-capable cluster (ConnectX-4) respectively, without locality assumption. This number outperforms the pure one-sided and two- sided systems by up to 1.89X and 2.96X for TPC-C with over 49% and 65% latency reduction. Further, DrTM+H scales well with a large number of connections on modern RDMA network.</p>
+
+<h2><a href="http://dongd.info/conference/osdi18/presentation/mahajan">Dynamic Query Re-Planning using QOOP</a></h2>
+
+<p>Kshiteej Mahajan, <em>UW-Madison;</em> Mosharaf Chowdhury, <em>U. Michigan;</em> Aditya Akella and Shuchi Chawla, <em>UW-Madison</em></p>
+
+<p>Available Media</p>
+
+<p><a href="http://dongd.info/conference/osdi18/presentation/mahajan"></a>](/conference/osdi18/presentation/mahajan)](/conference/osdi18/presentation/mahajan)</p>
+
+<p>Modern data processing clusters are highly dynamic &ndash; both in terms of the number of concurrently running jobs and their resource usage. To improve job performance, recent works have focused on optimizing the cluster scheduler and the jobs' query planner with a focus on picking the right query execution plan (QEP) &ndash; represented as a directed acyclic graph &ndash; for a job in a resource-aware manner, and scheduling jobs in a QEP-aware manner. However, because existing solutions use a fixed QEP throughout the entire execution, the inability to adapt a QEP in reaction to resource changes often leads to large performance inefficiencies.</p>
+
+<p>This paper argues for dynamic query re-planning, wherein we re-evaluate and re-plan a job&rsquo;s QEP during its execution. We show that designing for re-planning requires fundamental changes to the interfaces between key layers of data analytics stacks today, i.e., the query planner, the execution engine, and the cluster scheduler. Instead of pushing more complexity into the scheduler or the query planner, we argue for a redistribution of responsibilities between the three components to simplify their designs. Under this redesign, we analytically show that a greedy algorithm for re-planning and execution alongside a simple max-min fair scheduler can offer provably competitive behavior even under adversarial resource changes. We prototype our algorithms atop Apache Hive and Tez. Via extensive experiments, we show that our design can offer a median performance improvement of 1.47x compared to state-of-the-art alternatives.</p>
+
+<h2><a href="http://dongd.info/conference/osdi18/presentation/hsieh">Focus: Querying Large Video Datasets with Low Latency and Low Cost</a></h2>
+
+<p>Kevin Hsieh, <em>Carnegie Mellon University;</em> Ganesh Ananthanarayanan and Peter Bodik, <em>Microsoft;</em> Shivaram Venkataraman, <em>Microsoft / UW-Madison;</em> Paramvir Bahl and Matthai Philipose, <em>Microsoft;</em> Phillip B. Gibbons, <em>Carnegie Mellon University;</em> Onur Mutlu, <em>ETH Zurich</em></p>
+
+<p>Available Media</p>
+
+<p><a href="http://dongd.info/conference/osdi18/presentation/hsieh"></a>](/conference/osdi18/presentation/hsieh)](/conference/osdi18/presentation/hsieh)</p>
+
+<p>Large volumes of videos are continuously recorded from cameras deployed for traffic control and surveillance with the goal of answering “after the fact” queries: identify video frames with objects of certain classes (cars, bags) from many days of recorded video. Current systems for processing such queries on large video datasets incur either high cost at video ingest time or high latency at query time. We present Focus, a system providing both low-cost and low-latency querying on large video datasets. Focus’s architecture flexibly and effectively divides the query processing work between ingest time and query time. At ingest time (on live videos), Focus uses cheap convolutional network classifiers (CNNs) to construct an approximate index of all possible object classes in each frame (to handle queries for any class in the future). At query time, Focus leverages this approximate index to provide low latency, but compensates for the lower accuracy of the cheap CNNs through the judicious use of an expensive CNN. Experiments on commercial video streams show that Focus is 48× (up to 92×) cheaper than using expensive CNNs for ingestion, and provides 125× (up to 607×) lower query latency than a state-of-the-art video querying system (NoScope).</p>
+
+<h3>6:00 pm–7:30 pm</h3>
+
+<h2>Poster Session and Reception I</h2>
+
+<p>Costa Del Sol Foyer and Salon A–C</p>
+
+<p>Check out the cool new ideas and the latest preliminary research on display at the Poster Sessions and Receptions. Take part in discussions with your colleagues over complimentary food and drinks. View the <a href="http://dongd.info/conference/osdi18/poster-sessions">list of accepted posters</a>.</p>
+
+<h3>7:30 pm–8:30 pm</h3>
+
+<h2>Preview Session 2</h2>
+
+<p>Are you new to OSDI? Are you a networks expert but feel bewildered when talk turns to security? Are you interested in engaging more deeply with paper presentations outside your research area? Join us for the OSDI preview sessions, where area experts will give short introductions to the symposium&rsquo;s major technical sessions.</p>
+
+<ul>
+<li><strong>Verification:</strong> Jay Lorch, <em>Microsoft Research</em></li>
+<li><strong>File Systems:</strong> Steve Swanson, <em>University of California, San Diego</em></li>
+<li><strong>Debugging:</strong> Xu Zhao, <em>University of Toronto</em></li>
+</ul>
+
+
+<p>Available Media</p>
+
+<p>](/conference/osdi18/presentation/preview2)</p>
+
+<h2>Tuesday, October 9, 2018</h2>
+
+<h3>8:00 am–9:00 am</h3>
+
+<h2>Continental Breakfast</h2>
+
+<p>Costa Del Sol Patios</p>
+
+<h3>9:00 am–10:20 am</h3>
+
+<h2>Verification</h2>
+
+<p>Session Chair: Jon Howell, <em>VMware Research</em></p>
+
+<h2><a href="http://dongd.info/conference/osdi18/presentation/sigurbjarnarson">Nickel: A Framework for Design and Verification of Information Flow Control Systems</a></h2>
+
+<p>Helgi Sigurbjarnarson, Luke Nelson, Bruno Castro-Karney, James Bornholt, Emina Torlak, and Xi Wang, <em>University of Washington</em></p>
+
+<p>Available Media</p>
+
+<p><a href="http://dongd.info/conference/osdi18/presentation/sigurbjarnarson"></a>](/conference/osdi18/presentation/sigurbjarnarson)</p>
+
+<p>Nickel is a framework that helps developers design and verify information flow control systems by systematically eliminating covert channels inherent in the interface, which can be exploited to circumvent the enforcement of information flow policies. Nickel provides a formulation of noninterference amenable to automated verification, allowing developers to specify an intended policy of permitted information flows. It invokes the Z3 SMT solver to verify that both an interface specification and an implementation satisfy noninterference with respect to the policy; if verification fails, it generates counterexamples to illustrate covert channels that cause the violation.</p>
+
+<p>Using Nickel, we have designed, implemented, and verified NiStar, the first OS kernel for decentralized information flow control that provides (1) a precise specification for its interface, (2) a formal proof that the interface specification is free of covert channels, and (3) a formal proof that the implementation preserves noninterference. We have also applied Nickel to verify isolation in a small OS kernel, NiKOS, and reproduce known covert channels in the ARINC 653 avionics standard. Our experience shows that Nickel is effective in identifying and ruling out covert channels, and that it can verify noninterference for systems with a low proof burden.</p>
+
+<h2><a href="http://dongd.info/conference/osdi18/presentation/chajed">Verifying concurrent software using movers in CSPEC</a></h2>
+
+<p>Tej Chajed and Frans Kaashoek, <em>MIT CSAIL;</em> Butler Lampson, <em>Microsoft;</em> Nickolai Zeldovich, <em>MIT CSAIL</em></p>
+
+<p>Available Media</p>
+
+<p><a href="http://dongd.info/conference/osdi18/presentation/chajed"></a>](/conference/osdi18/presentation/chajed)](/conference/osdi18/presentation/chajed)</p>
+
+<p>Writing concurrent systems software is error-prone, because multiple processes or threads can interleave in many ways, and it is easy to forget about a subtle corner case. This paper introduces CSPEC, a framework for formal verification of concurrent software, which ensures that no corner cases are missed. The key challenge is to reduce the number of interleavings that developers must consider. CSPEC uses mover types to re-order commutative operations so that usually it&rsquo;s enough to reason about only sequential executions rather than all possible interleavings. CSPEC also makes proofs easier by making them modular using layers, and by providing a library of reusable proof patterns. To evaluate CSPEC, we implemented and proved the correctness of CMAIL, a simple concurrent Maildir-like mail server that speaks SMTP and POP3. The results demonstrate that CSPEC&rsquo;s movers and patterns allow reasoning about sophisticated concurrency styles in CMAIL.</p>
+
+<h2><a href="http://dongd.info/conference/osdi18/presentation/ileri">Proving confidentiality in a file system using DiskSec</a></h2>
+
+<p>Atalay Ileri, Tej Chajed, Adam Chlipala, Frans Kaashoek, and Nickolai Zeldovich, <em>MIT CSAIL</em></p>
+
+<p>Available Media</p>
+
+<p><a href="http://dongd.info/conference/osdi18/presentation/ileri"></a>](/conference/osdi18/presentation/ileri)](/conference/osdi18/presentation/ileri)</p>
+
+<p>SFSCQ is the first file system with a machine-checked proof of security. To develop, specify, and prove SFSCQ, this paper introduces DiskSec, a novel approach for reasoning about confidentiality of storage systems, such as a file system. DiskSec addresses the challenge of specifying confidentiality using the notion of <em>data noninterference</em> to find a middle ground between strong and precise information-flow-control guarantees and the weaker but more practical discretionary access control. DiskSec factors out reasoning about confidentiality from other properties (such as functional correctness) using a notion of <em>sealed blocks</em>. Sealed blocks enforce that the file system treats confidential file blocks as opaque in the bulk of the code, greatly reducing the effort of proving data noninterference. An evaluation of SFSCQ shows that its theorems preclude security bugs that have been found in real file systems, that DiskSec imposes little performance overhead, and that SFSCQ&rsquo;s incremental development effort, on top of DiskSec and DFSCQ, on which it is based, is moderate.</p>
+
+<h2><a href="http://dongd.info/conference/osdi18/presentation/setty">Proving the correct execution of concurrent services in zero-knowledge</a></h2>
+
+<p>Srinath Setty, <em>Microsoft Research;</em> Sebastian Angel, <em>University of Pennsylvania;</em> Trinabh Gupta, <em>Microsoft Research and UCSB;</em> Jonathan Lee, <em>Microsoft Research</em></p>
+
+<p>Available Media</p>
+
+<p><a href="http://dongd.info/conference/osdi18/presentation/setty"></a>](/conference/osdi18/presentation/setty)](/conference/osdi18/presentation/setty)</p>
+
+<p>This paper introduces Spice, a system for building verifiable state machines (VSMs). A VSM is a request-processing service that produces proofs establishing that requests were executed correctly according to a specification. Such proofs are succinct (a verifier can check them efficiently without reexecution) and zero-knowledge (a verifier learns nothing about the content of the requests, responses, or the internal state of the service). Recent systems for proving the correct execution of stateful computations&mdash;Pantry, Geppetto, CTV, vSQL, etc.&mdash;implicitly implement VSMs, but they incur prohibitive costs. Spice reduces these costs significantly with a new storage primitive. More notably, Spice’s storage primitive supports multiple writers, making Spice the first system that can succinctly prove the correct execution of concurrent services. We find that Spice running on a cluster of 16 servers achieves 488&ndash;1167 transactions/second for a variety of applications including inter-bank transactions, cloud-hosted ledgers, and dark pools. This represents an 18,000&ndash;685,000× higher throughput than prior work.</p>
+
+<h3>10:20 am–10:50 am</h3>
+
+<h2>Break with Refreshments</h2>
+
+<p>Costa Del Sol Patios</p>
+
+<h3>10:50 am–12:10 pm</h3>
+
+<h2>Reliability</h2>
+
+<p>Session Chair: Michael Swift, <em>University of Wisconsin—Madison</em></p>
+
+<h2><a href="http://dongd.info/conference/osdi18/presentation/lockerman">The FuzzyLog: A Partially Ordered Shared Log</a></h2>
+
+<p>Joshua Lockerman, <em>Yale University;</em> Jose M. Faleiro, <em>UC Berkeley;</em> Juno Kim, <em>UC San Diego;</em> Soham Sankaran, <em>Cornell University;</em> Daniel J. Abadi, <em>University of Maryland, College Park;</em> James Aspnes, <em>Yale University;</em> Siddhartha Sen, <em>Microsoft Research;</em> Mahesh Balakrishnan, <em>Yale University / Facebook</em></p>
+
+<p>Available Media</p>
+
+<p><a href="http://dongd.info/conference/osdi18/presentation/lockerman"></a>](/conference/osdi18/presentation/lockerman)](/conference/osdi18/presentation/lockerman)</p>
+
+<p>The FuzzyLog is a partially ordered shared log abstraction. Distributed applications can concurrently append to the partial order and play it back. FuzzyLog applications obtain the benefits of an underlying shared log – extracting strong consistency, durability, and failure atomicity in simple ways – without suffering from its drawbacks. By exposing a partial order, the FuzzyLog enables three key capabilities for applications: linear scaling for throughput and capacity (without sacrificing atomicity), weaker consistency guarantees, and tolerance to network partitions. We present Dapple, a distributed implementation of the FuzzyLog abstraction that stores the partial order compactly and supports efficient appends / playback via a new ordering protocol. We implement several data structures and applications over the FuzzyLog, including several map variants as well as a ZooKeeper implementation. Our evaluation shows that these applications are compact, fast, and flexible: they retain the simplicity (100s of lines of code) and strong semantics (durability and failure atomicity) of a shared log design while exploiting the partial order of the Fuzzy-Log for linear scalability, flexible consistency guarantees (e.g., causal+ consistency), and network partition tolerance. On a 6-node Dapple deployment, our FuzzyLog- based ZooKeeper supports 3M/sec single-key writes, and 150K/sec atomic cross-shard renames.</p>
+
+<h2><a href="http://dongd.info/conference/osdi18/presentation/veeraraghavan">Maelstrom: Mitigating Datacenter-level Disasters by Draining Interdependent Traffic Safely and Efficiently</a></h2>
+
+<p>Kaushik Veeraraghavan, Justin Meza, Scott Michelson, Sankaralingam Panneerselvam, Alex Gyori, David Chou, Sonia Margulis, Daniel Obenshain, Shruti Padmanabha, Ashish Shah, and Yee Jiun Song, <em>Facebook;</em> Tianyin Xu, <em>Facebook and University of Illinois at Urbana-Champaign</em></p>
+
+<p>Available Media</p>
+
+<p><a href="http://dongd.info/conference/osdi18/presentation/veeraraghavan"></a>](/conference/osdi18/presentation/veeraraghavan)](/conference/osdi18/presentation/veeraraghavan)</p>
+
+<p>We present Maelstrom, a new system for mitigating and recovering from datacenter-level disasters. Maelstrom provides a traffic management framework with modular, reusable primitives that can be composed to safely and efficiently drain the traffic of interdependent services from one or more failing datacenters to the healthy ones.</p>
+
+<p>Maelstrom ensures safety by encoding inter-service dependencies and resource constraints. Maelstrom uses health monitoring to implement feedback control so that all specified constraints are satisfied by the traffic drains and recovery procedures executed during disaster mitigation. Maelstrom exploits parallelism to drain and restore independent traffic sources efficiently.</p>
+
+<p>We verify the correctness of Maelstrom’s disaster mitigation and recovery procedures by running large-scale tests that drain production traffic from entire datacenters and then restore the traffic back to the datacenters. These tests (termed drain tests) help us gain a deep understand- ing of our complex systems, and provide a venue for continually improving the reliability of our infrastructure. Maelstrom has been in production at Facebook for more than four years, and has been successfully used to mitigate and recover from 100+ datacenter outages.</p>
+
+<h2><a href="http://dongd.info/conference/osdi18/presentation/alagappan">Fault-Tolerance, Fast and Slow: Exploiting Failure Asynchrony in Distributed Systems</a></h2>
+
+<p>Ramnatthan Alagappan, Aishwarya Ganesan, Jing Liu, Andrea Arpaci-Dusseau, and Remzi Arpaci-Dusseau, <em>University of Wisconsin - Madison</em></p>
+
+<p>Available Media</p>
+
+<p><a href="http://dongd.info/conference/osdi18/presentation/alagappan"></a>](/conference/osdi18/presentation/alagappan)](/conference/osdi18/presentation/alagappan)</p>
+
+<p>We introduce situation-aware updates and crash recovery (SAUCR), a new approach to performing replicated data updates in a distributed system. SAUCR adapts the update protocol to the current situation: with many nodes up, SAUCR buffers updates in memory; when failures arise, SAUCR flushes updates to disk. This situation-awareness enables SAUCR to achieve high performance while offering strong durability and availability guarantees. We implement a prototype of SAUCR in ZooKeeper. Through rigorous crash testing, we demonstrate that SAUCR significantly improves durability and availability compared to systems that always write only to memory. We also show that SAUCR’s reliability improvements come at little or no cost: SAUCR’s overheads are within 0%-9% of a purely memory-based system.</p>
+
+<h2><a href="http://dongd.info/conference/osdi18/presentation/maricq">Taming Performance Variability</a></h2>
+
+<p>Aleksander Maricq and Dmitry Duplyakin, <em>University of Utah;</em> Ivo Jimenez and Carlos Maltzahn, <em>University of California Santa Cruz;</em> Ryan Stutsman and Robert Ricci, <em>University of Utah</em></p>
+
+<p>Available Media</p>
+
+<p><a href="http://dongd.info/conference/osdi18/presentation/maricq"></a>](/conference/osdi18/presentation/maricq)</p>
+
+<p>The performance of compute hardware varies: software run repeatedly on the same server (or a different server with supposedly identical parts) can produce performance results that differ with each execution. This variation has important effects on the reproducibility of systems research and ability to quantitatively compare the performance of different systems. It also has implications for commercial computing, where agreements are often made conditioned on meeting specific performance targets.</p>
+
+<p>Over a period of 10 months, we conducted a large-scale study capturing nearly 900,000 data points from 835 servers. We examine this data from two perspectives: that of a service provider wishing to offer a consistent environment, and that of a systems researcher who must understand how variability impacts experimental results. From this examination, we draw a number of lessons about the types and magnitudes of performance variability and the effects on confidence in experiment results. We also create a statistical model that can be used to understand how representative an individual server is of the general population. The full dataset and our analysis tools are publicly available, and we have built a system to interactively explore the data and make recommendations for experiment parameters based on statistical analysis of historical data.</p>
+
+<h3>12:10 pm–12:25 pm</h3>
+
+<h2>ACM SIGOPS Awards Presentation</h2>
+
+<h3>12:25 pm–2:00 pm</h3>
+
+<h2>Symposium Luncheon</h2>
+
+<p>Costa Del Sol Patios</p>
+
+<h3>2:00 pm–3:20 pm</h3>
+
+<h2>File Systems</h2>
+
+<p>Session Chair: Haryadi Gunawi, <em>University of Chicago</em></p>
+
+<h2><a href="http://dongd.info/conference/osdi18/presentation/klimovic">Pocket: Elastic Ephemeral Storage for Serverless Analytics</a></h2>
+
+<p>Ana Klimovic and Yawen Wang, <em>Stanford University;</em> Patrick Stuedi, Animesh Trivedi, and Jonas Pfefferle, <em>IBM Research;</em> Christos Kozyrakis, <em>Stanford University</em></p>
+
+<p>Available Media</p>
+
+<p><a href="http://dongd.info/conference/osdi18/presentation/klimovic"></a>](/conference/osdi18/presentation/klimovic)](/conference/osdi18/presentation/klimovic)</p>
+
+<p>Serverless computing is becoming increasingly popular, enabling users to quickly launch thousands of shortlived tasks in the cloud with high elasticity and fine-grain billing. These properties make serverless computing appealing for interactive data analytics. However exchanging intermediate data between execution stages in an analytics job is a key challenge as direct communication between serverless tasks is difficult. The natural approach is to store such ephemeral data in a remote data store. However, existing storage systems are not designed to meet the demands of serverless applications in terms of elasticity, performance, and cost. We present Pocket, an elastic, distributed data store that automatically scales to provide applications with desired performance at low cost. Pocket dynamically rightsizes resources across multiple dimensions (CPU cores, network bandwidth, storage capacity) and leverages multiple storage technologies to minimize cost while ensuring applications are not bottlenecked on I/O. We show that Pocket achieves similar performance to ElastiCache Redis for serverless analytics applications while reducing cost by almost 60%.</p>
+
+<h2><a href="http://dongd.info/conference/osdi18/presentation/annamalai">Sharding the Shards: Managing Datastore Locality at Scale with Akkio</a></h2>
+
+<p>Muthukaruppan Annamalai, Kaushik Ravichandran, Harish Srinivas, Igor Zinkovsky, Luning Pan, Tony Savor, and David Nagle, <em>Facebook;</em> Michael Stumm, <em>University of Toronto</em></p>
+
+<p>Available Media</p>
+
+<p><a href="http://dongd.info/conference/osdi18/presentation/annamalai"></a>](/conference/osdi18/presentation/annamalai)](/conference/osdi18/presentation/annamalai)</p>
+
+<p>Akkio is a locality management service layered between client applications and distributed datastore systems. It determines how and when to migrate data to reduce response times and resource usage. Akkio primarily targets multi-datacenter geo-distributed datastore systems. Its design was motivated by the observation that many of Facebook&rsquo;s frequently accessed datasets have low R/W ratios that are not well served by distributed caches or full replication. Akkio&rsquo;s unit of migration is called a u-shard. Each u-shard is designed to contain related data with some degree of access locality. At Facebook u-shards have become a first-class abstraction.</p>
+
+<p>Akkio went into production at Facebook in 2014, and it currently manages over 100PB of data. Measurements from our production environment show that Akkio reduces access latencies by up to 50%, cross-datacenter traffic by up to 50%, and storage footprint by up to 40% compared to reasonable alternatives. Akkio is scalable: it can support trillions of u-shards and process many 10&rsquo;s of millions of data access requests per second. And it is portable: it currently supports five datastore systems.</p>
+
+<h2><a href="http://dongd.info/conference/osdi18/presentation/zuo">Write-Optimized and High-Performance Hashing Index Scheme for Persistent Memory</a></h2>
+
+<p>Pengfei Zuo, Yu Hua, and Jie Wu, <em>Huazhong University of Science and Technology</em></p>
+
+<p>Available Media</p>
+
+<p><a href="http://dongd.info/conference/osdi18/presentation/zuo"></a>](/conference/osdi18/presentation/zuo)](/conference/osdi18/presentation/zuo)</p>
+
+<p>Non-volatile memory (NVM) as persistent memory is expected to substitute or complement DRAM in memory hierarchy, due to the strengths of non-volatility, high density, and near-zero standby power. However, due to the requirement of data consistency and hardware limitations of NVM, traditional indexing techniques originally designed for DRAM become inefficient in persistent memory. To efficiently index the data in persistent memory, this paper proposes a write-optimized and high-performance hashing index scheme, called level hashing, with low-overhead consistency guarantee and cost-efficient resizing. Level hashing provides a sharing-based two-level hash table, which achieves a constant-scale search/insertion/deletion/update time complexity in the worst case and rarely incurs extra NVM writes. To guarantee the consistency with low overhead, level hashing leverages log-free consistency schemes for insertion, deletion, and resizing operations, and an opportunistic log-free scheme for update operation. To cost-efficiently resize this hash table, level hashing leverages an in-place resizing scheme that only needs to rehash $1/3$ of buckets instead of the entire table, thus significantly reducing the number of rehashed buckets and improving the resizing performance. Experimental results demonstrate that level hashing achieves $1.4\times$$-$$3.0\times$ speedup for insertions, $1.2\times$$-$$2.1\times$ speedup for updates, and over $4.3\times$ speedup for resizing, while maintaining high search and deletion performance, compared with state-of-the-art hashing schemes.</p>
+
+<h2><a href="http://dongd.info/conference/osdi18/presentation/zhang">FlashShare: Punching Through Server Storage Stack from Kernel to Firmware for Ultra-Low Latency SSDs</a></h2>
+
+<p>Jie Zhang, Miryeong Kwon, Donghyun Gouk, Sungjoon Koh, and Changlim Lee, <em>Yonsei University;</em> Mohammad Alian, <em>UIUC;</em> Myoungjun Chun, <em>Seoul National University;</em> Mahmut Taylan Kandemir, <em>Penn State University;</em> Nam Sung Kim, <em>UIUC;</em> Jihong Kim, <em>Seoul National University;</em> Myoungsoo Jung, <em>Yonsei University</em></p>
+
+<p>Available Media</p>
+
+<p><a href="http://dongd.info/conference/osdi18/presentation/zhang"></a>](/conference/osdi18/presentation/zhang)](/conference/osdi18/presentation/zhang)</p>
+
+<p>A modern datacenter server aims to achieve high energy efficiency by co-running multiple applications. Some of such applications (e.g., web search) are latency sensitive. Therefore, they require low-latency I/O services to fast respond to requests from clients. However, we observe that simply replacing the storage devices of servers with Ultra-Low-Latency (ULL) SSDs does not notably reduce the latency of I/O services, especially when co-running multiple applications. In this paper, we propose FlashShare to assist ULL SSDs to satisfy different levels of I/O service latency requirements for different co-running applications. Specifically, FlashShare is a holistic cross-stack approach, which can significantly reduce I/O interferences among co-running applications at a server without any change in applications. At the kernel-level, we extend the data structures of the storage stack to pass attributes of (co-running) applications through all the layers of the underlying storage stack spanning from the OS kernel to the SSD firmware. For given attributes, the block layer and NVMe driver of FlashShare differently manage the I/O scheduler and interrupt handler of NVMe. We also enhance the NVMe controller and cache layer at the SSD firmware-level, by dynamically partitioning DRAM in the ULL SSD and adjusting its caching strategies to meet diverse user requirements. The evaluation results demonstrate that FlashShare can shorten the average and 99th-percentile turnaround response times of co-running applications by 22% and 31%, respectively.</p>
+
+<h3>3:20 pm–3:50 pm</h3>
+
+<h2>Break with Refreshments</h2>
+
+<p><em>Sponsored by ByteDance</em></p>
+
+<p>Costa Del Sol Patios</p>
+
+<h3>3:50 pm–5:10 pm</h3>
+
+<h2>Debugging</h2>
+
+<p>Session Chair: Rebecca Isaacs, <em>Twitter</em></p>
+
+<h2><a href="http://dongd.info/conference/osdi18/presentation/bhagwan">Orca: Differential Bug Localization in Large-Scale Services</a></h2>
+
+<p>Ranjita Bhagwan, Rahul Kumar, Chandra Sekhar Maddila, and Adithya Abraham Philip, <em>Microsoft Research India</em><br/>
+<strong><em>Awarded Best Paper!</em></strong></p>
+
+<p>Available Media</p>
+
+<p><a href="http://dongd.info/conference/osdi18/presentation/bhagwan"></a>](/conference/osdi18/presentation/bhagwan)](/conference/osdi18/presentation/bhagwan)</p>
+
+<p>Today, we depend on numerous large-scale services for basic operations such as email. These services are complex and extremely dynamic as developers continously commit code and introduce new features, fixes and, consequently, new bugs. Hundreds of commits may enter deployment simultaneously. Therefore one of the most time-critical, yet complex tasks towards mitigating service disruption is to localize the bug to the right commit.</p>
+
+<p>This paper presents the concept of differential bug localization that uses a combination of differential code analysis and software provenance tracking to effectively pin-point buggy commits. We have built Orca, a customized code search-engine that implements differential bug localization. Orca is actively being used by the On-Call Engineers (OCEs) of a large enterprise email and collaboration service to localize bugs to the appropriate buggy commits. Our evaluation shows that Orca correctly localizes 77% of bugs for which it has been used. We also show that it causes a 4x reduction in the work done by the OCE.</p>
+
+<h2><a href="http://dongd.info/conference/osdi18/presentation/jindal">Differential Energy Profiling: Energy Optimization via Diffing Similar Apps</a></h2>
+
+<p>Abhilash Jindal and Y. Charlie Hu, <em>Purdue University</em></p>
+
+<p>Available Media</p>
+
+<p><a href="http://dongd.info/conference/osdi18/presentation/jindal"></a>](/conference/osdi18/presentation/jindal)](/conference/osdi18/presentation/jindal)</p>
+
+<p>Mobile app energy profilers provide a foundational energy diagnostic tool by identifying energy hotspots in the app source code. However, they only tackle the first challenge faced by developers, as, after presented with the energy hotspots, developers typically do not have any guidance on how to proceed with the remaining optimization process: (1) Is there a more energy-efficient implementation for the same app task? (2) How to come up with the more efficient implementation?</p>
+
+<p>To help developers tackle these challenges, we developed a new energy profiling methodology called <em>differ- ential energy profiling</em> that automatically uncovers more efficient implementations of common app tasks by leveraging existing implementations of similar apps which are bountiful in the app marketplace. To demonstrate its effectiveness, we implemented such a differential energy profiler, DIFFPROF, for Android apps and used it to profile 8 groups (from 6 popular app categories) of 5 similar apps each. Our extensive case studies show that DIFFPROF provides developers with actionable diagnosis beyond a traditional energy profiler: it identifies non-essential (unmatched or extra) and known-to-be inefficient (matched) tasks, and the call trees of tasks it extracts further allow developers to quickly understand the reasons and develop fixes for the energy difference with minor manual debugging efforts.</p>
+
+<h2><a href="http://dongd.info/conference/osdi18/presentation/zhou">wPerf: Generic Off-CPU Analysis to Identify Bottleneck Waiting Events</a></h2>
+
+<p>Fang Zhou, Yifan Gan, Sixiang Ma, and Yang Wang, <em>The Ohio State University</em></p>
+
+<p>Available Media</p>
+
+<p><a href="http://dongd.info/conference/osdi18/presentation/zhou"></a>](/conference/osdi18/presentation/zhou)](/conference/osdi18/presentation/zhou)</p>
+
+<p>This paper tries to identify waiting events that limit the maximal throughput of a multi-threaded application. To achieve this goal, we not only need to understand an event&rsquo;s impact on threads waiting for this event (i.e., local impact), but also need to understand whether its impact can reach other threads that are involved in request processing (i.e., global impact).</p>
+
+<p>To address these challenges, wPerf computes the local impact of a waiting event with a technique called cascaded re-distribution; more importantly, wPerf builds a wait-for graph to compute whether such impact can indirectly reach other threads. By combining these two techniques, wPerf essentially tries to identify events with large impacts on all threads.</p>
+
+<p>We apply wPerf to a number of open-source multi-threaded applications. By following the guide of wPerf, we are able to improve their throughput by up to 4.83$\times$. The overhead of recording waiting events at runtime is about 5.1% on average.</p>
+
+<h2><a href="http://dongd.info/conference/osdi18/presentation/quinn">Sledgehammer: Cluster-Fueled Debugging</a></h2>
+
+<p>Andrew Quinn, Jason Flinn, and Michael Cafarella, <em>University of Michigan</em></p>
+
+<p>Available Media</p>
+
+<p><a href="http://dongd.info/conference/osdi18/presentation/quinn"></a>](/conference/osdi18/presentation/quinn)](/conference/osdi18/presentation/quinn)</p>
+
+<p>Current debugging tools force developers to choose between power and interactivity. Interactive debuggers such as gdb let them quickly inspect application state and monitor execution, which is perfect for simple bugs. However, they are not powerful enough for complex bugs such as wild stores and synchronization errors where developers do not know which values to inspect or when to monitor the execution. So, developers add logging, insert timing measurements, and create functions that verify invariants. Then, they re-run applications with this instrumentation. These powerful tools are, unfortunately, not interactive; they can take minutes or hours to answer one question about a complex execution, and debugging involves asking and answering many such questions.</p>
+
+<p>In this paper, we propose cluster-fueled debugging, which provides interactivity for powerful debugging tools by parallelizing their work across many cores in a cluster. At sufficient scale, developers can get answers to even detailed queries in a few seconds. Sledgehammer is a cluster-fueled debugger: it improves performance by timeslicing program execution, debug instrumentation, and analysis of results, and then executing each chunk of work on a separate core. Sledgehammer enables powerful, interactive debugging tools that are infeasible today. Parallel retro-logging allows developers to change their logging instrumentation and then quickly see what the new logging would have produced on a previous execution. Continuous function evaluation logically evaluates a function such as a data-structure integrity check at every point in a program’s execution. Retro-timing allows fast performance analysis of a previous execution. With 1024 cores, Sledgehammer executes these tools hundreds of times faster than single-core execution while returning identical results.</p>
+
+<h3>6:00 pm–7:30 pm</h3>
+
+<h2>Poster Session and Reception II</h2>
+
+<p>Costa Del Sol Foyer and Salon A–C</p>
+
+<p>Check out the cool new ideas and the latest preliminary research on display at the Poster Sessions and Receptions. Take part in discussions with your colleagues over complimentary food and drinks. View the <a href="http://dongd.info/conference/osdi18/poster-sessions#poster2">list of accepted posters</a>.</p>
+
+<h3>7:30 pm–8:30 pm</h3>
+
+<h2>Preview Session 3</h2>
+
+<p>Are you new to OSDI? Are you a networks expert but feel bewildered when talk turns to security? Are you interested in engaging more deeply with paper presentations outside your research area? Join us for the OSDI preview sessions, where area experts will give short introductions to the symposium&rsquo;s major technical sessions.</p>
+
+<ul>
+<li><strong>ML:</strong> Shivaram Venkataraman, <em>University of Wisconsin—Madison</em></li>
+<li><strong>Networking:</strong> Simon Peter, <em>The University of Texas at Austin</em></li>
+<li><strong>Security:</strong> David Lazar, <em>Massachusetts Institute of Technology</em></li>
+</ul>
+
+
+<p>Available Media</p>
+
+<p>](/conference/osdi18/presentation/preview3)](/conference/osdi18/presentation/preview3)</p>
+
+<h2>Wednesday, October 10, 2018</h2>
+
+<h3>8:00 am–9:00 am</h3>
+
+<h2>Continental Breakfast</h2>
+
+<p>Costa Del Sol Patios</p>
+
+<h3>9:00 am–10:20 am</h3>
+
+<h2>Machine Learning</h2>
+
+<p>Session Chair: Rashmi Vinayak, <em>Carnegie Mellon University</em></p>
+
+<h2><a href="http://dongd.info/conference/osdi18/presentation/moritz">Ray: A Distributed Framework for Emerging AI Applications</a></h2>
+
+<p>Philipp Moritz, Robert Nishihara, Stephanie Wang, Alexey Tumanov, Richard Liaw, Eric Liang, Melih Elibol, Zongheng Yang, William Paul, Michael I. Jordan, and Ion Stoica, <em>UC Berkeley</em></p>
+
+<p>Available Media</p>
+
+<p><a href="http://dongd.info/conference/osdi18/presentation/moritz"></a>](/conference/osdi18/presentation/moritz)</p>
+
+<p>The next generation of AI applications will continuously interact with the environment and learn from these interactions. These applications impose new and demanding systems requirements, both in terms of performance and flexibility. In this paper, we consider these requirements and present Ray — a distributed system to address them. Ray implements a unified interface that can express both task-parallel and actor-based computations, supported by a single dynamic execution engine. To meet the performance requirements, Ray employs a distributed scheduler and a distributed and fault-tolerant store to manage the system’s control state. In our experiments, we demonstrate scaling beyond 1.8 million tasks per second and better performance than existing specialized systems for several challenging reinforcement learning applications.</p>
+
+<h2><a href="http://dongd.info/conference/osdi18/presentation/chen">TVM: An Automated End-to-End Optimizing Compiler for Deep Learning</a></h2>
+
+<p>Tianqi Chen and Thierry Moreau, <em>University of Washington;</em> Ziheng Jiang, <em>University of Washington, AWS;</em> Lianmin Zheng, <em>Shanghai Jiao Tong University;</em> Eddie Yan, Haichen Shen, and Meghan Cowan, <em>University of Washington;</em> Leyuan Wang, <em>UC Davis, AWS;</em> Yuwei Hu, <em>Cornell;</em> Luis Ceze, Carlos Guestrin, and Arvind Krishnamurthy, <em>University of Washington</em></p>
+
+<p>Available Media</p>
+
+<p><a href="http://dongd.info/conference/osdi18/presentation/chen"></a>](/conference/osdi18/presentation/chen)](/conference/osdi18/presentation/chen)</p>
+
+<p>There is an increasing need to bring machine learning to a wide diversity of hardware devices. Current frameworks rely on vendor-specific operator libraries and optimize for a narrow range of server-class GPUs. Deploying workloads to new platforms &ndash; such as mobile phones, embedded devices, and accelerators (e.g., FPGAs, ASICs) &ndash; requires significant manual effort. We propose TVM, a compiler that exposes graph-level and operator-level optimizations to provide performance portability to deep learning workloads across diverse hardware back-ends. TVM solves optimization challenges specific to deep learning, such as high-level operator fusion, mapping to arbitrary hardware primitives, and memory latency hiding. It also automates optimization of low-level programs to hardware characteristics by employing a novel, learning-based cost modeling method for rapid exploration of code optimizations. Experimental results show that TVM delivers performance across hardware back-ends that are competitive with state-of-the-art, hand-tuned libraries for low-power CPU, mobile GPU, and server-class GPUs. We also demonstrate TVM&rsquo;s ability to target new accelerator back-ends, such as the FPGA-based generic deep learning accelerator. The system is open sourced and in production use inside several major companies.</p>
+
+<h2><a href="http://dongd.info/conference/osdi18/presentation/xiao">Gandiva: Introspective Cluster Scheduling for Deep Learning</a></h2>
+
+<p>Wencong Xiao, <em>Beihang University &amp; Microsoft Research;</em> Romil Bhardwaj, Ramachandran Ramjee, Muthian Sivathanu, and Nipun Kwatra, <em>Microsoft Research;</em> Zhenhua Han, <em>The University of Hong Kong &amp; Microsoft Research;</em> Pratyush Patel, <em>Microsoft Research;</em> Xuan Peng, <em>Huazhong University of Science and Technology &amp; Microsoft Research;</em> Hanyu Zhao, <em>Peking University &amp; Microsoft Research;</em> Quanlu Zhang, Fan Yang, and Lidong Zhou, <em>Microsoft Research</em></p>
+
+<p>Available Media</p>
+
+<p><a href="http://dongd.info/conference/osdi18/presentation/xiao"></a>](/conference/osdi18/presentation/xiao)](/conference/osdi18/presentation/xiao)</p>
+
+<p>We introduce Gandiva, a new cluster scheduling framework that utilizes domain-specific knowledge to improve latency and efficiency of training deep learning models in a GPU cluster. One key characteristic of deep learning is feedback-driven exploration, where a user often runs a set of jobs (or a multi-job) to achieve the best result for a specific mission and uses early feedback on accuracy to dynamically prioritize or kill a subset of jobs; simultaneous early feedback on the entire multi-job is critical. A second characteristic is the heterogeneity of deep learning jobs in terms of resource usage, making it hard to achieve best-fit a priori. Gandiva addresses these two challenges by exploiting a third key characteristic of deep learning: intra-job predictability, as they perform numerous repetitive iterations called mini-batch iterations. Gandiva exploits intra-job predictability to time-slice GPUs efficiently across multiple jobs, thereby delivering low-latency. This predictability is also used for introspecting job performance and dynamically migrating jobs to better-fit GPUs, thereby improving cluster efficiency. We show via a prototype implementation and micro-benchmarks that Gandiva can speed up hyper-parameter searches during deep learning by up to an order of magnitude, and achieves better utilization by transparently migrating and time-slicing jobs to achieve better job-to-resource fit. We also show that, in a real workload of jobs running in a 180-GPU cluster, Gandiva improves aggregate cluster utilization by 26%, pointing to a new way of managing large GPU clusters for deep learning.</p>
+
+<h2><a href="http://dongd.info/conference/osdi18/presentation/lee">PRETZEL: Opening the Black Box of Machine Learning Prediction Serving Systems</a></h2>
+
+<p>Yunseong Lee, <em>Seoul National University;</em> Alberto Scolari, <em>Politecnico di Milano;</em> Byung-Gon Chun, <em>Seoul National University;</em> Marco Domenico Santambrogio, <em>Politecnico di Milano;</em> Markus Weimer and Matteo Interlandi, <em>Microsoft</em></p>
+
+<p>Available Media</p>
+
+<p><a href="http://dongd.info/conference/osdi18/presentation/lee"></a>](/conference/osdi18/presentation/lee)](/conference/osdi18/presentation/lee)</p>
+
+<p>Machine Learning models are often composed of pipelines of transformations. While this design allows to efficiently execute single model components at training time, prediction serving has different requirements such as low latency, high throughput and graceful performance degradation under heavy load. Current prediction serving systems consider models as black boxes, whereby prediction-time-specific optimizations are ignored in favor of ease of deployment. In this paper, we present PRETZEL, a prediction serving system introducing a novel white box architecture enabling both end-to-end and multi-model optimizations. Using production-like model pipelines, our experiments show that PRETZEL is able to introduce performance improvements over different dimensions; compared to state-of-the-art approaches PRETZEL is on average able to reduce 99th percentile latency by 5.5× while reducing memory footprint by 25×, and increasing throughput by 4.7×.</p>
+
+<h3>10:20 am–10:50 am</h3>
+
+<h2>Break with Refreshments</h2>
+
+<p>Costa Del Sol Patios</p>
+
+<h3>10:50 am–11:50 am</h3>
+
+<h2>Networking</h2>
+
+<p>Session Chair: Rachit Agarwal, <em>Cornell University</em></p>
+
+<h2><a href="http://dongd.info/conference/osdi18/presentation/kulkarni">Splinter: Bare-Metal Extensions for Multi-Tenant Low-Latency Storage</a></h2>
+
+<p>Chinmay Kulkarni, Sara Moore, Mazhar Naqvi, Tian Zhang, Robert Ricci, and Ryan Stutsman, <em>University of Utah</em></p>
+
+<p>Available Media</p>
+
+<p><a href="http://dongd.info/conference/osdi18/presentation/kulkarni"></a>](/conference/osdi18/presentation/kulkarni)](/conference/osdi18/presentation/kulkarni)</p>
+
+<p>In-memory key-value stores that use kernel-bypass networking serve millions of operations per second per machine with microseconds of latency. They are fast in part because they are simple, but their simple interfaces force applications to move data across the network. This is inefficient for operations that aggregate over large amounts of data, and it causes delays when traversing complex data structures. Ideally, applications could push small functions to storage to avoid round trips and data movement; however, pushing code to these fast systems is challenging. Any extra complexity for interpreting or isolating code cuts into their latency and throughput benefits.</p>
+
+<p>We present Splinter, a low-latency key-value store that clients extend by pushing code to it. Splinter is designed for modern multi-tenant data centers; it allows mutually distrusting tenants to write their own fine-grained extensions and push them to the store at runtime. The core of Splinter’s design relies on type- and memory-safe extension code to avoid conventional hardware isolation costs. This still allows for bare-metal execution, avoids data copying across trust boundaries, and makes granular storage functions that perform less than a microsecond of compute practical. Our measurements show that Splinter can process 3.5 million remote extension invocations per second with a median round-trip latency of less than 9 μs at densities of more than 1,000 tenants per server. We provide an implementation of Facebook’s TAO as an 800 line extension that, when pushed to a Splinter server, improves performance by 400 Kop/s to perform 3.2 Mop/s over online graph data with 30 μs remote access times.</p>
+
+<h2><a href="http://dongd.info/conference/osdi18/presentation/yeo">Neural Adaptive Content-aware Internet Video Delivery</a></h2>
+
+<p>Hyunho Yeo, Youngmok Jung, Jaehong Kim, Jinwoo Shin, and Dongsu Han, <em>KAIST</em></p>
+
+<p>Available Media</p>
+
+<p><a href="http://dongd.info/conference/osdi18/presentation/yeo"></a>](/conference/osdi18/presentation/yeo)](/conference/osdi18/presentation/yeo)</p>
+
+<p>Internet video streaming has experienced tremendous growth over the last few decades. However, the quality of existing video delivery critically depends on the bandwidth resource. Consequently, user quality of experience (QoE) suffers inevitably when network conditions become unfavorable. We present a new video delivery framework that utilizes client computation and recent advances in deep neural networks (DNNs) to reduce the dependency for delivering high-quality video. The use of DNNs enables us to enhance the video quality independent to the available bandwidth. We design a practical system that addresses several challenges, such as client heterogeneity, interaction with bitrate adaptation, and DNN transfer, in enabling the idea. Our evaluation using 3G and broadband network traces shows the proposed system outperforms the current state of the art, enhancing the average QoE by 43.08% using the same bandwidth budget or saving 17.13% of bandwidth while providing the same user QoE.</p>
+
+<h2><a href="http://dongd.info/conference/osdi18/presentation/phothilimthana">Floem: A Programming System for NIC-Accelerated Network Applications</a></h2>
+
+<p>Phitchaya Mangpo Phothilimthana, <em>University of California, Berkeley;</em> Ming Liu and Antoine Kaufmann, <em>University of Washington;</em> Simon Peter, <em>The University of Texas at Austin;</em> Rastislav Bodik and Thomas Anderson, <em>University of Washington</em></p>
+
+<p>Available Media</p>
+
+<p><a href="http://dongd.info/conference/osdi18/presentation/phothilimthana"></a>](/conference/osdi18/presentation/phothilimthana)](/conference/osdi18/presentation/phothilimthana)</p>
+
+<p>Developing server applications that offload computation and data to a NIC accelerator is laborious because one has to explore the design space of decisions about data placement and caching; partitioning of code and its parallelism; and communication strategies between program components across devices.</p>
+
+<p>We propose programming abstractions for NIC-accelerated applications, balancing the ease of developing a correct application and the ability to refactor it to explore different design choices. The design space includes semantic changes as well as variations on parallelization and program-to-resource mapping. Our abstractions include logical and physical queues and a construct for mapping the former onto the latter; global per-packet state; a remote caching construct; and an interface to external application code. We develop Floem, a programming system that provides these abstractions, and show that the system helps explore a space of NIC-offloading designs for real-world applications, including a key-value store and a distributed real-time data analytics system, improving throughput by 1.3&ndash;3.6x.</p>
+
+<h3>11:50 am–2:00 pm</h3>
+
+<h2>Lunch (on your own)</h2>
+
+<h3>2:00 pm–3:20 pm</h3>
+
+<h2>Security</h2>
+
+<p>Session Chair: Jay Lorch, <em>Microsoft Research</em></p>
+
+<h2><a href="http://dongd.info/conference/osdi18/presentation/volos">Graviton: Trusted Execution Environments on GPUs</a></h2>
+
+<p>Stavros Volos and Kapil Vaswani, <em>Microsoft Research;</em> Rodrigo Bruno, <em>INESC-ID / IST, University of Lisbon</em></p>
+
+<p>Available Media</p>
+
+<p><a href="http://dongd.info/conference/osdi18/presentation/volos"></a>](/conference/osdi18/presentation/volos)](/conference/osdi18/presentation/volos)</p>
+
+<p>We propose Graviton, an architecture for supporting trusted execution environments on GPUs. Graviton enables applications to offload security- and performance-sensitive kernels and data to a GPU, and execute kernels in isolation from other code running on the GPU and all software on the host, including the device driver, the operating system, and the hypervisor. Graviton can be integrated into existing GPUs with relatively low hardware complexity; all changes are restricted to peripheral components, such as the GPU’s command processor, with no changes to existing CPUs, GPU cores, or the GPU’s MMU and memory controller. We also propose extensions to the CUDA runtime for securely copying data and executing kernels on the GPU. We have implemented Graviton on off-the-shelf NVIDIA GPUs, using emulation for new hardware features. Our evaluation shows that overheads are low(17-33%)with encryption and decryption of traffic to and from the GPU being the main source of overheads.</p>
+
+<h2><a href="http://dongd.info/conference/osdi18/presentation/konoth">ZebRAM: Comprehensive and Compatible Software Protection Against Rowhammer Attacks</a></h2>
+
+<p>Radhesh Krishnan Konoth, <em>Vrije Universiteit Amsterdam;</em> Marco Oliverio, <em>University of Calabria/Vrije Universiteit Amsterdam;</em> Andrei Tatar, Dennis Andriesse, Herbert Bos, Cristiano Giuffrida, and Kaveh Razavi, <em>Vrije Universiteit Amsterdam</em></p>
+
+<p>Available Media</p>
+
+<p><a href="http://dongd.info/conference/osdi18/presentation/konoth"></a>](/conference/osdi18/presentation/konoth)](/conference/osdi18/presentation/konoth)</p>
+
+<p>The Rowhammer vulnerability common to many modern DRAM chips allows attackers to trigger bit flips in a row of memory cells by accessing the adjacent rows at high frequencies. As a result, they are able to corrupt sensitive data structures (such as page tables, cryptographic keys, object pointers, or even instructions in a program), and circumvent all existing defenses. This paper introduces ZebRAM, a novel and comprehensive software-level protection against Rowhammer. ZebRAM isolates every DRAM row that contains data with guard rows that absorb any Rowhammer-induced bit flips; the only known method to protect against all forms of Rowhammer. Rather than leaving guard rows unused, ZebRAM improves performance by using the guard rows as efficient, integrity-checked and optionally compressed swap space. ZebRAM requires no hardware modifications and builds on virtualization extensions in commodity processors to transparently control data placement in DRAM. Our evaluation shows that ZebRAM provides strong security guarantees while utilizing all available memory.</p>
+
+<h2><a href="http://dongd.info/conference/osdi18/presentation/lazar">Karaoke: Distributed Private Messaging Immune to Passive Traffic Analysis</a></h2>
+
+<p>David Lazar, Yossi Gilad, and Nickolai Zeldovich, <em>MIT CSAIL</em></p>
+
+<p>Available Media</p>
+
+<p><a href="http://dongd.info/conference/osdi18/presentation/lazar"></a>](/conference/osdi18/presentation/lazar)](/conference/osdi18/presentation/lazar)</p>
+
+<p>Karaoke is a system for low-latency metadata-private communication. Karaoke provides differential privacy guarantees, and scales better with the number of users than prior such systems (Vuvuzela and Stadium). Karaoke achieves high performance by addressing two challenges faced by prior systems. The first is that differential privacy requires continuously adding noise messages, which leads to high overheads. Karaoke avoids this using optimistic indistinguishability: in the common case, Karaoke reveals no information to the adversary, and Karaoke clients can detect precisely when information may be revealed (thus requiring less noise). The second challenge lies in generating sufficient noise in a distributed system where some nodes may be malicious. Prior work either required each server to generate enough noise on its own, or used expensive verifiable shuffles to prevent any message loss. Karaoke achieves high performance using efficient noise verification, generating noise across many servers and using Bloom filters to efficiently check if any noise messages have been discarded. These techniques allow our prototype of Karaoke to achieve a latency of 6.8 seconds for 2M users. Overall, Karaoke&rsquo;s latency is 5x to 10x better than Vuvuzela and Stadium.</p>
+
+<h2><a href="http://dongd.info/conference/osdi18/presentation/crooks">Obladi: Oblivious Serializable Transactions in the Cloud</a></h2>
+
+<p>Natacha Crooks, <em>The University of Texas at Austin;</em> Matthew Burke, Ethan Cecchetti, Sitar Harel, Rachit Agarwal, and Lorenzo Alvisi, <em>Cornell University</em></p>
+
+<p>Available Media</p>
+
+<p><a href="http://dongd.info/conference/osdi18/presentation/crooks"></a>](/conference/osdi18/presentation/crooks)](/conference/osdi18/presentation/crooks)</p>
+
+<p>This paper presents the design and implementation of Obladi, the first system to provide ACID transactions while also hiding access patterns. Obladi uses as its building block oblivious RAM, but turns the demands of supporting transactions into a performance opportunity. By executing transactions within epochs and delaying commit decisions until an epoch ends, Obladi reduces the amortized bandwidth costs of oblivious storage and increases overall system throughput. These performance gains, combined with new oblivious mechanisms for concurrency control and recovery, allow Obladi to execute OLTP workloads with reasonable throughput : it comes within 5×to 12× of a non-oblivious baseline on the TPC-C, SmallBank, and FreeHealth applications. Latency overheads, however, are higher (70× on TPC-C).</p>
+
+<h3>3:20 pm–3:50 pm</h3>
+
+<h2>Break with Refreshments</h2>
+
+<p>Costa Del Sol Patios</p>
+
+<h3>3:50 pm–5:10 pm</h3>
+
+<h2>Graphs and Data</h2>
+
+<p>Session Chair: Marcos K. Aguilera, <em>VMware Research</em></p>
+
+<h2><a href="http://dongd.info/conference/osdi18/presentation/iyer">ASAP: Fast, Approximate Graph Pattern Mining at Scale</a></h2>
+
+<p>Anand Padmanabha Iyer, <em>UC Berkeley;</em> Zaoxing Liu and Xin Jin, <em>Johns Hopkins University;</em> Shivaram Venkataraman, <em>Microsoft Research / University of Wisconsin;</em> Vladimir Braverman, <em>Johns Hopkins University;</em> Ion Stoica, <em>UC Berkeley</em></p>
+
+<p>Available Media</p>
+
+<p><a href="http://dongd.info/conference/osdi18/presentation/iyer"></a>](/conference/osdi18/presentation/iyer)](/conference/osdi18/presentation/iyer)</p>
+
+<p>While there has been a tremendous interest in processing data that has an underlying graph structure, existing distributed graph processing systems take several minutes or even hours to mine simple patterns on graphs. This paper presents ASAP, a fast, approximate computation engine for graph pattern mining. ASAP leverages state-of-the-art results in graph approximation theory, and extends it to general graph patterns in distributed settings. To enable the users to navigate the trade-off between the result accuracy and latency, we propose a novel approach to build the Error-Latency Profile (ELP) for a given computation. We have implemented ASAP on a general-purpose distributed dataflow platform, and evaluated it extensively on several graph patterns. Our experimental results show that ASAP outperforms existing exact pattern mining solutions by up to 77×. Further, ASAP can scale to graphs with billions of edges without the need for large clusters.</p>
+
+<h2><a href="http://dongd.info/conference/osdi18/presentation/wang">RStream: Marrying Relational Algebra with Streaming for Efficient Graph Mining on A Single Machine</a></h2>
+
+<p>Kai Wang, <em>UCLA;</em> Zhiqiang Zuo, <em>Nanjing University;</em> John Thorpe, <em>UCLA;</em> Tien Quang Nguyen, <em>Facebook;</em> Guoqing Harry Xu, <em>UCLA</em></p>
+
+<p>Available Media</p>
+
+<p><a href="http://dongd.info/conference/osdi18/presentation/wang"></a>](/conference/osdi18/presentation/wang)](/conference/osdi18/presentation/wang)</p>
+
+<p>Graph mining is an important category of graph algorithms that aim to discover structural patterns such as cliques and motifs in a graph. While a great deal of work has been done recently on graph computation such as PageRank, systems support for scalable graph mining is still limited. Existing mining systems such as Arabesque focus on distributed computing and need large amounts of compute and memory resources.</p>
+
+<p>We built RStream, the first single-machine, out-of-core mining system that leverages disk support to store intermediate data. At its core are two innovations: (1) a rich programming model that exposes relational algebra for developers to express a wide variety of mining tasks; and (2) a runtime engine that implements relational algebra efficiently with tuple streaming. A comparison between RStream and four state-of-the-art distributed mining/Datalog systems&mdash;Arabesque, ScaleMine, DistGraph, and BigDatalog&mdash;demonstrates that RStream outperforms all of them, running on a 10-node cluster, e.g., by at least a factor of 1.7, and can process large graphs on an inexpensive machine.</p>
+
+<h2><a href="http://dongd.info/conference/osdi18/presentation/kalavri">Three steps is all you need: fast, accurate, automatic scaling decisions for distributed streaming dataflows</a></h2>
+
+<p>Vasiliki Kalavri, John Liagouris, Moritz Hoffmann, and Desislava Dimitrova, <em>ETH Zurich;</em> Matthew Forshaw, <em>Newcastle University;</em> Timothy Roscoe, <em>ETH Zurich</em></p>
+
+<p>Available Media</p>
+
+<p><a href="http://dongd.info/conference/osdi18/presentation/kalavri"></a>](/conference/osdi18/presentation/kalavri)](/conference/osdi18/presentation/kalavri)</p>
+
+<p>Streaming computations are by nature long-running, and their workloads can change in unpredictable ways. This in turn means that maintaining performance may require dynamically scaling allocated computational resources. Some modern large-scale stream processors allow dynamic scaling but typically leave the difficult task of deciding how much to scale to the user. The process is cumbersome, slow and often inefficient. Where automatic scaling is supported, policies rely on coarse-grained metrics like observed throughput, backpressure, and CPU utilization. As a result, they tend to show incorrect provisioning, oscillations, and long convergence times. We present DS2, an automatic scaling controller for such systems which combines a general performance model of streaming dataflows with lightweight instrumentation to estimate the true processing and output rates of individual dataflow operators. We apply DS2 on Apache Flink and Timely Dataflow and demonstrate its accuracy and fast convergence. When compared to Dhalion, the state-of-the-art technique in Heron, DS2 converges to the optimal, backpressure-free configuration in a single step instead of six.</p>
+
+<h2><a href="http://dongd.info/conference/osdi18/presentation/essertel">Flare: Optimizing Apache Spark with Native Compilation for Scale-Up Architectures and Medium-Size Data</a></h2>
+
+<p>Gregory Essertel, Ruby Tahboub, and James Decker, <em>Purdue University;</em> Kevin Brown and Kunle Olukotun, <em>Stanford University;</em> Tiark Rompf, <em>Purdue University</em></p>
+
+<p>Available Media</p>
+
+<p>/conference/osdi18/presentation/essertel)In recent years, Apache Spark has become the de facto standard for big data processing. Spark has enabled a wide audience of users to process petabyte-scale workloads due to its flexibility and ease of use: users are able to mix SQL-style relational queries with Scala or Python code, and have the resultant programs distributed across an entire cluster, all without having to work with low-level parallelization or network primitives.</p>
+
+<p>However, many workloads of practical importance are not large enough to justify distributed, scale-out execution, as the data may reside entirely in main memory of a single powerful server. Still, users want to use Spark for its familiar interface and tooling. In such scale-up scenarios, Spark&rsquo;s performance is suboptimal, as Spark prioritizes handling data size over optimizing the computations on that data. For such medium-size workloads, performance may still be of critical importance if jobs are computationally heavy, need to be run frequently on changing data, or interface with external libraries and systems (e.g., TensorFlow for machine learning).</p>
+
+<p>We present Flare, an accelerator module for Spark that delivers order of magnitude speedups on scale-up architectures for a large class of applications. Inspired by query compilation techniques from main-memory database systems, Flare incorporates a code generation strategy designed to match the unique aspects of Spark and the characteristics of scale-up architectures, in particular processing data directly from optimized file formats and combining SQL-style relational processing with external frameworks such as TensorFlow.</p>
 ]]></content>
   </entry>
   
@@ -53,7 +899,7 @@
     <link href="http://dongd.info/blog/2019/02/02/dong-bei-travel/"/>
     <updated>2019-02-02T23:27:02+08:00</updated>
     <id>http://dongd.info/blog/2019/02/02/dong-bei-travel</id>
-    <content type="html"><![CDATA[<h1 id="section">东北：从沈阳到哈尔滨</h1>
+    <content type="html"><![CDATA[<h1>东北：从沈阳到哈尔滨</h1>
 
 <p>这算是实现今年的第一个Flag了，完成一次东北之旅。</p>
 
@@ -63,7 +909,7 @@
 
 <p>同行的有我妹妹和一位实验室的同学（代号CDZ）。</p>
 
-<h2 id="section-1">出发前：忙碌和仓促中的决定</h2>
+<h2>出发前：忙碌和仓促中的决定</h2>
 
 <p>这次的出行其实安排得非常匆忙。</p>
 
@@ -85,9 +931,7 @@
 
 <p>开始能够定下来是因为妹妹确定不回去玩了，这样为了能够兼容典章的时间，虽然有点赶，但是我还是决定在年前过去。基本时间段和人员确定下来后，就是各种细节的安排了。</p>
 
-<blockquote>
-  <p>2019-01-21 16:00  “东北出行小分队”微信群建立，距离出发还有5天</p>
-</blockquote>
+<blockquote><p>2019-01-21 16:00  &ldquo;东北出行小分队"微信群建立，距离出发还有5天</p></blockquote>
 
 <p>简单看地图的话，考虑过大连，沈阳，哈尔滨这几个点。</p>
 
@@ -95,9 +939,7 @@
 
 <p>这个决定还有一部分是因为担心哈尔滨太冷了，所以希望能够在沈阳把一些玩的活动（比如滑雪🏂之类的）先玩了，免得到哈尔滨冻得不想玩。（事实证明我们想多了）</p>
 
-<blockquote>
-  <p>2019-01-21 17:57 确定东北之行的基本出行方案：先到沈阳（飞机过去），然后从沈阳做动车到哈尔滨，最后再飞回来。</p>
-</blockquote>
+<blockquote><p>2019-01-21 17:57 确定东北之行的基本出行方案：先到沈阳（飞机过去），然后从沈阳做动车到哈尔滨，最后再飞回来。</p></blockquote>
 
 <p>后面几天主要是安排攻略，订机票火车，订房间，准备防寒的东西。我简单列一下，不再多说。</p>
 ]]></content>
@@ -108,7 +950,7 @@
     <link href="http://dongd.info/blog/2019/01/19/2018-summary/"/>
     <updated>2019-01-19T00:33:00+08:00</updated>
     <id>http://dongd.info/blog/2019/01/19/2018-summary</id>
-    <content type="html"><![CDATA[<h1 id="dd2018">DD的2018年总结</h1>
+    <content type="html"><![CDATA[<h1>DD的2018年总结</h1>
 
 <p>说实话，自己也没有想到2018年就这么嗖的就过去了。</p>
 
@@ -116,13 +958,13 @@
 
 <p>不过和孤零零的博客不一样……说实话18年应该是这几年过得最充实（忙碌）的一年了，才导致blog也没有时间更（中间试过写日记，也被中断掉了）……</p>
 
-<p><img src="http://dongd.info/images/life/DD-2018-summary.png" alt="2018-summary" title="2018-summary" /></p>
+<p><img src="http://dongd.info/images/life/DD-2018-summary.png" title="2018-summary" alt="2018-summary" /></p>
 
 <p>整个2018年的的情况大概就是上面这图这样子了（最近喜欢上了用xmind的思维导图……感觉总结一些东西还是挺方便的）</p>
 
 <p>其实中间还是有很多细节说不清楚的，比如说具体的旅游……之前应该还有和实验室一起出去的春游，但是已经不太记得去了哪里了………</p>
 
-<h2 id="section">旅游，蠢蠢欲动的心</h2>
+<h2>旅游，蠢蠢欲动的心</h2>
 
 <p>说实话，一直都挺像出去玩玩到处看看的。前几年因为穷……所以大概是攒好长一段时间的钱然后出去玩。</p>
 
@@ -134,7 +976,7 @@
 
 <p>从年初开始算的话。最开始的一次是放寒假的时候和CDZ和妹妹在厦门玩。</p>
 
-<p>![](http://dongd.info/images/life/2019-1-19-14.jpg  “”)</p>
+<p><img src="http://dongd.info/images/life/2019-1-19-14.jpg" alt="" /></p>
 
 <p>已经是年前的一两周了，即使是厦门也略显得有点冷。</p>
 
@@ -154,11 +996,11 @@
 
 <p>这是春游的地方的一个奇怪的拱形建筑……也许以后可以凭借这个建筑记起来自己去了哪里……</p>
 
-<p>![](http://dongd.info/images/life/2019-1-19-10.jpg  “”)</p>
+<p><img src="http://dongd.info/images/life/2019-1-19-10.jpg" alt="" /></p>
 
 <p>春游的时候最high的可能是和小伙伴们一起玩狼人了……</p>
 
-<p>![](http://dongd.info/images/life/2019-1-19-13.jpg  “”)</p>
+<p><img src="http://dongd.info/images/life/2019-1-19-13.jpg" alt="" /></p>
 
 <p>肇老师作为新手玩家，凭借一脸呆萌一直挺到了最后……也是可以的。</p>
 
@@ -166,7 +1008,7 @@
 
 <p>暑假初的时候参加了韩国成均馆大学的交流……说是交流，其实是被分配了两个韩国的小伙伴带着强行各种逛了一遍韩国……</p>
 
-<p>![](http://dongd.info/images/life/2019-1-19-12.jpg  “”)</p>
+<p><img src="http://dongd.info/images/life/2019-1-19-12.jpg" alt="" /></p>
 
 <p>在韩国其实待的时间不算短，5、6天的样子。具体的行程都是围绕着成均馆大学和首尔的。</p>
 
@@ -188,7 +1030,7 @@
 
 <p>于是就，决定了这趟出行了。</p>
 
-<p>![](http://dongd.info/images/life/2019-1-19-7.jpg  “”)</p>
+<p><img src="http://dongd.info/images/life/2019-1-19-7.jpg" alt="" /></p>
 
 <p>上面是西安的钟楼还是鼓楼？晚上还是很好看的。</p>
 
@@ -196,7 +1038,7 @@
 
 <p>不过我的这趟是围绕着吃的去的……</p>
 
-<p>![](http://dongd.info/images/life/2019-1-19-5.jpg  “”)</p>
+<p><img src="http://dongd.info/images/life/2019-1-19-5.jpg" alt="" /></p>
 
 <p>上面是自己掰的泡馍，虽然掰了很久，不过掰完之后还是有种意外的成就感啊。</p>
 
@@ -204,7 +1046,7 @@
 
 <p>（本来还应该有次秋游的，因为赶论文的原因被自己鸽了……）</p>
 
-<h2 id="section-1">小牛奶： 养猫初体验</h2>
+<h2>小牛奶： 养猫初体验</h2>
 
 <p>今年最大的变化可能是在想给自己找一个新的家庭成员……</p>
 
@@ -216,11 +1058,11 @@
 
 <p>因为洪帮主自己已经有好几只猫了，不好再养，于是问了下我们（因为之前和洪帮主说过想养猫的想法）。</p>
 
-<p>![](http://dongd.info/images/life/2019-1-19-9.jpg  “”)</p>
+<p><img src="http://dongd.info/images/life/2019-1-19-9.jpg" alt="" /></p>
 
 <p>虽然事出突然，但是养猫这件事忽然变成了”只要点头就可以了“的状态。在简单的一波讨论后，我们接了下来，然后就有了小牛奶了。</p>
 
-<p>![](http://dongd.info/images/life/2019-1-19-3.jpg  “”)</p>
+<p><img src="http://dongd.info/images/life/2019-1-19-3.jpg" alt="" /></p>
 
 <p>养猫的感觉真的和带小孩可能有点像。特别是小猫。刚来的时候要给他准备各种东西，猫砂啊猫砂盆，猫粮，各种罐头，营养膏，玩具……</p>
 
@@ -232,9 +1074,9 @@
 
 <p>后面病好了之后整个猫就皮的不行。（其实小时候就皮，但是小的时候和我们打架不痛……）</p>
 
-<p>![](http://dongd.info/images/life/2019-1-19-8.jpg  “”)</p>
+<p><img src="http://dongd.info/images/life/2019-1-19-8.jpg" alt="" /></p>
 
-<p>![](http://dongd.info/images/life/2019-1-19-1.jpg  “”)</p>
+<p><img src="http://dongd.info/images/life/2019-1-19-1.jpg" alt="" /></p>
 
 <p>养小牛奶还是有好几次波折，主要还是因为后面被阿姨看到了被告知宿舍不能养。</p>
 
@@ -242,11 +1084,11 @@
 
 <p>后面几经波折，把小牛奶带到了杭州和妹妹的橘子一起过一段时间了。结果这两只猫在一起过得还挺开心的。毕竟有个玩伴了，不像之前我们可能陪它的时间也不会很多。</p>
 
-<p>![](http://dongd.info/images/life/2019-1-19-2.jpg  “”)</p>
+<p><img src="http://dongd.info/images/life/2019-1-19-2.jpg" alt="" /></p>
 
 <p>这两天赶完ATC之后还带小牛奶和橘子去做了个绝育，看小牛奶绝望的眼神。</p>
 
-<h2 id="section-2">来科研吧</h2>
+<h2>来科研吧</h2>
 
 <p>今年参加了两个会，ChinaSys（中国图灵大会）和OSDI。</p>
 
@@ -268,11 +1110,11 @@
 
 <p>(๑•̀ㅂ•́)و✧加油</p>
 
-<h2 id="oh-no">运动：oh no……</h2>
+<h2>运动：oh no……</h2>
 
 <p>年会的时候回顾了一下去年的flag，”跑步100次吧“，然后看了下手机里的记录，”6次“。</p>
 
-<p>额O__O “…</p>
+<p>额O__O &ldquo;…</p>
 
 <p>其实今年也没有说完全没有运动，游泳其实去了好多次（冬天也去了）</p>
 
@@ -280,16 +1122,15 @@
 
 <p>不过总体来说的话和去年比起来运动量还是少了很多，感觉还是不行，明年得加强点锻炼。</p>
 
-<h2 id="flag">新年展望！ 给自己立的Flag</h2>
+<h2>新年展望！ 给自己立的Flag</h2>
 
 <p>新年flag就不多bb了，直接放图吧。</p>
 
-<p><img src="http://dongd.info/images/life/DD-2019-plan.png" alt="2018-plan" title="2019-plan" /></p>
+<p><img src="http://dongd.info/images/life/DD-2019-plan.png" title="2019-plan" alt="2018-plan" /></p>
 
 <p>这里面最重要的可能是要坚持运动了，希望自己不要像18年一样……</p>
 
 <p>然后除了图中的flag，希望自己能够把blog坚持下去。</p>
-
 ]]></content>
   </entry>
   
@@ -298,21 +1139,23 @@
     <link href="http://dongd.info/blog/2018/03/24/osdi2014/"/>
     <updated>2018-03-24T22:56:28+08:00</updated>
     <id>http://dongd.info/blog/2018/03/24/osdi2014</id>
-    <content type="html"><![CDATA[<h1 id="osdi-2014">OSDI 2014</h1>
+    <content type="html"><![CDATA[<h1>OSDI 2014</h1>
 
-<h2 id="section">最前面</h2>
+<h2>最前面</h2>
+
 <p>因为刚好看到youtube上面有OSDI 2014的视频，链接：
-https://www.youtube.com/watch?v=WG3b2hE4i6U&amp;list=PLbRoZ5Rrl5ldOufH9TxNQYehPQ_lC0tNX&amp;index=1
+<a href="https://www.youtube.com/watch?v=WG3b2hE4i6U&amp;list=PLbRoZ5Rrl5ldOufH9TxNQYehPQ_lC0tNX&amp;index=1">https://www.youtube.com/watch?v=WG3b2hE4i6U&amp;list=PLbRoZ5Rrl5ldOufH9TxNQYehPQ_lC0tNX&amp;index=1</a>
 所以准备听一下上面的talk回顾一下osdi14的工作。</p>
 
-<h2 id="section-1">下面是记的笔记，仅供理思路之用。</h2>
+<h2>下面是记的笔记，仅供理思路之用。</h2>
 
-<h2 id="arrakis-the-operating-system-is-the-control-plane">Arrakis: The Operating System is the Control Plane</h2>
+<h2>Arrakis: The Operating System is the Control Plane</h2>
+
 <p><a href="https://www.usenix.org/node/186141">link</a></p>
 
 <p>这篇paper的Motivation是说： 现有的hardware device十分快，但是将server Application（比如redis）跑在传统的OS比如linux上面，仍然存在很大的开销。</p>
 
-<p><img src="http://dongd.info/images/paper_read/osdi14/arrakis_motivation.png" alt="motivation" title="motivation" /></p>
+<p><img src="http://dongd.info/images/paper_read/osdi14/arrakis_motivation.png" title="motivation" alt="motivation" /></p>
 
 <p>如上图，使用linux kernel的话，在一次redis的set/get request中，kernel占据的时间其实占了相当大的比例。这是因为kernel的功能非常多，包含了access control等等的逻辑，而这些kernel的处理逻辑放在data plane上肯定会导致整体的性能更差的。</p>
 
@@ -322,15 +1165,15 @@ https://www.youtube.com/watch?v=WG3b2hE4i6U&amp;list=PLbRoZ5Rrl5ldOufH9TxNQYehPQ
 
 <p>使用SRIOV后，很多kernel实时做control plane的事情都可以变成硬件来guarantee了。举个例子，原先kernel要做资源隔离，现在只需要在app启动的时候让kernel在device中配置好配置文件，就可以让硬件来自动保证app只能访问到特定的资源了。</p>
 
-<p><img src="http://dongd.info/images/paper_read/osdi14/arrakis_io_arch.png" alt="IO ARCH" title="motivation" /></p>
+<p><img src="http://dongd.info/images/paper_read/osdi14/arrakis_io_arch.png" title="motivation" alt="IO ARCH" /></p>
 
-<p>最后的整个IO的architecture如上图。</p>
+<p> 最后的整个IO的architecture如上图。</p>
 
 <p>应用层和libOS(作control plane) 的部分并没有很多亮点，这里不讲。</p>
 
 <p>最后的效果还是很不错的。</p>
 
-<p><img src="http://dongd.info/images/paper_read/osdi14/arrakis_evaluation.png" alt="evaluation" title="evaluation" /></p>
+<p><img src="http://dongd.info/images/paper_read/osdi14/arrakis_evaluation.png" title="evaluation" alt="evaluation" /></p>
 
 <p>这篇paper是这年OSDI的best paper。虽然听talk感觉小哥讲得很不错而且回答问题也答得很好，但是也没有想到竟然能拿下best paper。
 主要还是因为这篇paper解决的问题其实并不是很新的问题，netmap，dune(以及同年的IX) 都是同样的motivation。提问环节也有人问到这个问题。从作者的回答来看，arrakis和之前最大的特点其实是解决问题的思路不同，这篇paper的核心是说如何通过结合最新的硬件来实现尽可能地将kernel从data plane中移除。而netmap这类工作的优化其实很依赖于batching这样的技术，最终结果是虽然throughput会提升但是难免会有latency的损失。</p>
@@ -339,12 +1182,12 @@ https://www.youtube.com/watch?v=WG3b2hE4i6U&amp;list=PLbRoZ5Rrl5ldOufH9TxNQYehPQ
 
 <hr />
 
-<h2 id="ix-a-protected-dataplane-operating-system-for-high-throughput-and-low-latency">IX: A Protected Dataplane Operating System for High Throughput and Low Latency</h2>
+<h2>IX: A Protected Dataplane Operating System for High Throughput and Low Latency</h2>
 
 <p>motivation和arrakis很像，解决的方案也很像。
 不过在IX里面，虽然仍然通过划分control/data plane，但是后续的做法仍然不同。IX是基于之前的dune的系统，而基于dune的方案的好处在于： 可以让application直接访问硬件的同时，仍然能够实现现有的linux kernel中的各种接口服务（在dune中通过hypercall来抓发syscall的request)。</p>
 
-<p><img src="http://dongd.info/images/paper_read/osdi14/ix_io_arch.png" alt="IO ARCH" title="motivation" /></p>
+<p><img src="http://dongd.info/images/paper_read/osdi14/ix_io_arch.png" title="motivation" alt="IO ARCH" /></p>
 
 <p>IX的架构如上，其实是一个三层的架构，传统的OS，如linux kernel，在root-mode ring 0跑着。IX的application在non-root mode的ring3跑着，其中还有一个libIX提供基本的库作为接口。而在non-root mode的ring 0运行的是IX，这是一个负责简单的data plane(也许还有部分的control plane的功能）的一个libOS，仅负责处理application对于hardware device（比如NIC）的快速访问。</p>
 
@@ -361,29 +1204,32 @@ https://www.youtube.com/watch?v=WG3b2hE4i6U&amp;list=PLbRoZ5Rrl5ldOufH9TxNQYehPQ
     <link href="http://dongd.info/blog/2017/08/27/ATC17_papers_read_1/"/>
     <updated>2017-08-27T00:00:00+08:00</updated>
     <id>http://dongd.info/blog/2017/08/27/ATC17_papers_read_1</id>
-    <content type="html"><![CDATA[<h1 id="atc17-paper-">ATC‘17 paper 阅读（一）</h1>
+    <content type="html"><![CDATA[<h1>ATC‘17 paper 阅读（一）</h1>
 
 <p><strong>转载请注明出处</strong></p>
 
 <p>会议全称：2017 USENIX Annual Technical Conference，<a href="https://www.usenix.org/conference/atc17">官方链接</a></p>
 
-<h3 id="section">没有什么用的前言</h3>
+<h3>没有什么用的前言</h3>
+
 <p>ATC算是系统方面非常好的会了，一直想着过一遍今年ATC的paper，不过一直看得间间断断的。就着实验室放假的时间，写一波今年ATC paper的笔记，也当是促使自己读完今年ATC的paper了。</p>
 
 <p>paper和对应的slides都可以在上面的官方链接中的Program中找到。</p>
 
-<h3 id="sessin-kernel">Sessin: Kernel</h3>
+<h3>Sessin: Kernel</h3>
 
 <p>这个session里面有四篇文章</p>
 
 <ul>
-  <li>Lock-in-Pop: Securing Privileged Operating System Kernels by Keeping on the Beaten Path</li>
-  <li>Fast and Precise Retrieval of Forward and Back Porting Information for Linux Device Drivers</li>
-  <li>Optimizing the TLB Shootdown Algorithm with Page Access Tracking</li>
-  <li>Falcon: Scaling IO Performance in Multi-SSD Volumes</li>
+<li>Lock-in-Pop: Securing Privileged Operating System Kernels by Keeping on the Beaten Path</li>
+<li>Fast and Precise Retrieval of Forward and Back Porting Information for Linux Device Drivers</li>
+<li>Optimizing the TLB Shootdown Algorithm with Page Access Tracking</li>
+<li>Falcon: Scaling IO Performance in Multi-SSD Volumes</li>
 </ul>
 
-<h4 id="lock-in-pop-securing-privileged-operating-system-kernels-by-keeping-on-the-beaten-path">1. Lock-in-Pop: Securing Privileged Operating System Kernels by Keeping on the Beaten Path</h4>
+
+<h4>1. Lock-in-Pop: Securing Privileged Operating System Kernels by Keeping on the Beaten Path</h4>
+
 <p>作者是Yiwen Li, Brendan Dolan-Gavitt, Sam Weber, and Justin Cappos, New York University。</p>
 
 <p>这篇paper算是我比较感兴趣的paper之一，系统安全的工作。</p>
@@ -408,11 +1254,11 @@ https://www.youtube.com/watch?v=WG3b2hE4i6U&amp;list=PLbRoZ5Rrl5ldOufH9TxNQYehPQ
 
 <p>基于这个metrix，作者在这篇paper中提出了一个新的系统Lind，这个系统针对的是类似容器这样的操作系统虚拟化的场景。Lind用到的核心组件是Google的NaCl和Repy Sandbox，系统的核心想法很简单：通过确定下来哪些syscall，以及他们对应的哪些参数使用，是在kernel中的popular path的，只运行lind中的application使用这些syscall以及对应的参数。NaCl和Repy Sandbox的作用就是拦截下来应用的系统调用，并且将不被允许的系统调用在SafePosix这一层重新实现一下。</p>
 
-<p><img src="http://dongd.info/images/paper_read/atc17/atc17_yiwen_2.png" alt="图片来自作者slides或paper" title="图片来自作者slides或paper" /></p>
+<p><img src="http://dongd.info/images/paper_read/atc17/atc17_yiwen_2.png" title="图片来自作者slides或paper" alt="图片来自作者slides或paper" /></p>
 
 <p>从最后的evaluation来看，Lind测试了的应用程序包括grep，wget，netcat，apache这些。可见Lind的机制对于大部分的application还是能够很好地兼容的，而且不需要修改应用程序和内核这两点也是非常好的特点。</p>
 
-<p><img src="http://dongd.info/images/paper_read/atc17/atc17_yiwen_3.png" alt="图片来自作者slides或paper" title="图片来自作者slides或paper" /></p>
+<p><img src="http://dongd.info/images/paper_read/atc17/atc17_yiwen_3.png" title="图片来自作者slides或paper" alt="图片来自作者slides或paper" /></p>
 
 <p>上面的测试结果来看，Lind对于application的性能还是会有相当的损失的。最慢的情况下会慢到6.25倍。这主要是因为Lind需要对很多系统调用重新实现，这部分会带来很多额外的开销。</p>
 
@@ -426,7 +1272,7 @@ https://www.youtube.com/watch?v=WG3b2hE4i6U&amp;list=PLbRoZ5Rrl5ldOufH9TxNQYehPQ
 
 <p>这种方法其实我觉得其实很难说是一个漂亮的或者让人信服的方法。他们分析出来的popular path以1/3的代码量却只存在3%的bug，这个结果应该说是非常吸引人的结果，个人觉得也是他们的这个方法最终能够立得住的重要的基础。</p>
 
-<h4 id="fast-and-precise-retrieval-of-forward-and-back-porting-information-for-linux-device-drivers">2. Fast and Precise Retrieval of Forward and Back Porting Information for Linux Device Drivers</h4>
+<h4>2. Fast and Precise Retrieval of Forward and Back Porting Information for Linux Device Drivers</h4>
 
 <p>paper的作者：Julia Lawall, Derek Palinski, Lukas Gnirke, Gilles Muller，来自：Sorbonne Universites/UPMC/Inria/LIP6</p>
 
@@ -441,7 +1287,7 @@ Linux系统是现在使用地非常广泛的系统，从云端到IOT设备都有
 
 <p>论文中，将开发者移植驱动程序的方法归结为： ①尝试自己在新版本的内核中直接编译原有的驱动程序代码 ②编译器会提示对应的错误信息（如果发生了接口修改的问题） ③开发人员根据错误信息通过kernel git中的信息或者是google查找解决方案。</p>
 
-<p><img src="http://dongd.info/images/paper_read/atc17/atc17_lawall_1.png" alt="图片来自作者slides或paper" title="图片来自作者slides或paper" /></p>
+<p><img src="http://dongd.info/images/paper_read/atc17/atc17_lawall_1.png" title="图片来自作者slides或paper" alt="图片来自作者slides或paper" /></p>
 
 <p>上面是一个具体的例子，可以看到其中提示suspend这个field已经没有了。</p>
 
@@ -462,30 +1308,30 @@ Linux系统是现在使用地非常广泛的系统，从云端到IOT设备都有
 
 <p>其实仔细想想会发现这篇paper所提出的工具非常简单，基本上可以说就是一个patch的查找工具。在这样简单的基本工作上，他们的工作能够中ATC，个人感觉是因为他们找了一个很好的问题：驱动在跨内核版本的迁移问题。通过相应的数据，说明了这个问题的客观存在以及重要性，并且通过非常solid的测试结果（实际移植了33个驱动并且开源出来），来证明工具的有效性，这才使得整个工作瞬间变得不一样了。</p>
 
-<h4 id="optimizing-the-tlb-shootdown-algorithm-with-page-access-tracking">3.Optimizing the TLB Shootdown Algorithm with Page Access Tracking</h4>
+<h4>3.Optimizing the TLB Shootdown Algorithm with Page Access Tracking</h4>
 
 <p>作者是Nadav Amit，来自VMware Research。
 Nadav Amit小哥的paper今年已经看到几篇了：今年HotOS的hypercallbacks是他的工作，感觉挺有意思的；17年ASPLOS的Page Fault Support for Network Controllers也是他的工作，之前听学长讲过这篇；还有之前看到的关于网络虚拟化相关的paper，比如ELI等，也有这个小哥参与的，他在ELI后面还做了一系列和IOMMU相关的工作。</p>
 
 <p><strong>paper</strong></p>
 
-<p><img src="http://dongd.info/images/paper_read/atc17/atc17_amit_1.png" alt="图片来自作者slides或paper" title="图片来自作者slides或paper" /></p>
+<p><img src="http://dongd.info/images/paper_read/atc17/atc17_amit_1.png" title="图片来自作者slides或paper" alt="图片来自作者slides或paper" /></p>
 
 <p>现在的OS，一般都会使用虚拟地址来对内存操作，这是因为内存的虚拟化可以使得进程间有非常好的隔离性，另一方面能够更好地使用内存资源。而使用虚拟地址，意味着我们需要一种转换机制，能够在CPU运行的时候，从将虚拟地址转换为真正需要的物理地址，这种转换机制就页表：page table了。页表的结构如上图，页表也存在内存当中，由一个根寄存器指向它（x86系统下页表根指针存在cr3寄存器中），这个根寄存器存的是页表的物理地址，当CPU需要去查找一个虚拟地址对应的物理地址的时候，会从这个根寄存器所在的第一级页表开始一级级往下走，最终获取到对应的物理地址，再从内存中根据物理地址读写对应的内存。</p>
 
-<p>当然，每一次访存操作都需要走页表显然是会比较慢的。Cache是系统中一个很常见的优化方式，为了减少走页表的次数，每个CPU中会有一个TLB（translation lookaside buffer）。这个buffer其实本质上就是一个cache，它缓存一个虚拟地址到物理地址的映射。也就是说，当CPU需要访问某个虚拟地址A的时候，会首先在TLB中查找一下A是否已经在TLB中了，如果A已经在了，就直接获得对应的物理地址，这叫一次tlb hit，如果不在TLB中则走一次页表，获取到A对应的物理地址B，并且将A-&gt;B这样的映射缓存入TLB，这是一次tlb miss。TLB在现在的架构中已经是十分常见的一部分了。</p>
+<p>当然，每一次访存操作都需要走页表显然是会比较慢的。Cache是系统中一个很常见的优化方式，为了减少走页表的次数，每个CPU中会有一个TLB（translation lookaside buffer）。这个buffer其实本质上就是一个cache，它缓存一个虚拟地址到物理地址的映射。也就是说，当CPU需要访问某个虚拟地址A的时候，会首先在TLB中查找一下A是否已经在TLB中了，如果A已经在了，就直接获得对应的物理地址，这叫一次tlb hit，如果不在TLB中则走一次页表，获取到A对应的物理地址B，并且将A->B这样的映射缓存入TLB，这是一次tlb miss。TLB在现在的架构中已经是十分常见的一部分了。</p>
 
 <p>和Cache不同，硬件（比如X86）一般是不会维护TLB的一致性的，这个任务被交给了系统软件来处理。这意味着，比如在Linux系统中内核需要切换一个运行的进程了，不仅仅需要切换进程对应的页表，还需要把旧的TLB清空，否则会导致访问到之前的页表说映射的内存。x86下不能直接访问TLB的内容，而是提供了一些相关的指令来flush tlb。清空TLB会带来一些性能开销，并且每次清空TLB之后，最初的一系列访存操作会频繁触发TLB miss，整体来看对性能的影响很大。相关的优化包括为每个页表分配一个ASID，然后在TLB的每一项中记录这ASID，查找TLB的时候会看对应的entry里的ASID与当前运行程序的ASID是否相同，相同才使用。这其实很好地环节了部分TLB的问题，另一个更难处理的问题则出现在多核的环境下。</p>
 
 <p>由于TLB是每个核一个的，当一个程序（比如多进程）同时在多个核上运行的时候，如果其中一个触发了对于页表的修改，这就意味着不仅需要将当前核上的对应的TLB刷掉，还需要将其他核心上运行的相关的TLB刷掉，这就是一次TLB shootdown。一次TLB shootdown：当前core flush tlb， 发送IPI请求给其他core（当前core等待其他core的返回），其他core处理IPI然后刷TLB，其他core返回IPI处理结果，当前core完成一次TLB shootdown操作。可以看到，为了保证多核环境下的TLB的一致性，其实是需要比较大的开销的。</p>
 
-<p>为了解决tlb shootdown的问题，现有的解决方法大体可以分为硬件方法和软件方法这两类。 硬件方法的核心在于修改硬件来使得硬件能够维护TLB的一致性，相关的工作有Translation-lookaside buffer consistency（Teller‘90），DiDi:Mitigating the performance impact of TLB shootdowns using a shared TLB directory（Villavieja’11，PACT上的）等。软件方法中，现在OS采用的方法如Batching（Scalability of microkernel-based systems,Uhlig’05），只flush使用对应的address space的core，权衡full flush和individual flush来最优化结果。此外，还有学术上最新的软件类型的方法：Explicit software control（Boyd-Wickizer’10, Tene’11），Replicated paging hierarchy（Clements’13, Gerofi’13）。这些工作虽然都能在某些具体的场景下减缓TLB shootdown的问题，但是都存在他们的不足之处。比如replicated paging，需要非常多额外的内存去存储replicated的页表，并且在更新页表的时候，也需要保证多个拷贝页表同时去更新，这都会带来额外的性能开销。</p>
+<p>为了解决tlb shootdown的问题，现有的解决方法大体可以分为硬件方法和软件方法这两类。 硬件方法的核心在于修改硬件来使得硬件能够维护TLB的一致性，相关的工作有Translation-lookaside buffer consistency（Teller‘90），DiDi:Mitigating the performance impact of TLB shootdowns using a shared TLB directory（Villavieja’11，PACT上的）等。软件方法中，现在OS采用的方法如Batching（Scalability of microkernel-based systems,Uhlig'05），只flush使用对应的address space的core，权衡full flush和individual flush来最优化结果。此外，还有学术上最新的软件类型的方法：Explicit software control（Boyd-Wickizer’10, Tene’11），Replicated paging hierarchy（Clements’13, Gerofi’13）。这些工作虽然都能在某些具体的场景下减缓TLB shootdown的问题，但是都存在他们的不足之处。比如replicated paging，需要非常多额外的内存去存储replicated的页表，并且在更新页表的时候，也需要保证多个拷贝页表同时去更新，这都会带来额外的性能开销。</p>
 
 <p>这篇工作针对于两种情况： short-lived private mappings 以及long lived idle mappings进行了优化，能够在Linux系统上减少90%的tlb shootdown。long-lived idle mappings是指在某个core上，关于某个PTE的映射在比较长的时间中已经没有再使用了，甚至与在该core上已经执行了tlb full flush过，那么这种情况下当其他的core在判断需要通知哪些remote cores去刷tlb的时候就不需要通知这种core了。作者们使用的技术叫做tlb version tracking，核心点在于当需要执行tlb shootdown的时候看一下remote的core上面的pte 对应的tlb的version是多少，如果对应version表示该core已经不存在这个pte对应的tlb了则可以避免这一次shootdown。</p>
 
 <p>针对于short-lived private mapping的处理是核心部分，这里利用了x86架构下页表中的一个特殊的标记位：access bit。</p>
 
-<p><img src="http://dongd.info/images/paper_read/atc17/atc17_amit_2.png" alt="图片来自作者slides或paper" title="图片来自作者slides或paper" /></p>
+<p><img src="http://dongd.info/images/paper_read/atc17/atc17_amit_2.png" title="图片来自作者slides或paper" alt="图片来自作者slides或paper" /></p>
 
 <p>access bit会在CPU走页表查找某个page的时候，将对应的PTE中的这个bit设置上，OS可以去清空这个bit。这个bit最初是给kernel做memory reclamation的。这里如何运用这个硬件特性来做tlb shootdonw的优化呢。</p>
 
@@ -495,11 +1341,11 @@ Nadav Amit小哥的paper今年已经看到几篇了：今年HotOS的hypercallbac
 
 <p>测试部分的话，micro benchmark的结果显示能够减少很多的TLB shootdown。可见整个设计方案还是比较好的。</p>
 
-<p><img src="http://dongd.info/images/paper_read/atc17/atc17_amit_3.png" alt="图片来自作者slides或paper" title="图片来自作者slides或paper" /></p>
+<p><img src="http://dongd.info/images/paper_read/atc17/atc17_amit_3.png" title="图片来自作者slides或paper" alt="图片来自作者slides或paper" /></p>
 
 <p>macro测试部分则显得不是很好了，最终的性能提升甚至到不了1.15，而且core不同的时候的测试结果感觉很不同，也看不出中间存在什么特殊的走势。</p>
 
-<p><img src="http://dongd.info/images/paper_read/atc17/atc17_amit_4.png" alt="图片来自作者slides或paper" title="图片来自作者slides或paper" /></p>
+<p><img src="http://dongd.info/images/paper_read/atc17/atc17_amit_4.png" title="图片来自作者slides或paper" alt="图片来自作者slides或paper" /></p>
 
 <p>对于TLB shootdown本来就不多的例子，这篇论文的方法大概会带来9%左右的overhead，当然作者argue说如果硬件能够提供部分支持的话这样的overhead是可以避免的。</p>
 
@@ -509,29 +1355,29 @@ Nadav Amit小哥的paper今年已经看到几篇了：今年HotOS的hypercallbac
 
 <p>整体来看，这篇paper还是挺好的，充满很多关于tlb的技术点（尤其对于我来说之前这类paper研究的也不多），看完之后也能学到很多东西，ATC这个会议也是很适合这篇paper的，其他系统的会议的话PC们可能就不一定会买账了……</p>
 
-<h4 id="falcon-scaling-io-performance-in-multi-ssd-volumes">4.Falcon: Scaling IO Performance in Multi-SSD Volumes</h4>
+<h4>4.Falcon: Scaling IO Performance in Multi-SSD Volumes</h4>
 
 <p>作者是Pradeep Kumar and H. Howie Huang, 来自The George Washington University。
 <strong>paper</strong></p>
 
 <p>这篇论文宏观上来看是针对于multi-SSD volume这种新场景下的优化，目前的比如Linux中的现有方案都不能权衡好性能和应用的易用性。下面这张图就是对比的几个系统，可以看出来性能最好的其实就是application自己用多个thread管理多个SSD的使用，当然这种方案会带来的问题是应用端的复杂度就会很高了，而kernel managed 的方案都存在各种性能上的问题。这篇paper想达到两者同时最优的方案。</p>
 
-<p><img src="http://dongd.info/images/paper_read/atc17/atc17_kumar_1.png" alt="图片来自作者slides或paper" title="图片来自作者slides或paper" /></p>
+<p><img src="http://dongd.info/images/paper_read/atc17/atc17_kumar_1.png" title="图片来自作者slides或paper" alt="图片来自作者slides或paper" /></p>
 
 <p>下面是现有的LInux下的IO的流和中间的状态的切换。这篇paper的insight是说现有的方案中有很多IO batching和IO serving捆绑的情况，而这样的设计其实并不利于multi-SSD volume的使用。</p>
 
-<p><img src="http://dongd.info/images/paper_read/atc17/atc17_kumar_2.png" alt="图片来自作者slides或paper" title="图片来自作者slides或paper" /></p>
+<p><img src="http://dongd.info/images/paper_read/atc17/atc17_kumar_2.png" title="图片来自作者slides或paper" alt="图片来自作者slides或paper" /></p>
 
 <p>最终的设计方案也是按照这个思路去解决的，核心就是分离出了两个模块，分别处理IO batching和IO servicing。</p>
 
-<p><img src="http://dongd.info/images/paper_read/atc17/atc17_kumar_3.png" alt="图片来自作者slides或paper" title="图片来自作者slides或paper" /></p>
+<p><img src="http://dongd.info/images/paper_read/atc17/atc17_kumar_3.png" title="图片来自作者slides或paper" alt="图片来自作者slides或paper" /></p>
 
 <p>最终的测试方面，相比于现在的系统，在8-SSD volume的配置下，Falcon能够提高随机文件读写的速度分别为1.77倍和1.59倍，对于各种测试的应用程序显示的性能结果是1.69×倍的提升。</p>
 
 <p><strong>思考</strong>
 这篇paper感觉可以学到很多东西，不过的确和自己的研究方向差的有点远。核心的思想能够看出来是为了挺高并行性的，能够支持现有的系统，并且最终的性能测试的结果也不错，算是一篇很好的工作。设计的和IO子系统相关的背景介绍其实也不错，不过技术细节还没有完全想清楚具体是怎么做的（毕竟很多概念都是第一次知道……），笔记记得也就粗略一点了。等之后再空点或者想了解一下IO这块的时候再回来补下这块的笔记吧！</p>
 
-<h4 id="session1-">Session1 小节</h4>
+<h4>Session1 小节</h4>
 
 <p>第一个ATC的session是关于Kernel的，其实更具体点说就是Linux Kernel的相关的四篇paper。四篇paper具体涉及的方向就差很多了，Security的，IO的，TLB以及driverd。不过每篇paper的质量都很高，而且对相关领域的背景介绍也都很深入。Linux Kernel现在的使用非常广泛，很多系统的工作也是基于Linux Kernel来做的，感觉要做系统的话对于Linux Kernel的理解必须要很深入才行，不仅仅是自己研究的方向，其他的方面也要能够有些了解，这样有时候才能借鉴到其他方向的一些比较好的解决方法，也能够结合不同的系统方面来进行设计。</p>
 
@@ -544,7 +1390,7 @@ Nadav Amit小哥的paper今年已经看到几篇了：今年HotOS的hypercallbac
     <link href="http://dongd.info/blog/2017/03/30/hello/"/>
     <updated>2017-03-30T00:14:10+08:00</updated>
     <id>http://dongd.info/blog/2017/03/30/hello</id>
-    <content type="html"><![CDATA[<h1 id="helloworld">hello,world</h1>
+    <content type="html"><![CDATA[<h1>hello,world</h1>
 
 <p>这是blog的第一篇测试博客。
 希望能够坚持下来记录博客的习惯↖(^ω^)↗</p>

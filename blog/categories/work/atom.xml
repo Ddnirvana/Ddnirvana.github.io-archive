@@ -4,7 +4,7 @@
   <title><![CDATA[Category: work | Dd's home]]></title>
   <link href="http://dongd.info/blog/categories/work/atom.xml" rel="self"/>
   <link href="http://dongd.info/"/>
-  <updated>2019-02-20T21:55:01+08:00</updated>
+  <updated>2019-02-20T22:16:02+08:00</updated>
   <id>http://dongd.info/</id>
   <author>
     <name><![CDATA[Dong Du]]></name>
@@ -18,7 +18,7 @@
     <link href="http://dongd.info/blog/2017/03/30/hello/"/>
     <updated>2017-03-30T00:14:10+08:00</updated>
     <id>http://dongd.info/blog/2017/03/30/hello</id>
-    <content type="html"><![CDATA[<h1 id="helloworld">hello,world</h1>
+    <content type="html"><![CDATA[<h1>hello,world</h1>
 
 <p>这是blog的第一篇测试博客。
 希望能够坚持下来记录博客的习惯↖(^ω^)↗</p>

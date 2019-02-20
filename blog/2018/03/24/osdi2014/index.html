@@ -50,21 +50,23 @@
 
 <time datetime="2018-03-24T22:56:28+08:00" pubdate data-updated="true">Mar 24th, 2018</time></div>
 	</div>
-	<div class="entry-content"><h1 id="osdi-2014">OSDI 2014</h1>
+	<div class="entry-content"><h1>OSDI 2014</h1>
 
-<h2 id="section">最前面</h2>
+<h2>最前面</h2>
+
 <p>因为刚好看到youtube上面有OSDI 2014的视频，链接：
-https://www.youtube.com/watch?v=WG3b2hE4i6U&amp;list=PLbRoZ5Rrl5ldOufH9TxNQYehPQ_lC0tNX&amp;index=1
+<a href="https://www.youtube.com/watch?v=WG3b2hE4i6U&amp;list=PLbRoZ5Rrl5ldOufH9TxNQYehPQ_lC0tNX&amp;index=1">https://www.youtube.com/watch?v=WG3b2hE4i6U&amp;list=PLbRoZ5Rrl5ldOufH9TxNQYehPQ_lC0tNX&amp;index=1</a>
 所以准备听一下上面的talk回顾一下osdi14的工作。</p>
 
-<h2 id="section-1">下面是记的笔记，仅供理思路之用。</h2>
+<h2>下面是记的笔记，仅供理思路之用。</h2>
 
-<h2 id="arrakis-the-operating-system-is-the-control-plane">Arrakis: The Operating System is the Control Plane</h2>
+<h2>Arrakis: The Operating System is the Control Plane</h2>
+
 <p><a href="https://www.usenix.org/node/186141">link</a></p>
 
 <p>这篇paper的Motivation是说： 现有的hardware device十分快，但是将server Application（比如redis）跑在传统的OS比如linux上面，仍然存在很大的开销。</p>
 
-<p><img src="http://dongd.info/images/paper_read/osdi14/arrakis_motivation.png" alt="motivation" title="motivation" /></p>
+<p><img src="http://dongd.info/images/paper_read/osdi14/arrakis_motivation.png" title="motivation" alt="motivation" /></p>
 
 <p>如上图，使用linux kernel的话，在一次redis的set/get request中，kernel占据的时间其实占了相当大的比例。这是因为kernel的功能非常多，包含了access control等等的逻辑，而这些kernel的处理逻辑放在data plane上肯定会导致整体的性能更差的。</p>
 
@@ -74,15 +76,15 @@ https://www.youtube.com/watch?v=WG3b2hE4i6U&amp;list=PLbRoZ5Rrl5ldOufH9TxNQYehPQ
 
 <p>使用SRIOV后，很多kernel实时做control plane的事情都可以变成硬件来guarantee了。举个例子，原先kernel要做资源隔离，现在只需要在app启动的时候让kernel在device中配置好配置文件，就可以让硬件来自动保证app只能访问到特定的资源了。</p>
 
-<p><img src="http://dongd.info/images/paper_read/osdi14/arrakis_io_arch.png" alt="IO ARCH" title="motivation" /></p>
+<p><img src="http://dongd.info/images/paper_read/osdi14/arrakis_io_arch.png" title="motivation" alt="IO ARCH" /></p>
 
-<p>最后的整个IO的architecture如上图。</p>
+<p> 最后的整个IO的architecture如上图。</p>
 
 <p>应用层和libOS(作control plane) 的部分并没有很多亮点，这里不讲。</p>
 
 <p>最后的效果还是很不错的。</p>
 
-<p><img src="http://dongd.info/images/paper_read/osdi14/arrakis_evaluation.png" alt="evaluation" title="evaluation" /></p>
+<p><img src="http://dongd.info/images/paper_read/osdi14/arrakis_evaluation.png" title="evaluation" alt="evaluation" /></p>
 
 <p>这篇paper是这年OSDI的best paper。虽然听talk感觉小哥讲得很不错而且回答问题也答得很好，但是也没有想到竟然能拿下best paper。
 主要还是因为这篇paper解决的问题其实并不是很新的问题，netmap，dune(以及同年的IX) 都是同样的motivation。提问环节也有人问到这个问题。从作者的回答来看，arrakis和之前最大的特点其实是解决问题的思路不同，这篇paper的核心是说如何通过结合最新的硬件来实现尽可能地将kernel从data plane中移除。而netmap这类工作的优化其实很依赖于batching这样的技术，最终结果是虽然throughput会提升但是难免会有latency的损失。</p>
@@ -91,12 +93,12 @@ https://www.youtube.com/watch?v=WG3b2hE4i6U&amp;list=PLbRoZ5Rrl5ldOufH9TxNQYehPQ
 
 <hr />
 
-<h2 id="ix-a-protected-dataplane-operating-system-for-high-throughput-and-low-latency">IX: A Protected Dataplane Operating System for High Throughput and Low Latency</h2>
+<h2>IX: A Protected Dataplane Operating System for High Throughput and Low Latency</h2>
 
 <p>motivation和arrakis很像，解决的方案也很像。
 不过在IX里面，虽然仍然通过划分control/data plane，但是后续的做法仍然不同。IX是基于之前的dune的系统，而基于dune的方案的好处在于： 可以让application直接访问硬件的同时，仍然能够实现现有的linux kernel中的各种接口服务（在dune中通过hypercall来抓发syscall的request)。</p>
 
-<p><img src="http://dongd.info/images/paper_read/osdi14/ix_io_arch.png" alt="IO ARCH" title="motivation" /></p>
+<p><img src="http://dongd.info/images/paper_read/osdi14/ix_io_arch.png" title="motivation" alt="IO ARCH" /></p>
 
 <p>IX的架构如上，其实是一个三层的架构，传统的OS，如linux kernel，在root-mode ring 0跑着。IX的application在non-root mode的ring3跑着，其中还有一个libIX提供基本的库作为接口。而在non-root mode的ring 0运行的是IX，这是一个负责简单的data plane(也许还有部分的control plane的功能）的一个libOS，仅负责处理application对于hardware device（比如NIC）的快速访问。</p>
 
