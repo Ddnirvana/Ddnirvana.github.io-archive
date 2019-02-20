@@ -4,7 +4,7 @@
   <title><![CDATA[Category: papers | Dd's home]]></title>
   <link href="http://dongd.info/blog/categories/papers/atom.xml" rel="self"/>
   <link href="http://dongd.info/"/>
-  <updated>2019-02-20T21:54:11+08:00</updated>
+  <updated>2019-02-20T21:55:01+08:00</updated>
   <id>http://dongd.info/</id>
   <author>
     <name><![CDATA[Dong Du]]></name>
@@ -21,9 +21,6 @@
     <content type="html"><![CDATA[<p>Although the program of each OSDI conference can be easily found in the network, an archive page can help us to soonly review the history published work on OSDI. :)</p>
 
 <p>This page will be updated continuously~ (if not, you can notify me through email)</p>
-
-<p>```</p>
-<p>```</p>
 
 <h2 id="osdi-2018">OSDI 2018</h2>
 
