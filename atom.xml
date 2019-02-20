@@ -4,7 +4,7 @@
   <title><![CDATA[Dd's home]]></title>
   <link href="http://dongd.info/atom.xml" rel="self"/>
   <link href="http://dongd.info/"/>
-  <updated>2019-02-20T21:47:16+08:00</updated>
+  <updated>2019-02-20T21:54:11+08:00</updated>
   <id>http://dongd.info/</id>
   <author>
     <name><![CDATA[Dong Du]]></name>
@@ -22,19 +22,20 @@
 
 <p>This page will be updated continuously~ (if not, you can notify me through email)</p>
 
-<p>[TOC]</p>
+<figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">{:toc}</span></code></pre></td></tr></table></div></figure>
 
-<h2>OSDI 2018</h2>
+<h2 id="osdi-2018">OSDI 2018</h2>
 
-<h3>Understanding Failures</h3>
+<h3 id="understanding-failures">Understanding Failures</h3>
 
-<p><strong><font color=#005493>Capturing and Enhancing In Situ System Observability for Failure Detection</font></strong></p>
+<p><strong>&lt;font color=#005493&gt;Capturing and Enhancing In Situ System Observability for Failure Detection&lt;/font&gt;</strong></p>
 
 <p>Peng Huang, <em>Johns Hopkins University;</em> Chuanxiong Guo, <em>ByteDance Inc.;</em> Jacob R. Lorch and Lidong Zhou, <em>Microsoft Research;</em> Yingnong Dang, <em>Microsoft</em></p>
 
-<p><strong>Abstract</strong> Real-world distributed systems suffer unavailability due to various types of failure. But, despite enormous effort, many failures, especially gray failures, still escape detection. In this paper, we argue that the missing piece in failure detection is detecting what the requesters of a failing component see. This insight leads us to the design and implementation of Panorama, a system designed to enhance \emph{system observability} by taking advantage of the interactions between a system&rsquo;s components. By providing a systematic channel and analysis tool, Panorama turns a component into a logical observer so that it not only handles errors, but also \emph{reports} them. Furthermore, Panorama incorporates techniques for making such observations even when indirection exists between components. Panorama can easily integrate with popular distributed systems and detect all 15 \emph{real-world} gray failures that we reproduced in less than 7 s, whereas existing approaches detect only one of them in under 300 s.</p>
+<p><strong>Abstract</strong> Real-world distributed systems suffer unavailability due to various types of failure. But, despite enormous effort, many failures, especially gray failures, still escape detection. In this paper, we argue that the missing piece in failure detection is detecting what the requesters of a failing component see. This insight leads us to the design and implementation of Panorama, a system designed to enhance \emph{system observability} by taking advantage of the interactions between a system’s components. By providing a systematic channel and analysis tool, Panorama turns a component into a logical observer so that it not only handles errors, but also \emph{reports} them. Furthermore, Panorama incorporates techniques for making such observations even when indirection exists between components. Panorama can easily integrate with popular distributed systems and detect all 15 \emph{real-world} gray failures that we reproduced in less than 7 s, whereas existing approaches detect only one of them in under 300 s.</p>
 
-<p><strong><font color=#005493>REPT: Reverse Debugging of Failures in Deployed Software</font></strong></p>
+<p><strong>&lt;font color=#005493&gt;REPT: Reverse Debugging of Failures in Deployed Software&lt;/font&gt;</strong></p>
 
 <p>Weidong Cui and Xinyang Ge, <em>Microsoft Research Redmond;</em> Baris Kasikci, <em>University of Michigan;</em> Ben Niu, <em>Microsoft Research Redmond;</em> Upamanyu Sharma, <em>University of Michigan;</em> Ruoyu Wang, <em>Arizona State University;</em> Insu Yun, <em>Georgia Institute of Technology</em></p>
 
@@ -42,11 +43,11 @@
 
 <p><strong>Abstract</strong> Debugging software failures in deployed systems is important because they impact real users and customers. However, debugging such failures is notoriously hard in practice because developers have to rely on limited information such as memory dumps. The execution history is usually unavailable because high-fidelity program tracing is not affordable in deployed systems.</p>
 
-<p>In this paper, we present REPT, a practical system that enables reverse debugging of software failures in deployed systems. REPT reconstructs the execution history with high fidelity by combining online lightweight hardware tracing of a program&rsquo;s control flow with offline binary analysis that recovers its data flow. It is seemingly impossible to recover data values thousands of instructions before the failure due to information loss and concurrent execution. REPT tackles these challenges by constructing a partial execution order based on timestamps logged by hardware and iteratively performing forward and backward execution with error correction.</p>
+<p>In this paper, we present REPT, a practical system that enables reverse debugging of software failures in deployed systems. REPT reconstructs the execution history with high fidelity by combining online lightweight hardware tracing of a program’s control flow with offline binary analysis that recovers its data flow. It is seemingly impossible to recover data values thousands of instructions before the failure due to information loss and concurrent execution. REPT tackles these challenges by constructing a partial execution order based on timestamps logged by hardware and iteratively performing forward and backward execution with error correction.</p>
 
 <p>We design and implement REPT, deploy it on Microsoft Windows, and integrate it into Windows Debugger. We evaluate REPT on 16 real-world bugs and show that it can recover data values accurately (92% on average) and efficiently (less than 20 seconds) for these bugs. We also show that it enables effective reverse debugging for 14 bugs.</p>
 
-<h3>Operating Systems</h3>
+<h3 id="operating-systems">Operating Systems</h3>
 ]]></content>
   </entry>
   
@@ -55,7 +56,7 @@
     <link href="http://dongd.info/blog/2019/02/02/dong-bei-travel/"/>
     <updated>2019-02-02T23:27:02+08:00</updated>
     <id>http://dongd.info/blog/2019/02/02/dong-bei-travel</id>
-    <content type="html"><![CDATA[<h1>东北：从沈阳到哈尔滨</h1>
+    <content type="html"><![CDATA[<h1 id="section">东北：从沈阳到哈尔滨</h1>
 
 <p>这算是实现今年的第一个Flag了，完成一次东北之旅。</p>
 
@@ -65,7 +66,7 @@
 
 <p>同行的有我妹妹和一位实验室的同学（代号CDZ）。</p>
 
-<h2>出发前：忙碌和仓促中的决定</h2>
+<h2 id="section-1">出发前：忙碌和仓促中的决定</h2>
 
 <p>这次的出行其实安排得非常匆忙。</p>
 
@@ -87,7 +88,9 @@
 
 <p>开始能够定下来是因为妹妹确定不回去玩了，这样为了能够兼容典章的时间，虽然有点赶，但是我还是决定在年前过去。基本时间段和人员确定下来后，就是各种细节的安排了。</p>
 
-<blockquote><p>2019-01-21 16:00  &ldquo;东北出行小分队"微信群建立，距离出发还有5天</p></blockquote>
+<blockquote>
+  <p>2019-01-21 16:00  “东北出行小分队”微信群建立，距离出发还有5天</p>
+</blockquote>
 
 <p>简单看地图的话，考虑过大连，沈阳，哈尔滨这几个点。</p>
 
@@ -95,7 +98,9 @@
 
 <p>这个决定还有一部分是因为担心哈尔滨太冷了，所以希望能够在沈阳把一些玩的活动（比如滑雪🏂之类的）先玩了，免得到哈尔滨冻得不想玩。（事实证明我们想多了）</p>
 
-<blockquote><p>2019-01-21 17:57 确定东北之行的基本出行方案：先到沈阳（飞机过去），然后从沈阳做动车到哈尔滨，最后再飞回来。</p></blockquote>
+<blockquote>
+  <p>2019-01-21 17:57 确定东北之行的基本出行方案：先到沈阳（飞机过去），然后从沈阳做动车到哈尔滨，最后再飞回来。</p>
+</blockquote>
 
 <p>后面几天主要是安排攻略，订机票火车，订房间，准备防寒的东西。我简单列一下，不再多说。</p>
 ]]></content>
@@ -106,7 +111,7 @@
     <link href="http://dongd.info/blog/2019/01/19/2018-summary/"/>
     <updated>2019-01-19T00:33:00+08:00</updated>
     <id>http://dongd.info/blog/2019/01/19/2018-summary</id>
-    <content type="html"><![CDATA[<h1>DD的2018年总结</h1>
+    <content type="html"><![CDATA[<h1 id="dd2018">DD的2018年总结</h1>
 
 <p>说实话，自己也没有想到2018年就这么嗖的就过去了。</p>
 
@@ -114,13 +119,13 @@
 
 <p>不过和孤零零的博客不一样……说实话18年应该是这几年过得最充实（忙碌）的一年了，才导致blog也没有时间更（中间试过写日记，也被中断掉了）……</p>
 
-<p><img src="http://dongd.info/images/life/DD-2018-summary.png" title="2018-summary" alt="2018-summary" /></p>
+<p><img src="http://dongd.info/images/life/DD-2018-summary.png" alt="2018-summary" title="2018-summary" /></p>
 
 <p>整个2018年的的情况大概就是上面这图这样子了（最近喜欢上了用xmind的思维导图……感觉总结一些东西还是挺方便的）</p>
 
 <p>其实中间还是有很多细节说不清楚的，比如说具体的旅游……之前应该还有和实验室一起出去的春游，但是已经不太记得去了哪里了………</p>
 
-<h2>旅游，蠢蠢欲动的心</h2>
+<h2 id="section">旅游，蠢蠢欲动的心</h2>
 
 <p>说实话，一直都挺像出去玩玩到处看看的。前几年因为穷……所以大概是攒好长一段时间的钱然后出去玩。</p>
 
@@ -132,7 +137,7 @@
 
 <p>从年初开始算的话。最开始的一次是放寒假的时候和CDZ和妹妹在厦门玩。</p>
 
-<p><img src="http://dongd.info/images/life/2019-1-19-14.jpg" alt="" /></p>
+<p>![](http://dongd.info/images/life/2019-1-19-14.jpg  “”)</p>
 
 <p>已经是年前的一两周了，即使是厦门也略显得有点冷。</p>
 
@@ -152,11 +157,11 @@
 
 <p>这是春游的地方的一个奇怪的拱形建筑……也许以后可以凭借这个建筑记起来自己去了哪里……</p>
 
-<p><img src="http://dongd.info/images/life/2019-1-19-10.jpg" alt="" /></p>
+<p>![](http://dongd.info/images/life/2019-1-19-10.jpg  “”)</p>
 
 <p>春游的时候最high的可能是和小伙伴们一起玩狼人了……</p>
 
-<p><img src="http://dongd.info/images/life/2019-1-19-13.jpg" alt="" /></p>
+<p>![](http://dongd.info/images/life/2019-1-19-13.jpg  “”)</p>
 
 <p>肇老师作为新手玩家，凭借一脸呆萌一直挺到了最后……也是可以的。</p>
 
@@ -164,7 +169,7 @@
 
 <p>暑假初的时候参加了韩国成均馆大学的交流……说是交流，其实是被分配了两个韩国的小伙伴带着强行各种逛了一遍韩国……</p>
 
-<p><img src="http://dongd.info/images/life/2019-1-19-12.jpg" alt="" /></p>
+<p>![](http://dongd.info/images/life/2019-1-19-12.jpg  “”)</p>
 
 <p>在韩国其实待的时间不算短，5、6天的样子。具体的行程都是围绕着成均馆大学和首尔的。</p>
 
@@ -186,7 +191,7 @@
 
 <p>于是就，决定了这趟出行了。</p>
 
-<p><img src="http://dongd.info/images/life/2019-1-19-7.jpg" alt="" /></p>
+<p>![](http://dongd.info/images/life/2019-1-19-7.jpg  “”)</p>
 
 <p>上面是西安的钟楼还是鼓楼？晚上还是很好看的。</p>
 
@@ -194,7 +199,7 @@
 
 <p>不过我的这趟是围绕着吃的去的……</p>
 
-<p><img src="http://dongd.info/images/life/2019-1-19-5.jpg" alt="" /></p>
+<p>![](http://dongd.info/images/life/2019-1-19-5.jpg  “”)</p>
 
 <p>上面是自己掰的泡馍，虽然掰了很久，不过掰完之后还是有种意外的成就感啊。</p>
 
@@ -202,7 +207,7 @@
 
 <p>（本来还应该有次秋游的，因为赶论文的原因被自己鸽了……）</p>
 
-<h2>小牛奶： 养猫初体验</h2>
+<h2 id="section-1">小牛奶： 养猫初体验</h2>
 
 <p>今年最大的变化可能是在想给自己找一个新的家庭成员……</p>
 
@@ -214,11 +219,11 @@
 
 <p>因为洪帮主自己已经有好几只猫了，不好再养，于是问了下我们（因为之前和洪帮主说过想养猫的想法）。</p>
 
-<p><img src="http://dongd.info/images/life/2019-1-19-9.jpg" alt="" /></p>
+<p>![](http://dongd.info/images/life/2019-1-19-9.jpg  “”)</p>
 
 <p>虽然事出突然，但是养猫这件事忽然变成了”只要点头就可以了“的状态。在简单的一波讨论后，我们接了下来，然后就有了小牛奶了。</p>
 
-<p><img src="http://dongd.info/images/life/2019-1-19-3.jpg" alt="" /></p>
+<p>![](http://dongd.info/images/life/2019-1-19-3.jpg  “”)</p>
 
 <p>养猫的感觉真的和带小孩可能有点像。特别是小猫。刚来的时候要给他准备各种东西，猫砂啊猫砂盆，猫粮，各种罐头，营养膏，玩具……</p>
 
@@ -230,9 +235,9 @@
 
 <p>后面病好了之后整个猫就皮的不行。（其实小时候就皮，但是小的时候和我们打架不痛……）</p>
 
-<p><img src="http://dongd.info/images/life/2019-1-19-8.jpg" alt="" /></p>
+<p>![](http://dongd.info/images/life/2019-1-19-8.jpg  “”)</p>
 
-<p><img src="http://dongd.info/images/life/2019-1-19-1.jpg" alt="" /></p>
+<p>![](http://dongd.info/images/life/2019-1-19-1.jpg  “”)</p>
 
 <p>养小牛奶还是有好几次波折，主要还是因为后面被阿姨看到了被告知宿舍不能养。</p>
 
@@ -240,11 +245,11 @@
 
 <p>后面几经波折，把小牛奶带到了杭州和妹妹的橘子一起过一段时间了。结果这两只猫在一起过得还挺开心的。毕竟有个玩伴了，不像之前我们可能陪它的时间也不会很多。</p>
 
-<p><img src="http://dongd.info/images/life/2019-1-19-2.jpg" alt="" /></p>
+<p>![](http://dongd.info/images/life/2019-1-19-2.jpg  “”)</p>
 
 <p>这两天赶完ATC之后还带小牛奶和橘子去做了个绝育，看小牛奶绝望的眼神。</p>
 
-<h2>来科研吧</h2>
+<h2 id="section-2">来科研吧</h2>
 
 <p>今年参加了两个会，ChinaSys（中国图灵大会）和OSDI。</p>
 
@@ -266,11 +271,11 @@
 
 <p>(๑•̀ㅂ•́)و✧加油</p>
 
-<h2>运动：oh no……</h2>
+<h2 id="oh-no">运动：oh no……</h2>
 
 <p>年会的时候回顾了一下去年的flag，”跑步100次吧“，然后看了下手机里的记录，”6次“。</p>
 
-<p>额O__O &ldquo;…</p>
+<p>额O__O “…</p>
 
 <p>其实今年也没有说完全没有运动，游泳其实去了好多次（冬天也去了）</p>
 
@@ -278,15 +283,16 @@
 
 <p>不过总体来说的话和去年比起来运动量还是少了很多，感觉还是不行，明年得加强点锻炼。</p>
 
-<h2>新年展望！ 给自己立的Flag</h2>
+<h2 id="flag">新年展望！ 给自己立的Flag</h2>
 
 <p>新年flag就不多bb了，直接放图吧。</p>
 
-<p><img src="http://dongd.info/images/life/DD-2019-plan.png" title="2019-plan" alt="2018-plan" /></p>
+<p><img src="http://dongd.info/images/life/DD-2019-plan.png" alt="2018-plan" title="2019-plan" /></p>
 
 <p>这里面最重要的可能是要坚持运动了，希望自己不要像18年一样……</p>
 
 <p>然后除了图中的flag，希望自己能够把blog坚持下去。</p>
+
 ]]></content>
   </entry>
   
@@ -295,23 +301,21 @@
     <link href="http://dongd.info/blog/2018/03/24/osdi2014/"/>
     <updated>2018-03-24T22:56:28+08:00</updated>
     <id>http://dongd.info/blog/2018/03/24/osdi2014</id>
-    <content type="html"><![CDATA[<h1>OSDI 2014</h1>
+    <content type="html"><![CDATA[<h1 id="osdi-2014">OSDI 2014</h1>
 
-<h2>最前面</h2>
-
+<h2 id="section">最前面</h2>
 <p>因为刚好看到youtube上面有OSDI 2014的视频，链接：
-<a href="https://www.youtube.com/watch?v=WG3b2hE4i6U&amp;list=PLbRoZ5Rrl5ldOufH9TxNQYehPQ_lC0tNX&amp;index=1">https://www.youtube.com/watch?v=WG3b2hE4i6U&amp;list=PLbRoZ5Rrl5ldOufH9TxNQYehPQ_lC0tNX&amp;index=1</a>
+https://www.youtube.com/watch?v=WG3b2hE4i6U&amp;list=PLbRoZ5Rrl5ldOufH9TxNQYehPQ_lC0tNX&amp;index=1
 所以准备听一下上面的talk回顾一下osdi14的工作。</p>
 
-<h2>下面是记的笔记，仅供理思路之用。</h2>
+<h2 id="section-1">下面是记的笔记，仅供理思路之用。</h2>
 
-<h2>Arrakis: The Operating System is the Control Plane</h2>
-
+<h2 id="arrakis-the-operating-system-is-the-control-plane">Arrakis: The Operating System is the Control Plane</h2>
 <p><a href="https://www.usenix.org/node/186141">link</a></p>
 
 <p>这篇paper的Motivation是说： 现有的hardware device十分快，但是将server Application（比如redis）跑在传统的OS比如linux上面，仍然存在很大的开销。</p>
 
-<p><img src="http://dongd.info/images/paper_read/osdi14/arrakis_motivation.png" title="motivation" alt="motivation" /></p>
+<p><img src="http://dongd.info/images/paper_read/osdi14/arrakis_motivation.png" alt="motivation" title="motivation" /></p>
 
 <p>如上图，使用linux kernel的话，在一次redis的set/get request中，kernel占据的时间其实占了相当大的比例。这是因为kernel的功能非常多，包含了access control等等的逻辑，而这些kernel的处理逻辑放在data plane上肯定会导致整体的性能更差的。</p>
 
@@ -321,15 +325,15 @@
 
 <p>使用SRIOV后，很多kernel实时做control plane的事情都可以变成硬件来guarantee了。举个例子，原先kernel要做资源隔离，现在只需要在app启动的时候让kernel在device中配置好配置文件，就可以让硬件来自动保证app只能访问到特定的资源了。</p>
 
-<p><img src="http://dongd.info/images/paper_read/osdi14/arrakis_io_arch.png" title="motivation" alt="IO ARCH" /></p>
+<p><img src="http://dongd.info/images/paper_read/osdi14/arrakis_io_arch.png" alt="IO ARCH" title="motivation" /></p>
 
-<p> 最后的整个IO的architecture如上图。</p>
+<p>最后的整个IO的architecture如上图。</p>
 
 <p>应用层和libOS(作control plane) 的部分并没有很多亮点，这里不讲。</p>
 
 <p>最后的效果还是很不错的。</p>
 
-<p><img src="http://dongd.info/images/paper_read/osdi14/arrakis_evaluation.png" title="evaluation" alt="evaluation" /></p>
+<p><img src="http://dongd.info/images/paper_read/osdi14/arrakis_evaluation.png" alt="evaluation" title="evaluation" /></p>
 
 <p>这篇paper是这年OSDI的best paper。虽然听talk感觉小哥讲得很不错而且回答问题也答得很好，但是也没有想到竟然能拿下best paper。
 主要还是因为这篇paper解决的问题其实并不是很新的问题，netmap，dune(以及同年的IX) 都是同样的motivation。提问环节也有人问到这个问题。从作者的回答来看，arrakis和之前最大的特点其实是解决问题的思路不同，这篇paper的核心是说如何通过结合最新的硬件来实现尽可能地将kernel从data plane中移除。而netmap这类工作的优化其实很依赖于batching这样的技术，最终结果是虽然throughput会提升但是难免会有latency的损失。</p>
@@ -338,12 +342,12 @@
 
 <hr />
 
-<h2>IX: A Protected Dataplane Operating System for High Throughput and Low Latency</h2>
+<h2 id="ix-a-protected-dataplane-operating-system-for-high-throughput-and-low-latency">IX: A Protected Dataplane Operating System for High Throughput and Low Latency</h2>
 
 <p>motivation和arrakis很像，解决的方案也很像。
 不过在IX里面，虽然仍然通过划分control/data plane，但是后续的做法仍然不同。IX是基于之前的dune的系统，而基于dune的方案的好处在于： 可以让application直接访问硬件的同时，仍然能够实现现有的linux kernel中的各种接口服务（在dune中通过hypercall来抓发syscall的request)。</p>
 
-<p><img src="http://dongd.info/images/paper_read/osdi14/ix_io_arch.png" title="motivation" alt="IO ARCH" /></p>
+<p><img src="http://dongd.info/images/paper_read/osdi14/ix_io_arch.png" alt="IO ARCH" title="motivation" /></p>
 
 <p>IX的架构如上，其实是一个三层的架构，传统的OS，如linux kernel，在root-mode ring 0跑着。IX的application在non-root mode的ring3跑着，其中还有一个libIX提供基本的库作为接口。而在non-root mode的ring 0运行的是IX，这是一个负责简单的data plane(也许还有部分的control plane的功能）的一个libOS，仅负责处理application对于hardware device（比如NIC）的快速访问。</p>
 
@@ -360,32 +364,29 @@
     <link href="http://dongd.info/blog/2017/08/27/ATC17_papers_read_1/"/>
     <updated>2017-08-27T00:00:00+08:00</updated>
     <id>http://dongd.info/blog/2017/08/27/ATC17_papers_read_1</id>
-    <content type="html"><![CDATA[<h1>ATC‘17 paper 阅读（一）</h1>
+    <content type="html"><![CDATA[<h1 id="atc17-paper-">ATC‘17 paper 阅读（一）</h1>
 
 <p><strong>转载请注明出处</strong></p>
 
 <p>会议全称：2017 USENIX Annual Technical Conference，<a href="https://www.usenix.org/conference/atc17">官方链接</a></p>
 
-<h3>没有什么用的前言</h3>
-
+<h3 id="section">没有什么用的前言</h3>
 <p>ATC算是系统方面非常好的会了，一直想着过一遍今年ATC的paper，不过一直看得间间断断的。就着实验室放假的时间，写一波今年ATC paper的笔记，也当是促使自己读完今年ATC的paper了。</p>
 
 <p>paper和对应的slides都可以在上面的官方链接中的Program中找到。</p>
 
-<h3>Sessin: Kernel</h3>
+<h3 id="sessin-kernel">Sessin: Kernel</h3>
 
 <p>这个session里面有四篇文章</p>
 
 <ul>
-<li>Lock-in-Pop: Securing Privileged Operating System Kernels by Keeping on the Beaten Path</li>
-<li>Fast and Precise Retrieval of Forward and Back Porting Information for Linux Device Drivers</li>
-<li>Optimizing the TLB Shootdown Algorithm with Page Access Tracking</li>
-<li>Falcon: Scaling IO Performance in Multi-SSD Volumes</li>
+  <li>Lock-in-Pop: Securing Privileged Operating System Kernels by Keeping on the Beaten Path</li>
+  <li>Fast and Precise Retrieval of Forward and Back Porting Information for Linux Device Drivers</li>
+  <li>Optimizing the TLB Shootdown Algorithm with Page Access Tracking</li>
+  <li>Falcon: Scaling IO Performance in Multi-SSD Volumes</li>
 </ul>
 
-
-<h4>1. Lock-in-Pop: Securing Privileged Operating System Kernels by Keeping on the Beaten Path</h4>
-
+<h4 id="lock-in-pop-securing-privileged-operating-system-kernels-by-keeping-on-the-beaten-path">1. Lock-in-Pop: Securing Privileged Operating System Kernels by Keeping on the Beaten Path</h4>
 <p>作者是Yiwen Li, Brendan Dolan-Gavitt, Sam Weber, and Justin Cappos, New York University。</p>
 
 <p>这篇paper算是我比较感兴趣的paper之一，系统安全的工作。</p>
@@ -410,11 +411,11 @@
 
 <p>基于这个metrix，作者在这篇paper中提出了一个新的系统Lind，这个系统针对的是类似容器这样的操作系统虚拟化的场景。Lind用到的核心组件是Google的NaCl和Repy Sandbox，系统的核心想法很简单：通过确定下来哪些syscall，以及他们对应的哪些参数使用，是在kernel中的popular path的，只运行lind中的application使用这些syscall以及对应的参数。NaCl和Repy Sandbox的作用就是拦截下来应用的系统调用，并且将不被允许的系统调用在SafePosix这一层重新实现一下。</p>
 
-<p><img src="http://dongd.info/images/paper_read/atc17/atc17_yiwen_2.png" title="图片来自作者slides或paper" alt="图片来自作者slides或paper" /></p>
+<p><img src="http://dongd.info/images/paper_read/atc17/atc17_yiwen_2.png" alt="图片来自作者slides或paper" title="图片来自作者slides或paper" /></p>
 
 <p>从最后的evaluation来看，Lind测试了的应用程序包括grep，wget，netcat，apache这些。可见Lind的机制对于大部分的application还是能够很好地兼容的，而且不需要修改应用程序和内核这两点也是非常好的特点。</p>
 
-<p><img src="http://dongd.info/images/paper_read/atc17/atc17_yiwen_3.png" title="图片来自作者slides或paper" alt="图片来自作者slides或paper" /></p>
+<p><img src="http://dongd.info/images/paper_read/atc17/atc17_yiwen_3.png" alt="图片来自作者slides或paper" title="图片来自作者slides或paper" /></p>
 
 <p>上面的测试结果来看，Lind对于application的性能还是会有相当的损失的。最慢的情况下会慢到6.25倍。这主要是因为Lind需要对很多系统调用重新实现，这部分会带来很多额外的开销。</p>
 
@@ -428,7 +429,7 @@
 
 <p>这种方法其实我觉得其实很难说是一个漂亮的或者让人信服的方法。他们分析出来的popular path以1/3的代码量却只存在3%的bug，这个结果应该说是非常吸引人的结果，个人觉得也是他们的这个方法最终能够立得住的重要的基础。</p>
 
-<h4>2. Fast and Precise Retrieval of Forward and Back Porting Information for Linux Device Drivers</h4>
+<h4 id="fast-and-precise-retrieval-of-forward-and-back-porting-information-for-linux-device-drivers">2. Fast and Precise Retrieval of Forward and Back Porting Information for Linux Device Drivers</h4>
 
 <p>paper的作者：Julia Lawall, Derek Palinski, Lukas Gnirke, Gilles Muller，来自：Sorbonne Universites/UPMC/Inria/LIP6</p>
 
@@ -443,7 +444,7 @@ Linux系统是现在使用地非常广泛的系统，从云端到IOT设备都有
 
 <p>论文中，将开发者移植驱动程序的方法归结为： ①尝试自己在新版本的内核中直接编译原有的驱动程序代码 ②编译器会提示对应的错误信息（如果发生了接口修改的问题） ③开发人员根据错误信息通过kernel git中的信息或者是google查找解决方案。</p>
 
-<p><img src="http://dongd.info/images/paper_read/atc17/atc17_lawall_1.png" title="图片来自作者slides或paper" alt="图片来自作者slides或paper" /></p>
+<p><img src="http://dongd.info/images/paper_read/atc17/atc17_lawall_1.png" alt="图片来自作者slides或paper" title="图片来自作者slides或paper" /></p>
 
 <p>上面是一个具体的例子，可以看到其中提示suspend这个field已经没有了。</p>
 
@@ -464,30 +465,30 @@ Linux系统是现在使用地非常广泛的系统，从云端到IOT设备都有
 
 <p>其实仔细想想会发现这篇paper所提出的工具非常简单，基本上可以说就是一个patch的查找工具。在这样简单的基本工作上，他们的工作能够中ATC，个人感觉是因为他们找了一个很好的问题：驱动在跨内核版本的迁移问题。通过相应的数据，说明了这个问题的客观存在以及重要性，并且通过非常solid的测试结果（实际移植了33个驱动并且开源出来），来证明工具的有效性，这才使得整个工作瞬间变得不一样了。</p>
 
-<h4>3.Optimizing the TLB Shootdown Algorithm with Page Access Tracking</h4>
+<h4 id="optimizing-the-tlb-shootdown-algorithm-with-page-access-tracking">3.Optimizing the TLB Shootdown Algorithm with Page Access Tracking</h4>
 
 <p>作者是Nadav Amit，来自VMware Research。
 Nadav Amit小哥的paper今年已经看到几篇了：今年HotOS的hypercallbacks是他的工作，感觉挺有意思的；17年ASPLOS的Page Fault Support for Network Controllers也是他的工作，之前听学长讲过这篇；还有之前看到的关于网络虚拟化相关的paper，比如ELI等，也有这个小哥参与的，他在ELI后面还做了一系列和IOMMU相关的工作。</p>
 
 <p><strong>paper</strong></p>
 
-<p><img src="http://dongd.info/images/paper_read/atc17/atc17_amit_1.png" title="图片来自作者slides或paper" alt="图片来自作者slides或paper" /></p>
+<p><img src="http://dongd.info/images/paper_read/atc17/atc17_amit_1.png" alt="图片来自作者slides或paper" title="图片来自作者slides或paper" /></p>
 
 <p>现在的OS，一般都会使用虚拟地址来对内存操作，这是因为内存的虚拟化可以使得进程间有非常好的隔离性，另一方面能够更好地使用内存资源。而使用虚拟地址，意味着我们需要一种转换机制，能够在CPU运行的时候，从将虚拟地址转换为真正需要的物理地址，这种转换机制就页表：page table了。页表的结构如上图，页表也存在内存当中，由一个根寄存器指向它（x86系统下页表根指针存在cr3寄存器中），这个根寄存器存的是页表的物理地址，当CPU需要去查找一个虚拟地址对应的物理地址的时候，会从这个根寄存器所在的第一级页表开始一级级往下走，最终获取到对应的物理地址，再从内存中根据物理地址读写对应的内存。</p>
 
-<p>当然，每一次访存操作都需要走页表显然是会比较慢的。Cache是系统中一个很常见的优化方式，为了减少走页表的次数，每个CPU中会有一个TLB（translation lookaside buffer）。这个buffer其实本质上就是一个cache，它缓存一个虚拟地址到物理地址的映射。也就是说，当CPU需要访问某个虚拟地址A的时候，会首先在TLB中查找一下A是否已经在TLB中了，如果A已经在了，就直接获得对应的物理地址，这叫一次tlb hit，如果不在TLB中则走一次页表，获取到A对应的物理地址B，并且将A->B这样的映射缓存入TLB，这是一次tlb miss。TLB在现在的架构中已经是十分常见的一部分了。</p>
+<p>当然，每一次访存操作都需要走页表显然是会比较慢的。Cache是系统中一个很常见的优化方式，为了减少走页表的次数，每个CPU中会有一个TLB（translation lookaside buffer）。这个buffer其实本质上就是一个cache，它缓存一个虚拟地址到物理地址的映射。也就是说，当CPU需要访问某个虚拟地址A的时候，会首先在TLB中查找一下A是否已经在TLB中了，如果A已经在了，就直接获得对应的物理地址，这叫一次tlb hit，如果不在TLB中则走一次页表，获取到A对应的物理地址B，并且将A-&gt;B这样的映射缓存入TLB，这是一次tlb miss。TLB在现在的架构中已经是十分常见的一部分了。</p>
 
 <p>和Cache不同，硬件（比如X86）一般是不会维护TLB的一致性的，这个任务被交给了系统软件来处理。这意味着，比如在Linux系统中内核需要切换一个运行的进程了，不仅仅需要切换进程对应的页表，还需要把旧的TLB清空，否则会导致访问到之前的页表说映射的内存。x86下不能直接访问TLB的内容，而是提供了一些相关的指令来flush tlb。清空TLB会带来一些性能开销，并且每次清空TLB之后，最初的一系列访存操作会频繁触发TLB miss，整体来看对性能的影响很大。相关的优化包括为每个页表分配一个ASID，然后在TLB的每一项中记录这ASID，查找TLB的时候会看对应的entry里的ASID与当前运行程序的ASID是否相同，相同才使用。这其实很好地环节了部分TLB的问题，另一个更难处理的问题则出现在多核的环境下。</p>
 
 <p>由于TLB是每个核一个的，当一个程序（比如多进程）同时在多个核上运行的时候，如果其中一个触发了对于页表的修改，这就意味着不仅需要将当前核上的对应的TLB刷掉，还需要将其他核心上运行的相关的TLB刷掉，这就是一次TLB shootdown。一次TLB shootdown：当前core flush tlb， 发送IPI请求给其他core（当前core等待其他core的返回），其他core处理IPI然后刷TLB，其他core返回IPI处理结果，当前core完成一次TLB shootdown操作。可以看到，为了保证多核环境下的TLB的一致性，其实是需要比较大的开销的。</p>
 
-<p>为了解决tlb shootdown的问题，现有的解决方法大体可以分为硬件方法和软件方法这两类。 硬件方法的核心在于修改硬件来使得硬件能够维护TLB的一致性，相关的工作有Translation-lookaside buffer consistency（Teller‘90），DiDi:Mitigating the performance impact of TLB shootdowns using a shared TLB directory（Villavieja’11，PACT上的）等。软件方法中，现在OS采用的方法如Batching（Scalability of microkernel-based systems,Uhlig'05），只flush使用对应的address space的core，权衡full flush和individual flush来最优化结果。此外，还有学术上最新的软件类型的方法：Explicit software control（Boyd-Wickizer’10, Tene’11），Replicated paging hierarchy（Clements’13, Gerofi’13）。这些工作虽然都能在某些具体的场景下减缓TLB shootdown的问题，但是都存在他们的不足之处。比如replicated paging，需要非常多额外的内存去存储replicated的页表，并且在更新页表的时候，也需要保证多个拷贝页表同时去更新，这都会带来额外的性能开销。</p>
+<p>为了解决tlb shootdown的问题，现有的解决方法大体可以分为硬件方法和软件方法这两类。 硬件方法的核心在于修改硬件来使得硬件能够维护TLB的一致性，相关的工作有Translation-lookaside buffer consistency（Teller‘90），DiDi:Mitigating the performance impact of TLB shootdowns using a shared TLB directory（Villavieja’11，PACT上的）等。软件方法中，现在OS采用的方法如Batching（Scalability of microkernel-based systems,Uhlig’05），只flush使用对应的address space的core，权衡full flush和individual flush来最优化结果。此外，还有学术上最新的软件类型的方法：Explicit software control（Boyd-Wickizer’10, Tene’11），Replicated paging hierarchy（Clements’13, Gerofi’13）。这些工作虽然都能在某些具体的场景下减缓TLB shootdown的问题，但是都存在他们的不足之处。比如replicated paging，需要非常多额外的内存去存储replicated的页表，并且在更新页表的时候，也需要保证多个拷贝页表同时去更新，这都会带来额外的性能开销。</p>
 
 <p>这篇工作针对于两种情况： short-lived private mappings 以及long lived idle mappings进行了优化，能够在Linux系统上减少90%的tlb shootdown。long-lived idle mappings是指在某个core上，关于某个PTE的映射在比较长的时间中已经没有再使用了，甚至与在该core上已经执行了tlb full flush过，那么这种情况下当其他的core在判断需要通知哪些remote cores去刷tlb的时候就不需要通知这种core了。作者们使用的技术叫做tlb version tracking，核心点在于当需要执行tlb shootdown的时候看一下remote的core上面的pte 对应的tlb的version是多少，如果对应version表示该core已经不存在这个pte对应的tlb了则可以避免这一次shootdown。</p>
 
 <p>针对于short-lived private mapping的处理是核心部分，这里利用了x86架构下页表中的一个特殊的标记位：access bit。</p>
 
-<p><img src="http://dongd.info/images/paper_read/atc17/atc17_amit_2.png" title="图片来自作者slides或paper" alt="图片来自作者slides或paper" /></p>
+<p><img src="http://dongd.info/images/paper_read/atc17/atc17_amit_2.png" alt="图片来自作者slides或paper" title="图片来自作者slides或paper" /></p>
 
 <p>access bit会在CPU走页表查找某个page的时候，将对应的PTE中的这个bit设置上，OS可以去清空这个bit。这个bit最初是给kernel做memory reclamation的。这里如何运用这个硬件特性来做tlb shootdonw的优化呢。</p>
 
@@ -497,11 +498,11 @@ Nadav Amit小哥的paper今年已经看到几篇了：今年HotOS的hypercallbac
 
 <p>测试部分的话，micro benchmark的结果显示能够减少很多的TLB shootdown。可见整个设计方案还是比较好的。</p>
 
-<p><img src="http://dongd.info/images/paper_read/atc17/atc17_amit_3.png" title="图片来自作者slides或paper" alt="图片来自作者slides或paper" /></p>
+<p><img src="http://dongd.info/images/paper_read/atc17/atc17_amit_3.png" alt="图片来自作者slides或paper" title="图片来自作者slides或paper" /></p>
 
 <p>macro测试部分则显得不是很好了，最终的性能提升甚至到不了1.15，而且core不同的时候的测试结果感觉很不同，也看不出中间存在什么特殊的走势。</p>
 
-<p><img src="http://dongd.info/images/paper_read/atc17/atc17_amit_4.png" title="图片来自作者slides或paper" alt="图片来自作者slides或paper" /></p>
+<p><img src="http://dongd.info/images/paper_read/atc17/atc17_amit_4.png" alt="图片来自作者slides或paper" title="图片来自作者slides或paper" /></p>
 
 <p>对于TLB shootdown本来就不多的例子，这篇论文的方法大概会带来9%左右的overhead，当然作者argue说如果硬件能够提供部分支持的话这样的overhead是可以避免的。</p>
 
@@ -511,29 +512,29 @@ Nadav Amit小哥的paper今年已经看到几篇了：今年HotOS的hypercallbac
 
 <p>整体来看，这篇paper还是挺好的，充满很多关于tlb的技术点（尤其对于我来说之前这类paper研究的也不多），看完之后也能学到很多东西，ATC这个会议也是很适合这篇paper的，其他系统的会议的话PC们可能就不一定会买账了……</p>
 
-<h4>4.Falcon: Scaling IO Performance in Multi-SSD Volumes</h4>
+<h4 id="falcon-scaling-io-performance-in-multi-ssd-volumes">4.Falcon: Scaling IO Performance in Multi-SSD Volumes</h4>
 
 <p>作者是Pradeep Kumar and H. Howie Huang, 来自The George Washington University。
 <strong>paper</strong></p>
 
 <p>这篇论文宏观上来看是针对于multi-SSD volume这种新场景下的优化，目前的比如Linux中的现有方案都不能权衡好性能和应用的易用性。下面这张图就是对比的几个系统，可以看出来性能最好的其实就是application自己用多个thread管理多个SSD的使用，当然这种方案会带来的问题是应用端的复杂度就会很高了，而kernel managed 的方案都存在各种性能上的问题。这篇paper想达到两者同时最优的方案。</p>
 
-<p><img src="http://dongd.info/images/paper_read/atc17/atc17_kumar_1.png" title="图片来自作者slides或paper" alt="图片来自作者slides或paper" /></p>
+<p><img src="http://dongd.info/images/paper_read/atc17/atc17_kumar_1.png" alt="图片来自作者slides或paper" title="图片来自作者slides或paper" /></p>
 
 <p>下面是现有的LInux下的IO的流和中间的状态的切换。这篇paper的insight是说现有的方案中有很多IO batching和IO serving捆绑的情况，而这样的设计其实并不利于multi-SSD volume的使用。</p>
 
-<p><img src="http://dongd.info/images/paper_read/atc17/atc17_kumar_2.png" title="图片来自作者slides或paper" alt="图片来自作者slides或paper" /></p>
+<p><img src="http://dongd.info/images/paper_read/atc17/atc17_kumar_2.png" alt="图片来自作者slides或paper" title="图片来自作者slides或paper" /></p>
 
 <p>最终的设计方案也是按照这个思路去解决的，核心就是分离出了两个模块，分别处理IO batching和IO servicing。</p>
 
-<p><img src="http://dongd.info/images/paper_read/atc17/atc17_kumar_3.png" title="图片来自作者slides或paper" alt="图片来自作者slides或paper" /></p>
+<p><img src="http://dongd.info/images/paper_read/atc17/atc17_kumar_3.png" alt="图片来自作者slides或paper" title="图片来自作者slides或paper" /></p>
 
 <p>最终的测试方面，相比于现在的系统，在8-SSD volume的配置下，Falcon能够提高随机文件读写的速度分别为1.77倍和1.59倍，对于各种测试的应用程序显示的性能结果是1.69×倍的提升。</p>
 
 <p><strong>思考</strong>
 这篇paper感觉可以学到很多东西，不过的确和自己的研究方向差的有点远。核心的思想能够看出来是为了挺高并行性的，能够支持现有的系统，并且最终的性能测试的结果也不错，算是一篇很好的工作。设计的和IO子系统相关的背景介绍其实也不错，不过技术细节还没有完全想清楚具体是怎么做的（毕竟很多概念都是第一次知道……），笔记记得也就粗略一点了。等之后再空点或者想了解一下IO这块的时候再回来补下这块的笔记吧！</p>
 
-<h4>Session1 小节</h4>
+<h4 id="session1-">Session1 小节</h4>
 
 <p>第一个ATC的session是关于Kernel的，其实更具体点说就是Linux Kernel的相关的四篇paper。四篇paper具体涉及的方向就差很多了，Security的，IO的，TLB以及driverd。不过每篇paper的质量都很高，而且对相关领域的背景介绍也都很深入。Linux Kernel现在的使用非常广泛，很多系统的工作也是基于Linux Kernel来做的，感觉要做系统的话对于Linux Kernel的理解必须要很深入才行，不仅仅是自己研究的方向，其他的方面也要能够有些了解，这样有时候才能借鉴到其他方向的一些比较好的解决方法，也能够结合不同的系统方面来进行设计。</p>
 
@@ -546,7 +547,7 @@ Nadav Amit小哥的paper今年已经看到几篇了：今年HotOS的hypercallbac
     <link href="http://dongd.info/blog/2017/03/30/hello/"/>
     <updated>2017-03-30T00:14:10+08:00</updated>
     <id>http://dongd.info/blog/2017/03/30/hello</id>
-    <content type="html"><![CDATA[<h1>hello,world</h1>
+    <content type="html"><![CDATA[<h1 id="helloworld">hello,world</h1>
 
 <p>这是blog的第一篇测试博客。
 希望能够坚持下来记录博客的习惯↖(^ω^)↗</p>

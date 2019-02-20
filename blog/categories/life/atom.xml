@@ -4,7 +4,7 @@
   <title><![CDATA[Category: life | Dd's home]]></title>
   <link href="http://dongd.info/blog/categories/life/atom.xml" rel="self"/>
   <link href="http://dongd.info/"/>
-  <updated>2019-02-20T21:47:16+08:00</updated>
+  <updated>2019-02-20T21:54:11+08:00</updated>
   <id>http://dongd.info/</id>
   <author>
     <name><![CDATA[Dong Du]]></name>
@@ -18,7 +18,7 @@
     <link href="http://dongd.info/blog/2019/02/02/dong-bei-travel/"/>
     <updated>2019-02-02T23:27:02+08:00</updated>
     <id>http://dongd.info/blog/2019/02/02/dong-bei-travel</id>
-    <content type="html"><![CDATA[<h1>东北：从沈阳到哈尔滨</h1>
+    <content type="html"><![CDATA[<h1 id="section">东北：从沈阳到哈尔滨</h1>
 
 <p>这算是实现今年的第一个Flag了，完成一次东北之旅。</p>
 
@@ -28,7 +28,7 @@
 
 <p>同行的有我妹妹和一位实验室的同学（代号CDZ）。</p>
 
-<h2>出发前：忙碌和仓促中的决定</h2>
+<h2 id="section-1">出发前：忙碌和仓促中的决定</h2>
 
 <p>这次的出行其实安排得非常匆忙。</p>
 
@@ -50,7 +50,9 @@
 
 <p>开始能够定下来是因为妹妹确定不回去玩了，这样为了能够兼容典章的时间，虽然有点赶，但是我还是决定在年前过去。基本时间段和人员确定下来后，就是各种细节的安排了。</p>
 
-<blockquote><p>2019-01-21 16:00  &ldquo;东北出行小分队"微信群建立，距离出发还有5天</p></blockquote>
+<blockquote>
+  <p>2019-01-21 16:00  “东北出行小分队”微信群建立，距离出发还有5天</p>
+</blockquote>
 
 <p>简单看地图的话，考虑过大连，沈阳，哈尔滨这几个点。</p>
 
@@ -58,7 +60,9 @@
 
 <p>这个决定还有一部分是因为担心哈尔滨太冷了，所以希望能够在沈阳把一些玩的活动（比如滑雪🏂之类的）先玩了，免得到哈尔滨冻得不想玩。（事实证明我们想多了）</p>
 
-<blockquote><p>2019-01-21 17:57 确定东北之行的基本出行方案：先到沈阳（飞机过去），然后从沈阳做动车到哈尔滨，最后再飞回来。</p></blockquote>
+<blockquote>
+  <p>2019-01-21 17:57 确定东北之行的基本出行方案：先到沈阳（飞机过去），然后从沈阳做动车到哈尔滨，最后再飞回来。</p>
+</blockquote>
 
 <p>后面几天主要是安排攻略，订机票火车，订房间，准备防寒的东西。我简单列一下，不再多说。</p>
 ]]></content>
@@ -69,7 +73,7 @@
     <link href="http://dongd.info/blog/2019/01/19/2018-summary/"/>
     <updated>2019-01-19T00:33:00+08:00</updated>
     <id>http://dongd.info/blog/2019/01/19/2018-summary</id>
-    <content type="html"><![CDATA[<h1>DD的2018年总结</h1>
+    <content type="html"><![CDATA[<h1 id="dd2018">DD的2018年总结</h1>
 
 <p>说实话，自己也没有想到2018年就这么嗖的就过去了。</p>
 
@@ -77,13 +81,13 @@
 
 <p>不过和孤零零的博客不一样……说实话18年应该是这几年过得最充实（忙碌）的一年了，才导致blog也没有时间更（中间试过写日记，也被中断掉了）……</p>
 
-<p><img src="http://dongd.info/images/life/DD-2018-summary.png" title="2018-summary" alt="2018-summary" /></p>
+<p><img src="http://dongd.info/images/life/DD-2018-summary.png" alt="2018-summary" title="2018-summary" /></p>
 
 <p>整个2018年的的情况大概就是上面这图这样子了（最近喜欢上了用xmind的思维导图……感觉总结一些东西还是挺方便的）</p>
 
 <p>其实中间还是有很多细节说不清楚的，比如说具体的旅游……之前应该还有和实验室一起出去的春游，但是已经不太记得去了哪里了………</p>
 
-<h2>旅游，蠢蠢欲动的心</h2>
+<h2 id="section">旅游，蠢蠢欲动的心</h2>
 
 <p>说实话，一直都挺像出去玩玩到处看看的。前几年因为穷……所以大概是攒好长一段时间的钱然后出去玩。</p>
 
@@ -95,7 +99,7 @@
 
 <p>从年初开始算的话。最开始的一次是放寒假的时候和CDZ和妹妹在厦门玩。</p>
 
-<p><img src="http://dongd.info/images/life/2019-1-19-14.jpg" alt="" /></p>
+<p>![](http://dongd.info/images/life/2019-1-19-14.jpg  “”)</p>
 
 <p>已经是年前的一两周了，即使是厦门也略显得有点冷。</p>
 
@@ -115,11 +119,11 @@
 
 <p>这是春游的地方的一个奇怪的拱形建筑……也许以后可以凭借这个建筑记起来自己去了哪里……</p>
 
-<p><img src="http://dongd.info/images/life/2019-1-19-10.jpg" alt="" /></p>
+<p>![](http://dongd.info/images/life/2019-1-19-10.jpg  “”)</p>
 
 <p>春游的时候最high的可能是和小伙伴们一起玩狼人了……</p>
 
-<p><img src="http://dongd.info/images/life/2019-1-19-13.jpg" alt="" /></p>
+<p>![](http://dongd.info/images/life/2019-1-19-13.jpg  “”)</p>
 
 <p>肇老师作为新手玩家，凭借一脸呆萌一直挺到了最后……也是可以的。</p>
 
@@ -127,7 +131,7 @@
 
 <p>暑假初的时候参加了韩国成均馆大学的交流……说是交流，其实是被分配了两个韩国的小伙伴带着强行各种逛了一遍韩国……</p>
 
-<p><img src="http://dongd.info/images/life/2019-1-19-12.jpg" alt="" /></p>
+<p>![](http://dongd.info/images/life/2019-1-19-12.jpg  “”)</p>
 
 <p>在韩国其实待的时间不算短，5、6天的样子。具体的行程都是围绕着成均馆大学和首尔的。</p>
 
@@ -149,7 +153,7 @@
 
 <p>于是就，决定了这趟出行了。</p>
 
-<p><img src="http://dongd.info/images/life/2019-1-19-7.jpg" alt="" /></p>
+<p>![](http://dongd.info/images/life/2019-1-19-7.jpg  “”)</p>
 
 <p>上面是西安的钟楼还是鼓楼？晚上还是很好看的。</p>
 
@@ -157,7 +161,7 @@
 
 <p>不过我的这趟是围绕着吃的去的……</p>
 
-<p><img src="http://dongd.info/images/life/2019-1-19-5.jpg" alt="" /></p>
+<p>![](http://dongd.info/images/life/2019-1-19-5.jpg  “”)</p>
 
 <p>上面是自己掰的泡馍，虽然掰了很久，不过掰完之后还是有种意外的成就感啊。</p>
 
@@ -165,7 +169,7 @@
 
 <p>（本来还应该有次秋游的，因为赶论文的原因被自己鸽了……）</p>
 
-<h2>小牛奶： 养猫初体验</h2>
+<h2 id="section-1">小牛奶： 养猫初体验</h2>
 
 <p>今年最大的变化可能是在想给自己找一个新的家庭成员……</p>
 
@@ -177,11 +181,11 @@
 
 <p>因为洪帮主自己已经有好几只猫了，不好再养，于是问了下我们（因为之前和洪帮主说过想养猫的想法）。</p>
 
-<p><img src="http://dongd.info/images/life/2019-1-19-9.jpg" alt="" /></p>
+<p>![](http://dongd.info/images/life/2019-1-19-9.jpg  “”)</p>
 
 <p>虽然事出突然，但是养猫这件事忽然变成了”只要点头就可以了“的状态。在简单的一波讨论后，我们接了下来，然后就有了小牛奶了。</p>
 
-<p><img src="http://dongd.info/images/life/2019-1-19-3.jpg" alt="" /></p>
+<p>![](http://dongd.info/images/life/2019-1-19-3.jpg  “”)</p>
 
 <p>养猫的感觉真的和带小孩可能有点像。特别是小猫。刚来的时候要给他准备各种东西，猫砂啊猫砂盆，猫粮，各种罐头，营养膏，玩具……</p>
 
@@ -193,9 +197,9 @@
 
 <p>后面病好了之后整个猫就皮的不行。（其实小时候就皮，但是小的时候和我们打架不痛……）</p>
 
-<p><img src="http://dongd.info/images/life/2019-1-19-8.jpg" alt="" /></p>
+<p>![](http://dongd.info/images/life/2019-1-19-8.jpg  “”)</p>
 
-<p><img src="http://dongd.info/images/life/2019-1-19-1.jpg" alt="" /></p>
+<p>![](http://dongd.info/images/life/2019-1-19-1.jpg  “”)</p>
 
 <p>养小牛奶还是有好几次波折，主要还是因为后面被阿姨看到了被告知宿舍不能养。</p>
 
@@ -203,11 +207,11 @@
 
 <p>后面几经波折，把小牛奶带到了杭州和妹妹的橘子一起过一段时间了。结果这两只猫在一起过得还挺开心的。毕竟有个玩伴了，不像之前我们可能陪它的时间也不会很多。</p>
 
-<p><img src="http://dongd.info/images/life/2019-1-19-2.jpg" alt="" /></p>
+<p>![](http://dongd.info/images/life/2019-1-19-2.jpg  “”)</p>
 
 <p>这两天赶完ATC之后还带小牛奶和橘子去做了个绝育，看小牛奶绝望的眼神。</p>
 
-<h2>来科研吧</h2>
+<h2 id="section-2">来科研吧</h2>
 
 <p>今年参加了两个会，ChinaSys（中国图灵大会）和OSDI。</p>
 
@@ -229,11 +233,11 @@
 
 <p>(๑•̀ㅂ•́)و✧加油</p>
 
-<h2>运动：oh no……</h2>
+<h2 id="oh-no">运动：oh no……</h2>
 
 <p>年会的时候回顾了一下去年的flag，”跑步100次吧“，然后看了下手机里的记录，”6次“。</p>
 
-<p>额O__O &ldquo;…</p>
+<p>额O__O “…</p>
 
 <p>其实今年也没有说完全没有运动，游泳其实去了好多次（冬天也去了）</p>
 
@@ -241,15 +245,16 @@
 
 <p>不过总体来说的话和去年比起来运动量还是少了很多，感觉还是不行，明年得加强点锻炼。</p>
 
-<h2>新年展望！ 给自己立的Flag</h2>
+<h2 id="flag">新年展望！ 给自己立的Flag</h2>
 
 <p>新年flag就不多bb了，直接放图吧。</p>
 
-<p><img src="http://dongd.info/images/life/DD-2019-plan.png" title="2019-plan" alt="2018-plan" /></p>
+<p><img src="http://dongd.info/images/life/DD-2019-plan.png" alt="2018-plan" title="2019-plan" /></p>
 
 <p>这里面最重要的可能是要坚持运动了，希望自己不要像18年一样……</p>
 
 <p>然后除了图中的flag，希望自己能够把blog坚持下去。</p>
+
 ]]></content>
   </entry>
   
