@@ -33,8 +33,7 @@ destination: public
 plugins: plugins
 code_dir: downloads/code
 category_dir: blog/categories
-#markdown: rdiscount
-markdown: kramdown 
+markdown: rdiscount
 rdiscount:
   extensions:
     - autolink
