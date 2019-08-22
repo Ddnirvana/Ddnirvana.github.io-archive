@@ -4,7 +4,7 @@
   <title><![CDATA[Dd's home]]></title>
   <link href="http://dongd.info/atom.xml" rel="self"/>
   <link href="http://dongd.info/"/>
-  <updated>2019-03-02T15:57:42+08:00</updated>
+  <updated>2019-08-22T16:26:52+08:00</updated>
   <id>http://dongd.info/</id>
   <author>
     <name><![CDATA[Dong Du]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[OSDI archive]]></title>
+    <title type="html"><![CDATA[OSDI Archive]]></title>
     <link href="http://dongd.info/blog/2019/02/20/osdi-archive/"/>
     <updated>2019-02-20T21:19:25+08:00</updated>
     <id>http://dongd.info/blog/2019/02/20/osdi-archive</id>
@@ -467,7 +467,7 @@ Tail latency is of great importance in user-facing web services. However, mainta
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[ATC17 papers read 1]]></title>
+    <title type="html"><![CDATA[ATC17 Papers Read 1]]></title>
     <link href="http://dongd.info/blog/2017/08/27/ATC17_papers_read_1/"/>
     <updated>2017-08-27T00:00:00+08:00</updated>
     <id>http://dongd.info/blog/2017/08/27/ATC17_papers_read_1</id>
@@ -653,7 +653,7 @@ Nadav Amit小哥的paper今年已经看到几篇了：今年HotOS的hypercallbac
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[hello]]></title>
+    <title type="html"><![CDATA[Hello]]></title>
     <link href="http://dongd.info/blog/2017/03/30/hello/"/>
     <updated>2017-03-30T00:14:10+08:00</updated>
     <id>http://dongd.info/blog/2017/03/30/hello</id>

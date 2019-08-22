@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: reading | Dd's home]]></title>
+  <title><![CDATA[Category: Reading | Dd's home]]></title>
   <link href="http://dongd.info/blog/categories/reading/atom.xml" rel="self"/>
   <link href="http://dongd.info/"/>
-  <updated>2019-03-02T15:57:42+08:00</updated>
+  <updated>2019-08-22T16:26:52+08:00</updated>
   <id>http://dongd.info/</id>
   <author>
     <name><![CDATA[Dong Du]]></name>
@@ -79,7 +79,7 @@
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[ATC17 papers read 1]]></title>
+    <title type="html"><![CDATA[ATC17 Papers Read 1]]></title>
     <link href="http://dongd.info/blog/2017/08/27/ATC17_papers_read_1/"/>
     <updated>2017-08-27T00:00:00+08:00</updated>
     <id>http://dongd.info/blog/2017/08/27/ATC17_papers_read_1</id>
