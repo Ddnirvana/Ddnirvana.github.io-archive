@@ -1,5 +1,8 @@
 @import "compass";
 
+@import "custom/colors";
+@import "custom/typography";
 @import "base";
-@import "parts";
-@import "custom";
+@import "partials";
+@import "custom/syntax";
+@import "custom/styles";

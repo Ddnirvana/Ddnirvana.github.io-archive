@@ -2,7 +2,7 @@
 // To give it a try, uncomment some of the lines below rebuild your blog, and see how it works.
 // If you need a handy color picker try http://hslpicker.com
 
-$header-bg: #FFFFFF;
+//$header-bg: #263347;
 //$subtitle-color: lighten($header-bg, 58);
 //$nav-bg: desaturate(lighten(#8fc17a, 18), 5);
 //$nav-bg-front: image-url('noise.png');
@@ -16,7 +16,7 @@ $header-bg: #FFFFFF;
 
 
 /* To use the light Solarized highlighting theme uncomment the following line */
-//$solarized: light;
+$solarized: light;
 
 /* If you want to tweak the Solarized colors you can do that here */
 //$base03:          #002b36; //darkest blue
@@ -26,7 +26,7 @@ $header-bg: #FFFFFF;
 //$base0:           #839496; //medium gray
 //$base1:           #93a1a1; //medium light gray
 //$base2:           #eee8d5; //cream
-//$base3:           #fdf6e3; //white
+$base3:             #fcfcfc; //white
 //$solar-yellow:    #b58900;
 //$solar-orange:    #cb4b16;
 //$solar-red:       #dc322f;
