@@ -8,8 +8,9 @@ footer: true
 ---
 
 # About ME
-My name is Dong Du, a PhD student @  Shanghai Jiao Tong University
-My research interest is operating systems, virtualization and HW/SW co-design. I have built several systems including OS, compiler, and RISC-V processor (XPC on RISC-V)
+My name is Dong Du, a PhD student @  Shanghai Jiao Tong University.
+My research interests include operating systems, virtualization and HW/SW co-design. 
+I have built several systems including OS, compiler, and RISC-V processor (XPC on RISC-V)
 
 
 ## Publications
