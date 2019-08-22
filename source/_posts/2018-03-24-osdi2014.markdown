@@ -16,6 +16,8 @@ https://www.youtube.com/watch?v=WG3b2hE4i6U&list=PLbRoZ5Rrl5ldOufH9TxNQYehPQ_lC0
 下面是记的笔记，仅供理思路之用。
 ---
 
+<!-- more -->
+
 ## Arrakis: The Operating System is the Control Plane
 [link](https://www.usenix.org/node/186141) 
 

@@ -16,6 +16,7 @@ categories: life
 
 不过和孤零零的博客不一样……说实话18年应该是这几年过得最充实（忙碌）的一年了，才导致blog也没有时间更（中间试过写日记，也被中断掉了）……
 
+<!-- more -->
 
 
 ![2018-summary](http://dongd.info/images/life/DD-2018-summary.png  "2018-summary")

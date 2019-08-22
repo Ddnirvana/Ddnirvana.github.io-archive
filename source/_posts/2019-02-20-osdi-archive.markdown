@@ -12,6 +12,7 @@ Although the program of each OSDI conference can be easily found in the network,
 
 This page will be updated continuously~ (if not, you can notify me through email)
 
+<!-- more -->
 
 
 ## Program List
