@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Paper | Dd's home]]></title>
   <link href="http://dongd.info/blog/categories/paper/atom.xml" rel="self"/>
   <link href="http://dongd.info/"/>
-  <updated>2019-08-22T16:26:52+08:00</updated>
+  <updated>2019-08-22T16:39:56+08:00</updated>
   <id>http://dongd.info/</id>
   <author>
     <name><![CDATA[Dong Du]]></name>
@@ -27,6 +27,9 @@
 所以准备听一下上面的talk回顾一下osdi14的工作。</p>
 
 <h2>下面是记的笔记，仅供理思路之用。</h2>
+
+<!-- more -->
+
 
 <h2>Arrakis: The Operating System is the Control Plane</h2>
 
@@ -94,6 +97,9 @@
 <p>ATC算是系统方面非常好的会了，一直想着过一遍今年ATC的paper，不过一直看得间间断断的。就着实验室放假的时间，写一波今年ATC paper的笔记，也当是促使自己读完今年ATC的paper了。</p>
 
 <p>paper和对应的slides都可以在上面的官方链接中的Program中找到。</p>
+
+<!-- more -->
+
 
 <h3>Sessin: Kernel</h3>
 

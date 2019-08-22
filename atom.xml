@@ -4,7 +4,7 @@
   <title><![CDATA[Dd's home]]></title>
   <link href="http://dongd.info/atom.xml" rel="self"/>
   <link href="http://dongd.info/"/>
-  <updated>2019-08-22T16:26:52+08:00</updated>
+  <updated>2019-08-22T16:39:56+08:00</updated>
   <id>http://dongd.info/</id>
   <author>
     <name><![CDATA[Dong Du]]></name>
@@ -21,6 +21,9 @@
     <content type="html"><![CDATA[<p>Although the program of each OSDI conference can be easily found in the network, an archive page can help us to soonly review the history published work on OSDI. :)</p>
 
 <p>This page will be updated continuously~ (if not, you can notify me through email)</p>
+
+<!-- more -->
+
 
 <h2>Program List</h2>
 
@@ -176,6 +179,9 @@ Tail latency is of great importance in user-facing web services. However, mainta
 
 <p>同行的有我妹妹和一位实验室的同学（代号CDZ）。</p>
 
+<!-- more -->
+
+
 <h2>出发前：忙碌和仓促中的决定</h2>
 
 <p>这次的出行其实安排得非常匆忙。</p>
@@ -224,6 +230,9 @@ Tail latency is of great importance in user-facing web services. However, mainta
 <p>年末了，看下博客，发现整个2018年就写了一篇论文阅读的笔记。浪费了续域名的钱啊简直是。</p>
 
 <p>不过和孤零零的博客不一样……说实话18年应该是这几年过得最充实（忙碌）的一年了，才导致blog也没有时间更（中间试过写日记，也被中断掉了）……</p>
+
+<!-- more -->
+
 
 <p><img src="http://dongd.info/images/life/DD-2018-summary.png" title="2018-summary" alt="2018-summary" /></p>
 
@@ -416,6 +425,9 @@ Tail latency is of great importance in user-facing web services. However, mainta
 
 <h2>下面是记的笔记，仅供理思路之用。</h2>
 
+<!-- more -->
+
+
 <h2>Arrakis: The Operating System is the Control Plane</h2>
 
 <p><a href="https://www.usenix.org/node/186141">link</a></p>
@@ -482,6 +494,9 @@ Tail latency is of great importance in user-facing web services. However, mainta
 <p>ATC算是系统方面非常好的会了，一直想着过一遍今年ATC的paper，不过一直看得间间断断的。就着实验室放假的时间，写一波今年ATC paper的笔记，也当是促使自己读完今年ATC的paper了。</p>
 
 <p>paper和对应的slides都可以在上面的官方链接中的Program中找到。</p>
+
+<!-- more -->
+
 
 <h3>Sessin: Kernel</h3>
 

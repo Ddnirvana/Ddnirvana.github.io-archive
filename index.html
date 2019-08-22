@@ -107,144 +107,12 @@
 
 <p>This page will be updated continuously~ (if not, you can notify me through email)</p>
 
-<h2>Program List</h2>
-
-<p><a href="https://www.usenix.org/conference/osdi18/technical-sessions">OSDI 2018</a></p>
-
-<p><a href="https://www.usenix.org/conference/osdi16/program">OSDI 2016</a></p>
-
-<p><a href="https://www.usenix.org/conference/osdi14/technical-sessions">OSDI 2014</a></p>
-
-<p><a href="https://www.usenix.org/conference/osdi12/technical-sessions">OSDI 2012</a></p>
-
-<p><a href="https://www.usenix.org/legacy/event/osdi10/tech/">OSDI 2010</a></p>
-
-<p><a href="https://www.usenix.org/legacy/events/osdi08/tech/">OSDI 2008</a></p>
-
-<p><a href="https://www.usenix.org/legacy/events/osdi06/tech/">OSDI 2006</a></p>
-
-<p><a href="https://www.usenix.org/legacy/events/osdi04/tech/">OSDI 2004</a></p>
-
-<p><a href="https://www.usenix.org/legacy/events/osdi02/tech.html">OSDI 2002</a></p>
-
-<p><a href="https://www.usenix.org/legacy/events/osdi2000/tech.html">OSDI 2000</a></p>
-
-<p><a href="https://www.usenix.org/legacy/publications/library/proceedings/osdi99/technical.html">OSDI 1999</a></p>
-
-<p><a href="https://www.usenix.org/legacy/publications/library/proceedings/osdi96/">OSDI 1996</a></p>
-
-<p><a href="https://www.usenix.org/legacy/publications/library/proceedings/osdi/index.html">OSDI 1994</a></p>
-
-<p>USENIX has offically maintained an OSDI <a href="https://www.usenix.org/conferences/byname/179">list</a>.</p>
-
-<h2>OSDI 2018</h2>
-
-<h3>Understanding Failures</h3>
-
-<p><strong><font color=#005493>Capturing and Enhancing In Situ System Observability for Failure Detection</font></strong></p>
-
-<p>Peng Huang, <em>Johns Hopkins University;</em> Chuanxiong Guo, <em>ByteDance Inc.;</em> Jacob R. Lorch and Lidong Zhou, <em>Microsoft Research;</em> Yingnong Dang, <em>Microsoft</em></p>
-
-<p><strong>Abstract</strong> Real-world distributed systems suffer unavailability due to various types of failure. But, despite enormous effort, many failures, especially gray failures, still escape detection. In this paper, we argue that the missing piece in failure detection is detecting what the requesters of a failing component see. This insight leads us to the design and implementation of Panorama, a system designed to enhance \emph{system observability} by taking advantage of the interactions between a system&rsquo;s components. By providing a systematic channel and analysis tool, Panorama turns a component into a logical observer so that it not only handles errors, but also \emph{reports} them. Furthermore, Panorama incorporates techniques for making such observations even when indirection exists between components. Panorama can easily integrate with popular distributed systems and detect all 15 \emph{real-world} gray failures that we reproduced in less than 7 s, whereas existing approaches detect only one of them in under 300 s.</p>
-
-<p><a href="https://www.usenix.org/conference/osdi18/presentation/huang">AVAILABLE</a></p>
-
-<p><strong><font color=#005493>REPT: Reverse Debugging of Failures in Deployed Software</font></strong></p>
-
-<p>Weidong Cui and Xinyang Ge, <em>Microsoft Research Redmond;</em> Baris Kasikci, <em>University of Michigan;</em> Ben Niu, <em>Microsoft Research Redmond;</em> Upamanyu Sharma, <em>University of Michigan;</em> Ruoyu Wang, <em>Arizona State University;</em> Insu Yun, <em>Georgia Institute of Technology</em></p>
-
-<p><strong><em>Awarded Best Paper!</em></strong></p>
-
-<p><strong>Abstract</strong> Debugging software failures in deployed systems is important because they impact real users and customers. However, debugging such failures is notoriously hard in practice because developers have to rely on limited information such as memory dumps. The execution history is usually unavailable because high-fidelity program tracing is not affordable in deployed systems.</p>
-
-<p>In this paper, we present REPT, a practical system that enables reverse debugging of software failures in deployed systems. REPT reconstructs the execution history with high fidelity by combining online lightweight hardware tracing of a program&rsquo;s control flow with offline binary analysis that recovers its data flow. It is seemingly impossible to recover data values thousands of instructions before the failure due to information loss and concurrent execution. REPT tackles these challenges by constructing a partial execution order based on timestamps logged by hardware and iteratively performing forward and backward execution with error correction.</p>
-
-<p>We design and implement REPT, deploy it on Microsoft Windows, and integrate it into Windows Debugger. We evaluate REPT on 16 real-world bugs and show that it can recover data values accurately (92% on average) and efficiently (less than 20 seconds) for these bugs. We also show that it enables effective reverse debugging for 14 bugs.</p>
-
-<p><a href="https://www.usenix.org/conference/osdi18/presentation/weidong">AVAILABLE</a></p>
-
-<p><strong><font color=#005493>Finding Crash-Consistency Bugs with Bounded Black-Box Crash Testingn</font></strong></p>
-
-<p>Jayashree Mohan, Ashlie Martinez, Soujanya Ponnapalli, and Pandian Raju, <em>University of Texas at Austin;</em> Vijay Chidambaram, <em>University of Texas at Austin and VMware Research</em></p>
-
-<p><strong>Abstract</strong> We present a new approach to testing file-system crash consistency: bounded black-box crash testing (B3). B3 tests the file system in a black-box manner using workloads of file-system operations. Since the space of possible workloads is infinite, B3 bounds this space based on parameters such as the number of file-system operations or which operations to include, and exhaustively generates workloads within this bounded space. Each workload is tested on the target file system by simulating power-loss crashes while the workload is being executed, and checking if the file system recovers to a correct state after each crash. B3 builds upon insights derived from our study of crash-consistency bugs reported in Linux file systems in the last five years. We observed that most reported bugs can be reproduced using small workloads of three or fewer file-system operations on a newly-created file system, and that all reported bugs result from crashes after fsync() related system calls. We build two tools, CrashMonkey and Ace, to demonstrate the effectiveness of this approach. Our tools are able to find 24 out of the 26 crash-consistency bugs reported in the last five years. Our tools also revealed 10 new crash-consistency bugs in widely-used, mature Linux file systems, seven of which existed in the kernel since 2014. The new bugs result in severe consequences like broken rename atomicity and loss of persisted files.</p>
-
-<p><a href="https://www.usenix.org/conference/osdi18/presentation/mohan">AVAILABLE</a></p>
-
-<p><strong><font color=#005493>An Analysis of Network-Partitioning Failures in Cloud Systems</font></strong></p>
-
-<p>Ahmed Alquraan, Hatem Takruri, Mohammed Alfatafta, and Samer Al-Kiswany, <em>University of Waterloo</em></p>
-
-<p><strong>Abstract</strong> We present a comprehensive study of 136 system failures attributed to network-partitioning faults from 25 widely used distributed systems. We found that the majority of the failures led to catastrophic effects, such as data loss, reappearance of deleted data, broken locks, and system crashes. The majority of the failures can easily manifest once a network partition occurs: They require little to no client input, can be triggered by isolating a single node, and are deterministic. However, the number of test cases that one must consider is extremely large. Fortunately, we identify ordering, timing, and network fault characteristics that significantly simplify testing. Furthermore, we found that a significant number of the failures are due to design flaws in core system mechanisms. We found that the majority of the failures could have been avoided by design reviews, and could have been discovered by testing with network-partitioning fault injection. We built NEAT, a testing framework that simplifies the coordination of multiple clients and can inject different types of network-partitioning faults. We used NEAT to test seven popular systems and found and reported 32 failures.</p>
-
-<p><a href="https://www.usenix.org/conference/osdi18/presentation/alquraan">AVAILABLE</a></p>
-
-<h3>Operating Systems</h3>
-
-<p><strong><font color=#005493>LegoOS: A Disseminated, Distributed OS for Hardware Resource Disaggregation</font></strong></p>
-
-<p>Yizhou Shan, Yutong Huang, Yilun Chen, and Yiying Zhang, <em>Purdue University</em></p>
-
-<p><strong>Abstract</strong> The monolithic server model where a server is the unit of deployment, operation, and failure is meeting its limits in the face of several recent hardware and application trends. To improve heterogeneity, elasticity, resource utilization, and failure handling in datacenters, we believe that datacenters should break monolithic servers into disaggregated, network-attached hardware components. Despite the promising benefits of hardware resource disaggregation, no existing OSes or software systems can properly manage it. We propose a new OS model called the splitkernel to manage disaggregated systems. Splitkernel disseminates traditional OS functionalities into loosely-coupled monitors, each of which runs on and manages a hardware component. Using the splitkernel model, we built LegoOS, a new OS designed for hardware resource disaggregation. LegoOS appears to users as a set of distributed servers. Internally, LegoOS cleanly separates processor, memory, and storage devices both at the hardware level and the OS level. We implemented LegoOS from scratch and evaluated it by emulating hardware components using commodity servers. Our evaluation results show that LegoOS’s performance is comparable to monolithic Linux servers, while largely improving resource packing and failure rate over monolithic clusters.</p>
-
-<p><strong><font color=#005493>The benefits and costs of writing a POSIX kernel in a high-level language</font></strong></p>
-
-<p>Cody Cutler, M. Frans Kaashoek, and Robert T. Morris, MIT CSAIL</p>
-
-<p><strong>Abstract</strong> This paper presents an evaluation of the use of a high-level language (HLL) with garbage collection to implement a monolithic POSIX-style kernel. The goal is to explore if it is reasonable to use an HLL instead of C for such kernels, by examining performance costs, implementation challenges, and programmability and safety benefits.</p>
-
-<p>The paper contributes Biscuit, a kernel written in Go that implements enough of POSIX (virtual memory, mmap, TCP/IP sockets, a logging file system, poll, etc.) to execute significant applications. Biscuit makes lib- eral use of Go&rsquo;s HLL features (closures, channels, maps, interfaces, garbage collected heap allocation), which sub- jectively made programming easier. The most challenging puzzle was handling the possibility of running out of ker- nel heap memory; Biscuit benefited from the analyzability of Go source to address this challenge.</p>
-
-<p>On a set of kernel-intensive benchmarks (including NG- INX and Redis) the fraction of kernel CPU time Biscuit spends on HLL features (primarily garbage collection and thread stack expansion checks) ranges up to 13%. The longest single GC-related pause suffered by NGINX was 115 microseconds; the longest observed sum of GC delays to a complete NGINX client request was 600 microsec- onds. In experiments comparing nearly identical system call, page fault, and context switch code paths written in Go and C, the Go version was 5% to 15% slower.</p>
-
-<p><strong><font color=#005493>Sharing, Protection, and Compatibility for Reconfigurable Fabric with AmorphOS</font></strong></p>
-
-<p>Ahmed Khawaja, Joshua Landgraf, and Rohith Prakash, UT Austin; Michael Wei and Eric Schkufza, VMware Research Group; Christopher J. Rossbach, UT Austin and VMware Research Group</p>
-
-<p><strong>Abstract</strong> Cloud providers such as Amazon and Microsoft have begun to support on-demand FPGA acceleration in the cloud, and hardware vendors will support FPGAs in future processors. At the same time, technology advancements such as 3D stacking, through-silicon vias (TSVs), and FinFETs have greatly increased FPGA density. The massive parallelism of current FPGAs can support not only extremely large applications, but multiple applications simultaneously as well.</p>
-
-<p>System support for FPGAs, however, is in its infancy. Unlike software, where resource configurations are limited to simple dimensions of compute, memory, and I/O, FPGAs provide a multi-dimensional sea of resources known as the FPGA fabric: logic cells, floating point units, memories, and I/O can all be wired together, leading to spatial constraints on FPGA resources. Current stacks either support only a single application or statically partition the FPGA fabric into fixed-size slots. These designs cannot efficiently support diverse workloads: the size of the largest slot places an artificial limit on application size, and oversized slots result in wasted FPGA resources and reduced concurrency.</p>
-
-<p>This paper presents AmorphOS, which encapsulates user FPGA logic in morphable tasks, or Morphlets. Morphlets provide isolation and protection across mutually distrustful protection domains, extending the guarantees of software processes. Morphlets can morph, dynamically altering their deployed form based on resource requirements and availability. To build Morphlets, developers provide a parameterized hardware design that interfaces with AmorphOS, along with a mesh, which specifies external resource requirements. AmorphOS explores the parameter space, generating deployable Morphlets of varying size and resource requirements. AmorphOS multiplexes Morphlets on the FPGA in both space and time to maximize FPGA utilization.</p>
-
-<p>We implement AmorphOS on Amazon F1 and Microsoft Catapult. We show that protected sharing and dynamic scalability support on workloads such as DNN inference and blockchain mining improves aggregate throughput up to 4x and 23x on Catapult and F1 respectively.</p>
-
-<p><strong><font color=#005493>Adaptive Dynamic Checkpointing for Safe Efficient Intermittent Computing</font></strong></p>
-
-<p>Kiwan Maeng and Brandon Lucia, Carnegie Mellon University</p>
-
-<p><strong>Abstract</strong> Energy-harvesting devices have the potential to be the foundation of emerging, sensor-rich application domains where the use of batteries is infeasible, such as in space and civil infrastructure. Programming on an energy-harvesting device is difficult because the device operates only intermittently, as energy is available. Intermittent operation requires the programmer to reason about energy to understand data consistency and forward progress of their program. Energy varies with input and environment, making intermittent programming difficult. Existing systems for intermittent execution provide an unfamiliar programming abstraction and fail to adapt to energy changes forcing a compromise of either performance or assurance of forward progress. This paper presents Chinchilla, a compiler and runtime system that allows running unmodified C code efficiently on an energy-harvesting device with little additional programmer effort and no additional hardware support. Chinchilla overprovisions code with checkpoints to assure the system makes progress, even with scarce energy. Chinchilla disables checkpoints dynamically to efficiently adapt to energy conditions. Experiments show that Chinchilla improves programmability, is performant, and makes it simple to statically check the absence of non-termination. Comparing to two systems from prior work, Alpaca and Ratchet, Chinchilla makes progress when Alpaca cannot, and has 125% mean speedup against Ratchet.</p>
-
-<h3>Scheduling</h3>
-
-<p><em>Session Chair: Christos Kozyrakis, Stanford University</em></p>
-
-<p><strong><font color=#005493>Arachne: Core-Aware Thread Management</font></strong></p>
-
-<p>Henry Qin, Qian Li, Jacqueline Speiser, Peter Kraft, and John Ousterhout, Stanford University</p>
-
-<p><strong>Abstract</strong> Arachne is a new user-level implementation of threads that provides both low latency and high throughput for applications with extremely short-lived threads (only a few microseconds). Arachne is core-aware: each application determines how many cores it needs, based on its load; it always knows exactly which cores it has been allocated, and it controls the placement of its threads on those cores. A central core arbiter allocates cores between applications. Adding Arachne to memcached improved SLO-compliant throughput by 37%, reduced tail latency by more than 10x, and allowed memcached to coexist with background applications with almost no performance impact. Adding Arachne to the RAMCloud storage system increased its write throughput by more than 2.5x. The Arachne threading library is optimized to minimize cache misses; it can initiate a new user thread on a different core (with load balancing) in 320 ns. Arachne is implemented entirely at user level on Linux; no kernel modifications are needed.</p>
-
-<p><strong><font color=#005493>Principled Schedulability Analysis for Distributed Storage Systems using Thread Architecture Models</font></strong></p>
-
-<p>Suli Yang, Ant Financial Services Group; Jing Liu, Andrea C. Arpaci-Dusseau, and Remzi H. Arpaci-Dusseau, UW-Madison
-In this paper, we present an approach to systematically examine the schedulability of distributed storage systems, identify their scheduling problems, and enable effective scheduling in these systems. We use Thread Architecture Models (TAMs) to describe the behavior and interactions of different threads in a system, and show both how to construct TAMs for existing systems and utilize TAMs to identify critical scheduling problems. We identify five common problems that prevent a system from providing schedulability and show that these problems arise in existing systems such as HBase, Cassandra, MongoDB, and Riak, making it difficult or impossible to realize various scheduling disciplines. We demonstrate how to address these schedulability problems by developing Tamed-HBase and Muzzled-HBase, sets of modifications to HBase that can realize the desired scheduling disciplines, including fairness and priority scheduling, even when presented with challenging workloads.</p>
-
-<p><strong><font color=#005493>µTune: Auto-Tuned Threading for OLDI Microservices</font></strong></p>
-
-<p>Akshitha Sriraman and Thomas F. Wenisch, University of Michigan
-<strong>Abstract</strong> Modern On-Line Data Intensive (OLDI) applications have evolved from monolithic systems to instead comprise numerous, distributed microservices interacting via Remote Procedure Calls (RPCs). Microservices face sub-millisecond (sub-ms) RPC latency goals, much tighter than their monolithic counterparts that must meet ≥ 100 ms latency targets. Sub-ms–scale threading and concurrency design effects that were once insignificant for such monolithic services can now come to dominate in the sub-ms–scale microservice regime. We investigate how threading design critically impacts microservice tail latency by developing a taxonomy of threading models—a structured understanding of the implications of how microservices manage concurrency and interact with RPC interfaces under wide-ranging loads. We develop μTune, a system that has two features: (1) a novel framework that abstracts threading model implementation from application code, and (2) an automatic load adaptation system that curtails microservice tail latency by exploiting inherent latency trade-offs revealed in our taxonomy to transition among threading models. We study μTune in the context of four OLDI applications to demonstrate up to 1.9x tail latency improvement over static threading choices and state-of-the-art adaptation techniques.</p>
-
-<p><strong><font color=#005493>RobinHood: Tail Latency Aware Caching &ndash; Dynamic Reallocation from Cache-Rich to Cache-Poor</font></strong></p>
-
-<p>Daniel S. Berger and Benjamin Berg, Carnegie Mellon University; Timothy Zhu, Pennsylvania State University; Siddhartha Sen, Microsoft Research; Mor Harchol-Balter, Carnegie Mellon University
-Tail latency is of great importance in user-facing web services. However, maintaining low tail latency is challenging, because a single request to a web application server results in multiple queries to complex, diverse backend services (databases, recommender systems, ad systems, etc.). A request is not complete until all of its queries have completed. We analyze a Microsoft production system and find that backend query latencies vary by more than two orders of magnitude across backends and over time, resulting in high request tail latencies.</p>
-
-<p><strong>Abstract</strong> We propose a novel solution for maintaining low request tail latency: repurpose existing caches to mitigate the effects of backend latency variability, rather than just caching popular data. Our solution, RobinHood, dynamically reallocates cache resources from the cache-rich (backends which don&rsquo;t affect request tail latency) to the cache-poor (backends which affect request tail latency). We evaluate RobinHood with production traces on a 50-server cluster with 20 different backend systems. Surprisingly, we find that RobinHood can directly address tail latency even if working sets are much larger than the cache size. In the presence of load spikes, RobinHood meets a 150ms P99 goal 99.7% of the time, whereas the next best policy meets this goal only 70% of the time.</p>
-
-<p><strong><font color=red>[TODO]</font></strong></p>
 </div>
   
+  
+    <footer>
+      <a class="read-more btn btn-default" href="/blog/2019/02/20/osdi-archive/">Read on &rarr;</a>
+    </footer>
   
 
 
@@ -289,41 +157,12 @@ Tail latency is of great importance in user-facing web services. However, mainta
 
 <p>同行的有我妹妹和一位实验室的同学（代号CDZ）。</p>
 
-<h2>出发前：忙碌和仓促中的决定</h2>
-
-<p>这次的出行其实安排得非常匆忙。</p>
-
-<p>之前我们三人在真的出发前都有各种安排的考虑。</p>
-
-<p>我自己是因为后面随时有可能收到实习的体检的通知（体检是周四做的，两天后我就出发去东北了，在决定出去玩的时候其实实习的事情还没有到比较清晰的阶段），然后就一直在拖着。</p>
-
-<p>妹妹因为之前一直有回四川玩段时间的想法，所以也不确定是不是在年前有时间再和我一起去哪里玩。</p>
-
-<p>因为我和CDZ的实验室放假时间是1.26号这周末，这也是我妹妹的放假时间。这导致我们再过年前只有一周多一点的时间。而典章在年后的一段时间里也不太好出来玩（虽然我和妹妹在这段时间会空闲一点）。</p>
-
-<p>至于出行的地点，其实我是想去东北的。</p>
-
-<p>一来是东北那一片地方其实也没有去过，毕竟是有好奇的。</p>
-
-<p>另外一方面是比起其他时间，冬天去东北才有能感受到那边独特的”冷“和雪啊。</p>
-
-<p>即使这样，对于东北那边的情况毫不知情的情况下其实也不知道具体去哪些地方好，特别是东北和我们平时熟悉的南方的环境也不太一样。</p>
-
-<p>开始能够定下来是因为妹妹确定不回去玩了，这样为了能够兼容典章的时间，虽然有点赶，但是我还是决定在年前过去。基本时间段和人员确定下来后，就是各种细节的安排了。</p>
-
-<blockquote><p>2019-01-21 16:00  &ldquo;东北出行小分队"微信群建立，距离出发还有5天</p></blockquote>
-
-<p>简单看地图的话，考虑过大连，沈阳，哈尔滨这几个点。</p>
-
-<p>和一些小伙伴（去过东北的以及来自东北的）交流了一下，我们三个也根据交通方式，和我们想看自然点雪景的想法定下了”先出发去沈阳然后去哈尔滨“的决定。</p>
-
-<p>这个决定还有一部分是因为担心哈尔滨太冷了，所以希望能够在沈阳把一些玩的活动（比如滑雪🏂之类的）先玩了，免得到哈尔滨冻得不想玩。（事实证明我们想多了）</p>
-
-<blockquote><p>2019-01-21 17:57 确定东北之行的基本出行方案：先到沈阳（飞机过去），然后从沈阳做动车到哈尔滨，最后再飞回来。</p></blockquote>
-
-<p>后面几天主要是安排攻略，订机票火车，订房间，准备防寒的东西。我简单列一下，不再多说。</p>
 </div>
   
+  
+    <footer>
+      <a class="read-more btn btn-default" href="/blog/2019/02/02/dong-bei-travel/">Read on &rarr;</a>
+    </footer>
   
 
 
@@ -366,181 +205,12 @@ Tail latency is of great importance in user-facing web services. However, mainta
 
 <p>不过和孤零零的博客不一样……说实话18年应该是这几年过得最充实（忙碌）的一年了，才导致blog也没有时间更（中间试过写日记，也被中断掉了）……</p>
 
-<p><img src="http://dongd.info/images/life/DD-2018-summary.png" title="2018-summary" alt="2018-summary" /></p>
-
-<p>整个2018年的的情况大概就是上面这图这样子了（最近喜欢上了用xmind的思维导图……感觉总结一些东西还是挺方便的）</p>
-
-<p>其实中间还是有很多细节说不清楚的，比如说具体的旅游……之前应该还有和实验室一起出去的春游，但是已经不太记得去了哪里了………</p>
-
-<h2>旅游，蠢蠢欲动的心</h2>
-
-<p>说实话，一直都挺像出去玩玩到处看看的。前几年因为穷……所以大概是攒好长一段时间的钱然后出去玩。</p>
-
-<p>现在虽然还是穷……但是比之前还是会好很多（毕竟有博士生的工资了……）。但是却没有时间出去玩了。</p>
-
-<p>话虽如此，今年其实也去了好几个地方。</p>
-
-<p><strong>厦门</strong></p>
-
-<p>从年初开始算的话。最开始的一次是放寒假的时候和CDZ和妹妹在厦门玩。</p>
-
-<p><img src="http://dongd.info/images/life/2019-1-19-14.jpg" alt="" /></p>
-
-<p>已经是年前的一两周了，即使是厦门也略显得有点冷。</p>
-
-<p>而且厦门这个城市，过年的时候显得格外的冷清……</p>
-
-<p>但是整体城市给我的印象还是相当好的，超级好的绿化，沿海的道路，随处的沙滩。</p>
-
-<p>唯一不好的是在鼓浪屿喝一杯奶茶就导致我拉肚子拉了一整个寒假……</p>
-
-<p><strong>春游</strong></p>
-
-<p>上半年的时候参加了实验室的春游，去吃螃蟹应该是。</p>
-
-<p>但是我是真的真的想不起来具体去了哪里了……（舟山？宁波？可能是……）</p>
-
-<p>聊天记录也在秋天的时候去美国的时候删掉了……GG</p>
-
-<p>这是春游的地方的一个奇怪的拱形建筑……也许以后可以凭借这个建筑记起来自己去了哪里……</p>
-
-<p><img src="http://dongd.info/images/life/2019-1-19-10.jpg" alt="" /></p>
-
-<p>春游的时候最high的可能是和小伙伴们一起玩狼人了……</p>
-
-<p><img src="http://dongd.info/images/life/2019-1-19-13.jpg" alt="" /></p>
-
-<p>肇老师作为新手玩家，凭借一脸呆萌一直挺到了最后……也是可以的。</p>
-
-<p><strong>韩国-成均馆大学交流</strong></p>
-
-<p>暑假初的时候参加了韩国成均馆大学的交流……说是交流，其实是被分配了两个韩国的小伙伴带着强行各种逛了一遍韩国……</p>
-
-<p><img src="http://dongd.info/images/life/2019-1-19-12.jpg" alt="" /></p>
-
-<p>在韩国其实待的时间不算短，5、6天的样子。具体的行程都是围绕着成均馆大学和首尔的。</p>
-
-<p>其中有一天的安排是就是告诉小伙伴自己想去哪里，然后让他们带你去。其中去的一个点是南山首尔塔。这座塔其实感觉也没有什么很特别的，但是上面这张图里的love lock是真的牛逼。</p>
-
-<p>在塔下的专门的好几块地方，到处都是恋人们放的love lock。也不知道是不是真的能把爱情锁住。</p>
-
-<p>后面还帮两组小伙伴挂了锁在上面，不知道他们后面有没有机会去找自己的锁~</p>
-
-<p>这段时间也算是吃了很多韩国的食物：神奇的凉凉的粉，炸鸡啤酒，哪里都有的但是都好吃的泡菜。（就不放图了……懒……）说实话还是挺有意思的。</p>
-
-<p>另外一趟收获是……说了一路的英语。当然……和我对接的两个小伙伴的英语可能也就一般，但是我们连比带划的还是能够正常沟通的……</p>
-
-<p><strong>西安</strong></p>
-
-<p>暑假后面还去了西安。</p>
-
-<p>也说不上是临时起意（其实就是……）。应该是某天小弟忽然来找我聊天，然后那段时间刚刚投完OSDI还算稍微有点空，就觉得自己本科四年都没有找过小弟（虽然一直说有机会去找他玩，但是真的是……没有机会……）。</p>
-
-<p>于是就，决定了这趟出行了。</p>
-
-<p><img src="http://dongd.info/images/life/2019-1-19-7.jpg" alt="" /></p>
-
-<p>上面是西安的钟楼还是鼓楼？晚上还是很好看的。</p>
-
-<p>说实话西安给我的感觉还是可以的，有种南充那种小破城市但是很接地气的感觉。西安的城市建设应该还在进展中，旅游的特殊可能除了历史文化的底蕴之外就很难说了。</p>
-
-<p>不过我的这趟是围绕着吃的去的……</p>
-
-<p><img src="http://dongd.info/images/life/2019-1-19-5.jpg" alt="" /></p>
-
-<p>上面是自己掰的泡馍，虽然掰了很久，不过掰完之后还是有种意外的成就感啊。</p>
-
-<p>那几天吃的东西都是按照网上找的攻略来的，泡馍，花奶奶酸梅汤，魏家（各种）凉皮，肉夹馍，裤带面等等等。每天都吃的很撑很撑。</p>
-
-<p>（本来还应该有次秋游的，因为赶论文的原因被自己鸽了……）</p>
-
-<h2>小牛奶： 养猫初体验</h2>
-
-<p>今年最大的变化可能是在想给自己找一个新的家庭成员……</p>
-
-<p>其实应该是在年初的一段时间，就认真的很小ZM讨论过要不要养一只猫，平时可以陪我们考研撒的……</p>
-
-<p>但是因为领养和去宠物店购买都很麻烦，所以最后就鸽了。而且网上其实也一直有说，如果学生党的话最好不要养，因为自己都还”寄人篱下“的……宿舍一般也不好养猫。</p>
-
-<p>大概是暑假前的一段时间，洪帮主在零号湾捡到了一直小牛奶猫……可能一个月都还没有的，超级小。</p>
-
-<p>因为洪帮主自己已经有好几只猫了，不好再养，于是问了下我们（因为之前和洪帮主说过想养猫的想法）。</p>
-
-<p><img src="http://dongd.info/images/life/2019-1-19-9.jpg" alt="" /></p>
-
-<p>虽然事出突然，但是养猫这件事忽然变成了”只要点头就可以了“的状态。在简单的一波讨论后，我们接了下来，然后就有了小牛奶了。</p>
-
-<p><img src="http://dongd.info/images/life/2019-1-19-3.jpg" alt="" /></p>
-
-<p>养猫的感觉真的和带小孩可能有点像。特别是小猫。刚来的时候要给他准备各种东西，猫砂啊猫砂盆，猫粮，各种罐头，营养膏，玩具……</p>
-
-<p>小牛奶来了没有多久（两周）的时候还得了皮肤病。去宠物诊所查了说是真菌感染，应该是因为小猫本来抵抗了就弱然后我们也没有太注意的原因。</p>
-
-<p>开始了一两个月的治病过程。</p>
-
-<p>这段时间也陆陆续续在打一些疫苗（猫三联和狂犬）。</p>
-
-<p>后面病好了之后整个猫就皮的不行。（其实小时候就皮，但是小的时候和我们打架不痛……）</p>
-
-<p><img src="http://dongd.info/images/life/2019-1-19-8.jpg" alt="" /></p>
-
-<p><img src="http://dongd.info/images/life/2019-1-19-1.jpg" alt="" /></p>
-
-<p>养小牛奶还是有好几次波折，主要还是因为后面被阿姨看到了被告知宿舍不能养。</p>
-
-<p>中间甚至还想过要不要租个房子算了……</p>
-
-<p>后面几经波折，把小牛奶带到了杭州和妹妹的橘子一起过一段时间了。结果这两只猫在一起过得还挺开心的。毕竟有个玩伴了，不像之前我们可能陪它的时间也不会很多。</p>
-
-<p><img src="http://dongd.info/images/life/2019-1-19-2.jpg" alt="" /></p>
-
-<p>这两天赶完ATC之后还带小牛奶和橘子去做了个绝育，看小牛奶绝望的眼神。</p>
-
-<h2>来科研吧</h2>
-
-<p>今年参加了两个会，ChinaSys（中国图灵大会）和OSDI。</p>
-
-<p>然后接手了一堆项目，XPC，Serverless，FPGA，Unikernel……</p>
-
-<p>项目细节这里先不多说了。谈谈感觉吧。</p>
-
-<p>做的事情很多，不过感觉都没有总结好。</p>
-
-<p>其实越到后面越会有这种感觉。积累还是相当重要的，不管是自己的成长，还是以后作为生命的一部分来回忆。</p>
-
-<p>说实话以前感觉还是挺喜欢写这些总结啊之类的东西的，不过博士生带项目是真的……有的时候会觉得忙得喘口气都很仓促，更别说还有多余的时间总结生活，总结工作啊（也许组会报告之类的会做）之类的。</p>
-
-<p>不过话说回来，自己其实在这样的重担下成长得也算是比较快了。</p>
-
-<p>自己去带一些项目，带新来的小朋友想东西写代码，帮助小伙伴准备毕业等等。</p>
-
-<p>不过写论文撒的是真的还需要好好练练，基本上现在还是要靠斌哥和海波带着。希望明年自己能做到独立写完论文并且斌哥他们还能觉得不错。</p>
-
-<p>(๑•̀ㅂ•́)و✧加油</p>
-
-<h2>运动：oh no……</h2>
-
-<p>年会的时候回顾了一下去年的flag，”跑步100次吧“，然后看了下手机里的记录，”6次“。</p>
-
-<p>额O__O &ldquo;…</p>
-
-<p>其实今年也没有说完全没有运动，游泳其实去了好多次（冬天也去了）</p>
-
-<p>然后暑假的那段时间经常会在寝室练下keep撒的……</p>
-
-<p>不过总体来说的话和去年比起来运动量还是少了很多，感觉还是不行，明年得加强点锻炼。</p>
-
-<h2>新年展望！ 给自己立的Flag</h2>
-
-<p>新年flag就不多bb了，直接放图吧。</p>
-
-<p><img src="http://dongd.info/images/life/DD-2019-plan.png" title="2019-plan" alt="2018-plan" /></p>
-
-<p>这里面最重要的可能是要坚持运动了，希望自己不要像18年一样……</p>
-
-<p>然后除了图中的flag，希望自己能够把blog坚持下去。</p>
 </div>
   
+  
+    <footer>
+      <a class="read-more btn btn-default" href="/blog/2019/01/19/2018-summary/">Read on &rarr;</a>
+    </footer>
   
 
 
@@ -585,55 +255,12 @@ Tail latency is of great importance in user-facing web services. However, mainta
 
 <h2>下面是记的笔记，仅供理思路之用。</h2>
 
-<h2>Arrakis: The Operating System is the Control Plane</h2>
-
-<p><a href="https://www.usenix.org/node/186141">link</a></p>
-
-<p>这篇paper的Motivation是说： 现有的hardware device十分快，但是将server Application（比如redis）跑在传统的OS比如linux上面，仍然存在很大的开销。</p>
-
-<p><img src="http://dongd.info/images/paper_read/osdi14/arrakis_motivation.png" title="motivation" alt="motivation" /></p>
-
-<p>如上图，使用linux kernel的话，在一次redis的set/get request中，kernel占据的时间其实占了相当大的比例。这是因为kernel的功能非常多，包含了access control等等的逻辑，而这些kernel的处理逻辑放在data plane上肯定会导致整体的性能更差的。</p>
-
-<p>基于这样的数据和观察，这篇paper提出的arrakis希望将kernel的功能从dataplane中隔离处理，只让kernel 负责control plane；其余的部分交给硬件和软件来处理。</p>
-
-<p>arrakis是基于现有的硬件技术来实现的，更具体一点就是SRIOV。paper中用的包括一个10G的Ethernet NIC和一个RAID设备都是支持SRIOV的。SRIOV作为PCI协议的扩展，在将来会出现在更多类型的设备上是完全有可能的。</p>
-
-<p>使用SRIOV后，很多kernel实时做control plane的事情都可以变成硬件来guarantee了。举个例子，原先kernel要做资源隔离，现在只需要在app启动的时候让kernel在device中配置好配置文件，就可以让硬件来自动保证app只能访问到特定的资源了。</p>
-
-<p><img src="http://dongd.info/images/paper_read/osdi14/arrakis_io_arch.png" title="motivation" alt="IO ARCH" /></p>
-
-<p> 最后的整个IO的architecture如上图。</p>
-
-<p>应用层和libOS(作control plane) 的部分并没有很多亮点，这里不讲。</p>
-
-<p>最后的效果还是很不错的。</p>
-
-<p><img src="http://dongd.info/images/paper_read/osdi14/arrakis_evaluation.png" title="evaluation" alt="evaluation" /></p>
-
-<p>这篇paper是这年OSDI的best paper。虽然听talk感觉小哥讲得很不错而且回答问题也答得很好，但是也没有想到竟然能拿下best paper。
-主要还是因为这篇paper解决的问题其实并不是很新的问题，netmap，dune(以及同年的IX) 都是同样的motivation。提问环节也有人问到这个问题。从作者的回答来看，arrakis和之前最大的特点其实是解决问题的思路不同，这篇paper的核心是说如何通过结合最新的硬件来实现尽可能地将kernel从data plane中移除。而netmap这类工作的优化其实很依赖于batching这样的技术，最终结果是虽然throughput会提升但是难免会有latency的损失。</p>
-
-<p>notes: 截图均来自paper作者的slides/paper。</p>
-
-<hr />
-
-<h2>IX: A Protected Dataplane Operating System for High Throughput and Low Latency</h2>
-
-<p>motivation和arrakis很像，解决的方案也很像。
-不过在IX里面，虽然仍然通过划分control/data plane，但是后续的做法仍然不同。IX是基于之前的dune的系统，而基于dune的方案的好处在于： 可以让application直接访问硬件的同时，仍然能够实现现有的linux kernel中的各种接口服务（在dune中通过hypercall来抓发syscall的request)。</p>
-
-<p><img src="http://dongd.info/images/paper_read/osdi14/ix_io_arch.png" title="motivation" alt="IO ARCH" /></p>
-
-<p>IX的架构如上，其实是一个三层的架构，传统的OS，如linux kernel，在root-mode ring 0跑着。IX的application在non-root mode的ring3跑着，其中还有一个libIX提供基本的库作为接口。而在non-root mode的ring 0运行的是IX，这是一个负责简单的data plane(也许还有部分的control plane的功能）的一个libOS，仅负责处理application对于hardware device（比如NIC）的快速访问。</p>
-
-<p>最终的IO性能的提升，仍然需要batching这样的技术。为了在提高throughput的同时减少latency的影响，IX使用了adaptive batching的技术。</p>
-
-<p>个人感觉这篇paper基本上就只是拿dune的框架做的一个具体的应用而已。BTW，arrakis和ix两篇工作最终都是力争在throughput提高的同时，lateny也能降低或者至少不变；虽然通常来说这两者很难同时做到，但是……毕竟是OSDI级别的工作……</p>
-
-<hr />
 </div>
   
+  
+    <footer>
+      <a class="read-more btn btn-default" href="/blog/2018/03/24/osdi2014/">Read on &rarr;</a>
+    </footer>
   
 
 
@@ -680,174 +307,12 @@ Tail latency is of great importance in user-facing web services. However, mainta
 
 <p>paper和对应的slides都可以在上面的官方链接中的Program中找到。</p>
 
-<h3>Sessin: Kernel</h3>
-
-<p>这个session里面有四篇文章</p>
-
-<ul>
-<li>Lock-in-Pop: Securing Privileged Operating System Kernels by Keeping on the Beaten Path</li>
-<li>Fast and Precise Retrieval of Forward and Back Porting Information for Linux Device Drivers</li>
-<li>Optimizing the TLB Shootdown Algorithm with Page Access Tracking</li>
-<li>Falcon: Scaling IO Performance in Multi-SSD Volumes</li>
-</ul>
-
-
-<h4>1. Lock-in-Pop: Securing Privileged Operating System Kernels by Keeping on the Beaten Path</h4>
-
-<p>作者是Yiwen Li, Brendan Dolan-Gavitt, Sam Weber, and Justin Cappos, New York University。</p>
-
-<p>这篇paper算是我比较感兴趣的paper之一，系统安全的工作。</p>
-
-<p><strong>paper</strong></p>
-
-<p>这篇paper的Motivation是是说，现在的linux kernel的bug非常多，并且每年都会不断产生新的功能。</p>
-
-<p><img src="/images/paper_read/atc17/atc17_yiwen_1.png" alt="图来自Yiwen Li slides" /></p>
-
-<p>此前针对与减少kernel的bug基本上可以分为两类：
-1. 将kernel的代码按照模块进行分类，比如设备驱动部分的bug就比其他部分多（设备驱动往往是有设备厂商来写的，代码质量很难保证）
-2. kernel的“旧”代码比新加入的代码的bug少。（因为旧的代码实现经过了较长时间的使用，即使存在bug也已经fix掉了）</p>
-
-<p>基于这两种标准，此前的相关工作有：split kernel：在kernel启动后，将不使用的设备驱动代码从内核中移除，减少设备驱动带来的bug(todo，确认一下），（todo，关于旧代码的bug更少的工作是？）</p>
-
-<p>这篇paper的标题中的Lock-in-Pop的Pop，指的是这篇paper提出的一种新的不同于上面两种指标的衡量kernel代码的bug的新指标：popular path。这篇paper提出，在kernel的popular path中的bug数量，远少于其他的部分。</p>
-
-<p>这个观点其实直观上来看还是相当道理的，popular path在这里指的是内核中经常被使用的代码，相比于那些不经常使用的代码，popular path的部分使用的较多，维护者会花更多时间和经历去保证它的正确性，并且这部分代码即使曾经存在bug也更容易被发现然后fix掉。</p>
-
-<p>关于这个metrix，paper中给出作者们的数据是：在占kernel总代码1/3的fast path code中出现的bug占kernel总bug的3%.（kernel版本3.13.0 &amp; 3.14.1）</p>
-
-<p>基于这个metrix，作者在这篇paper中提出了一个新的系统Lind，这个系统针对的是类似容器这样的操作系统虚拟化的场景。Lind用到的核心组件是Google的NaCl和Repy Sandbox，系统的核心想法很简单：通过确定下来哪些syscall，以及他们对应的哪些参数使用，是在kernel中的popular path的，只运行lind中的application使用这些syscall以及对应的参数。NaCl和Repy Sandbox的作用就是拦截下来应用的系统调用，并且将不被允许的系统调用在SafePosix这一层重新实现一下。</p>
-
-<p><img src="/images/paper_read/atc17/atc17_yiwen_2.png" title="图片来自作者slides或paper" alt="图片来自作者slides或paper" /></p>
-
-<p>从最后的evaluation来看，Lind测试了的应用程序包括grep，wget，netcat，apache这些。可见Lind的机制对于大部分的application还是能够很好地兼容的，而且不需要修改应用程序和内核这两点也是非常好的特点。</p>
-
-<p><img src="/images/paper_read/atc17/atc17_yiwen_3.png" title="图片来自作者slides或paper" alt="图片来自作者slides或paper" /></p>
-
-<p>上面的测试结果来看，Lind对于application的性能还是会有相当的损失的。最慢的情况下会慢到6.25倍。这主要是因为Lind需要对很多系统调用重新实现，这部分会带来很多额外的开销。</p>
-
-<p>这个系统是开源的，具体链接见论文，不过我还没有实际的跑过。</p>
-
-<p><strong>思考</strong></p>
-
-<p>这篇paper的工作其实感觉很不错。不过有几个细节需要在考虑一下。</p>
-
-<p>关于popular path，这个想法说实话很直观，我觉得之前之所以没有人从popular path去分析bug是因为很难界定kernel中的哪些代码是popular path的。在看paper的过程中，我充满期待的想知道作者们是怎么处理这个问题的，但是事实上他们的处理方法非常……直接。他们在paper中说他们找了几个学生，在一个新的系统上进行办公，使用各种常见的软件（办公软件，聊天软件，debian的软件库中下载量最大的几十个软件等等），系统上运行的kernel开启了gcov，可以对执行到的kernel的代码进行记录，然后经过一段时间的使用，看kernel中被执行到的路径的情况。</p>
-
-<p>这种方法其实我觉得其实很难说是一个漂亮的或者让人信服的方法。他们分析出来的popular path以1/3的代码量却只存在3%的bug，这个结果应该说是非常吸引人的结果，个人觉得也是他们的这个方法最终能够立得住的重要的基础。</p>
-
-<h4>2. Fast and Precise Retrieval of Forward and Back Porting Information for Linux Device Drivers</h4>
-
-<p>paper的作者：Julia Lawall, Derek Palinski, Lukas Gnirke, Gilles Muller，来自：Sorbonne Universites/UPMC/Inria/LIP6</p>
-
-<p><strong>paper</strong>
-Linux系统是现在使用地非常广泛的系统，从云端到IOT设备都有Linux系统的身影。为了能够让Linux Kernel在不同的硬件平台上使用，Linux Kernel提供了一套内核模块（kernel module）的机制，来让开发者撰写特定硬件的驱动程序，在不修改Linux Kernel的情况下支持新硬件的使用。</p>
-
-<p>Linux Kernel目前的代码量已经非常大了，开发者很难对整体的Linux Kernel都有着非常深刻的掌握。开发者通常通过Linux Kernel提供的各种接口来使用Linux kernel的各种功能。比如为了支持一个新的网卡设备，开发人员所开发的网卡驱动程序在能够正确操纵网卡硬件的同时，还要在上层的网络协议栈中注册对应的接口来让上层的协议栈能够实现用上网络设备。</p>
-
-<p>作为一个开源的系统，Linux Kernel有着大量的维护人员，不断地为Linux Kernel提供着新的功能，完善着代码。这会带来一个问题，就是内核中提供的接口变化得十分地迅速。paper中给出了一个数据：Linux 3.8 (February 2013)到 Linux 4.9 (December 2016)这两个版本之间, 原先kernel中暴露给kernel module的19,473函数中的2,439个被废弃了，而又有10,056 个新的函数被暴露给kernel module。从这个数据可以看出内核中的接口变化其实是非常大的。</p>
-
-<p>而这种kernel暴露给kernel module接口的易变性，使得在之前版本的kernel中可以运行的驱动程序，在新的版本中可能就无法运行了（由于之前使用的接口被废弃了或者是接口的使用发生了变化）。这也是这篇paper想要解决的问题，如何能够方便地帮助开发者将一个在旧版本的内核中可以运行的驱动程序移植到新版本的内核中。</p>
-
-<p>论文中，将开发者移植驱动程序的方法归结为： ①尝试自己在新版本的内核中直接编译原有的驱动程序代码 ②编译器会提示对应的错误信息（如果发生了接口修改的问题） ③开发人员根据错误信息通过kernel git中的信息或者是google查找解决方案。</p>
-
-<p><img src="/images/paper_read/atc17/atc17_lawall_1.png" title="图片来自作者slides或paper" alt="图片来自作者slides或paper" /></p>
-
-<p>上面是一个具体的例子，可以看到其中提示suspend这个field已经没有了。</p>
-
-<p>这篇paper同样遵循上面给出的移植驱动程序的流程，但是提出了两个工具gcc-reduce 和 prequel，来帮助开发者更快地定位到需要查找的信息。</p>
-
-<p>先来说prequel这个工具，这个工具的功能是说，它通过一个输入的patch query language(PQL)，在两个版本之间变化的patch中找到和对应问题相关的patch，来帮助开发者解决移植接口变化的问题。以上面的图为例，通过prequel， 开发者可以查找，在kernel的哪个patch中，spi_driver这个结构中的resume和suspend接口被删除了。其实git中已经提供了类似的功能，git log -G和git log -S可以查找比如在哪些patch中，某一行的suspend或resume被删除了。然而原始的git的问题在于它没有上下文的语义，比如我只能查找到所有的suspend被删除的patch，但是这些suspend并不是spi_driver中的suspend，其实和我们的需求不相关。这也是prequel的最大的特点，就是在git的所有patch中进行查找的时候，会考虑各种context。</p>
-
-<p>gcc-reduce这个工具则要更直接地多了，这个工具会根据生成的错误信息生成对应的prequel的查询语句，也就是说编译一次，如果出现错误开发者可以直接得到prequel返回的和错误信息相关的patch，而不需要自己手动去写PQL语句。具体的实现包括将gcc的错误信息进行分类，根据不同的分类生成对应的PQL语句，以及对于超出分类的错误信息提交给用户自己判断如何进行prequel的查询。</p>
-
-<p>prequel和gcc-reduce由于需要查询大量的patch，每个patch往往还会涉及到大量的文件，这会带来不小的开销，论文里面有一小节在介绍如何进行优化能够更减少这样的开销，不过这样的优化会带来一些false negatives的情况。具体细节可以看论文。</p>
-
-<p>测试方面，作者测试了33个驱动，使用这套工具可以解决在一直的时候遇到的3/4的问题，并且gcc-reduce和prequel能够在30s内返回查询的结果。</p>
-
-<p>工具是开源的，具体的地址见论文。</p>
-
-<p><strong>思考</strong>
-稍微吐槽一下，这篇paper除了evaluation之外，没有介绍的图，只有代码和伪代码的图……</p>
-
-<p>其实仔细想想会发现这篇paper所提出的工具非常简单，基本上可以说就是一个patch的查找工具。在这样简单的基本工作上，他们的工作能够中ATC，个人感觉是因为他们找了一个很好的问题：驱动在跨内核版本的迁移问题。通过相应的数据，说明了这个问题的客观存在以及重要性，并且通过非常solid的测试结果（实际移植了33个驱动并且开源出来），来证明工具的有效性，这才使得整个工作瞬间变得不一样了。</p>
-
-<h4>3.Optimizing the TLB Shootdown Algorithm with Page Access Tracking</h4>
-
-<p>作者是Nadav Amit，来自VMware Research。
-Nadav Amit小哥的paper今年已经看到几篇了：今年HotOS的hypercallbacks是他的工作，感觉挺有意思的；17年ASPLOS的Page Fault Support for Network Controllers也是他的工作，之前听学长讲过这篇；还有之前看到的关于网络虚拟化相关的paper，比如ELI等，也有这个小哥参与的，他在ELI后面还做了一系列和IOMMU相关的工作。</p>
-
-<p><strong>paper</strong></p>
-
-<p><img src="/images/paper_read/atc17/atc17_amit_1.png" title="图片来自作者slides或paper" alt="图片来自作者slides或paper" /></p>
-
-<p>现在的OS，一般都会使用虚拟地址来对内存操作，这是因为内存的虚拟化可以使得进程间有非常好的隔离性，另一方面能够更好地使用内存资源。而使用虚拟地址，意味着我们需要一种转换机制，能够在CPU运行的时候，从将虚拟地址转换为真正需要的物理地址，这种转换机制就页表：page table了。页表的结构如上图，页表也存在内存当中，由一个根寄存器指向它（x86系统下页表根指针存在cr3寄存器中），这个根寄存器存的是页表的物理地址，当CPU需要去查找一个虚拟地址对应的物理地址的时候，会从这个根寄存器所在的第一级页表开始一级级往下走，最终获取到对应的物理地址，再从内存中根据物理地址读写对应的内存。</p>
-
-<p>当然，每一次访存操作都需要走页表显然是会比较慢的。Cache是系统中一个很常见的优化方式，为了减少走页表的次数，每个CPU中会有一个TLB（translation lookaside buffer）。这个buffer其实本质上就是一个cache，它缓存一个虚拟地址到物理地址的映射。也就是说，当CPU需要访问某个虚拟地址A的时候，会首先在TLB中查找一下A是否已经在TLB中了，如果A已经在了，就直接获得对应的物理地址，这叫一次tlb hit，如果不在TLB中则走一次页表，获取到A对应的物理地址B，并且将A->B这样的映射缓存入TLB，这是一次tlb miss。TLB在现在的架构中已经是十分常见的一部分了。</p>
-
-<p>和Cache不同，硬件（比如X86）一般是不会维护TLB的一致性的，这个任务被交给了系统软件来处理。这意味着，比如在Linux系统中内核需要切换一个运行的进程了，不仅仅需要切换进程对应的页表，还需要把旧的TLB清空，否则会导致访问到之前的页表说映射的内存。x86下不能直接访问TLB的内容，而是提供了一些相关的指令来flush tlb。清空TLB会带来一些性能开销，并且每次清空TLB之后，最初的一系列访存操作会频繁触发TLB miss，整体来看对性能的影响很大。相关的优化包括为每个页表分配一个ASID，然后在TLB的每一项中记录这ASID，查找TLB的时候会看对应的entry里的ASID与当前运行程序的ASID是否相同，相同才使用。这其实很好地环节了部分TLB的问题，另一个更难处理的问题则出现在多核的环境下。</p>
-
-<p>由于TLB是每个核一个的，当一个程序（比如多进程）同时在多个核上运行的时候，如果其中一个触发了对于页表的修改，这就意味着不仅需要将当前核上的对应的TLB刷掉，还需要将其他核心上运行的相关的TLB刷掉，这就是一次TLB shootdown。一次TLB shootdown：当前core flush tlb， 发送IPI请求给其他core（当前core等待其他core的返回），其他core处理IPI然后刷TLB，其他core返回IPI处理结果，当前core完成一次TLB shootdown操作。可以看到，为了保证多核环境下的TLB的一致性，其实是需要比较大的开销的。</p>
-
-<p>为了解决tlb shootdown的问题，现有的解决方法大体可以分为硬件方法和软件方法这两类。 硬件方法的核心在于修改硬件来使得硬件能够维护TLB的一致性，相关的工作有Translation-lookaside buffer consistency（Teller‘90），DiDi:Mitigating the performance impact of TLB shootdowns using a shared TLB directory（Villavieja’11，PACT上的）等。软件方法中，现在OS采用的方法如Batching（Scalability of microkernel-based systems,Uhlig'05），只flush使用对应的address space的core，权衡full flush和individual flush来最优化结果。此外，还有学术上最新的软件类型的方法：Explicit software control（Boyd-Wickizer’10, Tene’11），Replicated paging hierarchy（Clements’13, Gerofi’13）。这些工作虽然都能在某些具体的场景下减缓TLB shootdown的问题，但是都存在他们的不足之处。比如replicated paging，需要非常多额外的内存去存储replicated的页表，并且在更新页表的时候，也需要保证多个拷贝页表同时去更新，这都会带来额外的性能开销。</p>
-
-<p>这篇工作针对于两种情况： short-lived private mappings 以及long lived idle mappings进行了优化，能够在Linux系统上减少90%的tlb shootdown。long-lived idle mappings是指在某个core上，关于某个PTE的映射在比较长的时间中已经没有再使用了，甚至与在该core上已经执行了tlb full flush过，那么这种情况下当其他的core在判断需要通知哪些remote cores去刷tlb的时候就不需要通知这种core了。作者们使用的技术叫做tlb version tracking，核心点在于当需要执行tlb shootdown的时候看一下remote的core上面的pte 对应的tlb的version是多少，如果对应version表示该core已经不存在这个pte对应的tlb了则可以避免这一次shootdown。</p>
-
-<p>针对于short-lived private mapping的处理是核心部分，这里利用了x86架构下页表中的一个特殊的标记位：access bit。</p>
-
-<p><img src="/images/paper_read/atc17/atc17_amit_2.png" title="图片来自作者slides或paper" alt="图片来自作者slides或paper" /></p>
-
-<p>access bit会在CPU走页表查找某个page的时候，将对应的PTE中的这个bit设置上，OS可以去清空这个bit。这个bit最初是给kernel做memory reclamation的。这里如何运用这个硬件特性来做tlb shootdonw的优化呢。</p>
-
-<p>假设现在有两个core，分别为core1和core2。有一个多线程的程序分别在两个core上都运行着。此时在core1上运行的程序触发了一个page fault（虚拟地址va 对应的物理页没有映射），此时在core1将PTE修改好后，更新了自己的tlb，然后这个时候va在页表中对应的PTE的access bit就已经被设置上了，core1的OS主动地清掉这个bit。当core1之后再次修改va对应的PTE的时候，去看一下对应的PTE中access bit有没有被设置上，如果有，那么说明<strong>“有可能”</strong>的核也去访问了对应的PTE，这个时候就需要去做tlb shootdown了，如果没有设置上的话，就一定可以保证不需要做TLB shootdown了。</p>
-
-<p>上面讲的是一个最初的方案，事实上存在的问题是在第一个core将PTE修改好之后，到第一个core访问PTE并且将PTE中的access bit清掉是存在一个time windows的，在这个windows中其他的core有可能已经将PTE缓存到了TLB中了。解决的方法很巧妙，通过再引入每个core一个的second page table。second page table和当前的page table相同，只是不需要包含所有的映射，只要有部分映射就可以了。在修改PTE的时候，先把页表切换到second page table，然后在second page table中将对应的PTE设置好，然后访问对应的页，这个时候CPU会将pte的缓存放入tlb中，再把second page table中的对应的PTE的access bit设置上，而对于原先的page table，这个bit仍然是clear的。这个时候再把页表切回原先的page table，就可以做到原先的page table的PTE是clear的，但是tlb已经被加载了最新的PTE的结果。并且在这个过程中其他的core使用原先的Pagetable 访问新的PTE的话，也会将page table中的access bit设置上。</p>
-
-<p>测试部分的话，micro benchmark的结果显示能够减少很多的TLB shootdown。可见整个设计方案还是比较好的。</p>
-
-<p><img src="/images/paper_read/atc17/atc17_amit_3.png" title="图片来自作者slides或paper" alt="图片来自作者slides或paper" /></p>
-
-<p>macro测试部分则显得不是很好了，最终的性能提升甚至到不了1.15，而且core不同的时候的测试结果感觉很不同，也看不出中间存在什么特殊的走势。</p>
-
-<p><img src="/images/paper_read/atc17/atc17_amit_4.png" title="图片来自作者slides或paper" alt="图片来自作者slides或paper" /></p>
-
-<p>对于TLB shootdown本来就不多的例子，这篇论文的方法大概会带来9%左右的overhead，当然作者argue说如果硬件能够提供部分支持的话这样的overhead是可以避免的。</p>
-
-<p><strong>思考</strong></p>
-
-<p>和之前的paper不同，这篇paper所解决的问题是一个非常经典的系统问题，并且已经有了大量的之前的研究工作了。这篇paper比较出彩的地方在于利用了现有的硬件(access bit)去解决tlb shootdown的问题，并且能够减少90%的tlb shootdown，这个数据可以说是非常漂亮的，此外，利用了一个second page table去保证加载tlb和清除clear bit这两个步骤的原子性也是一个非常好的技术点。相比之下，long-lived部分感觉就是为了使得整个论文更加充实而加上的了。让我比较诧异的是最终的macro benchmark测的结果显示并没有什么整体上的性能提升，感觉瞬间懵逼，因为论文前面的部分其实说明了这个问题的严重性，但是在测试的部分其实却看不出来这点。</p>
-
-<p>整体来看，这篇paper还是挺好的，充满很多关于tlb的技术点（尤其对于我来说之前这类paper研究的也不多），看完之后也能学到很多东西，ATC这个会议也是很适合这篇paper的，其他系统的会议的话PC们可能就不一定会买账了……</p>
-
-<h4>4.Falcon: Scaling IO Performance in Multi-SSD Volumes</h4>
-
-<p>作者是Pradeep Kumar and H. Howie Huang, 来自The George Washington University。
-<strong>paper</strong></p>
-
-<p>这篇论文宏观上来看是针对于multi-SSD volume这种新场景下的优化，目前的比如Linux中的现有方案都不能权衡好性能和应用的易用性。下面这张图就是对比的几个系统，可以看出来性能最好的其实就是application自己用多个thread管理多个SSD的使用，当然这种方案会带来的问题是应用端的复杂度就会很高了，而kernel managed 的方案都存在各种性能上的问题。这篇paper想达到两者同时最优的方案。</p>
-
-<p><img src="/images/paper_read/atc17/atc17_kumar_1.png" title="图片来自作者slides或paper" alt="图片来自作者slides或paper" /></p>
-
-<p>下面是现有的LInux下的IO的流和中间的状态的切换。这篇paper的insight是说现有的方案中有很多IO batching和IO serving捆绑的情况，而这样的设计其实并不利于multi-SSD volume的使用。</p>
-
-<p><img src="/images/paper_read/atc17/atc17_kumar_2.png" title="图片来自作者slides或paper" alt="图片来自作者slides或paper" /></p>
-
-<p>最终的设计方案也是按照这个思路去解决的，核心就是分离出了两个模块，分别处理IO batching和IO servicing。</p>
-
-<p><img src="/images/paper_read/atc17/atc17_kumar_3.png" title="图片来自作者slides或paper" alt="图片来自作者slides或paper" /></p>
-
-<p>最终的测试方面，相比于现在的系统，在8-SSD volume的配置下，Falcon能够提高随机文件读写的速度分别为1.77倍和1.59倍，对于各种测试的应用程序显示的性能结果是1.69×倍的提升。</p>
-
-<p><strong>思考</strong>
-这篇paper感觉可以学到很多东西，不过的确和自己的研究方向差的有点远。核心的思想能够看出来是为了挺高并行性的，能够支持现有的系统，并且最终的性能测试的结果也不错，算是一篇很好的工作。设计的和IO子系统相关的背景介绍其实也不错，不过技术细节还没有完全想清楚具体是怎么做的（毕竟很多概念都是第一次知道……），笔记记得也就粗略一点了。等之后再空点或者想了解一下IO这块的时候再回来补下这块的笔记吧！</p>
-
-<h4>Session1 小节</h4>
-
-<p>第一个ATC的session是关于Kernel的，其实更具体点说就是Linux Kernel的相关的四篇paper。四篇paper具体涉及的方向就差很多了，Security的，IO的，TLB以及driverd。不过每篇paper的质量都很高，而且对相关领域的背景介绍也都很深入。Linux Kernel现在的使用非常广泛，很多系统的工作也是基于Linux Kernel来做的，感觉要做系统的话对于Linux Kernel的理解必须要很深入才行，不仅仅是自己研究的方向，其他的方面也要能够有些了解，这样有时候才能借鉴到其他方向的一些比较好的解决方法，也能够结合不同的系统方面来进行设计。</p>
-
-<p>现在写的这些也就仅仅是自己看paper的一些笔记把，ATC17相关的paper还会继续慢慢看然后敦促自己写完笔记。不过理解一篇paper尤其是不一定是自己所熟悉的领域的paper还是挺耗时的TT，继续加油吧～</p>
 </div>
   
+  
+    <footer>
+      <a class="read-more btn btn-default" href="/blog/2017/08/27/ATC17_papers_read_1/">Read on &rarr;</a>
+    </footer>
   
 
 
