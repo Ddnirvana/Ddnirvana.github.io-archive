@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "ATC17 papers read 1"
+title: "ATC‘17 paper 阅读"
 doate: 2017-08-27 18:55:10 +0800
 comments: true
 categories: paper reading 
 ---
 
-# ATC‘17 paper 阅读（一）
+
 
 **转载请注明出处**
 

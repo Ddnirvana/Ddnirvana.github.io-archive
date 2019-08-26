@@ -1,12 +1,10 @@
 ---
 layout: post
-title: "OSDI2014"
+title: "OSDI 2014"
 date: 2018-03-24 22:56:28 +0800
 comments: true
 categories: paper reading
 ---
-
-# OSDI 2014
 
 ## 最前面
 因为刚好看到youtube上面有OSDI 2014的视频，链接：

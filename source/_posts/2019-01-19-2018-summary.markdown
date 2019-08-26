@@ -1,12 +1,10 @@
 ---
 layout: post
-title: "2018-summary"
+title: "DD的2018年总结"
 date: 2019-01-19 00:33:00 +0800
 comments: true
 categories: life
 ---
-
-# DD的2018年总结
 
 说实话，自己也没有想到2018年就这么嗖的就过去了。
 

@@ -1,12 +1,10 @@
 ---
 layout: post
-title: "hello"
+title: "hello,world"
 date: 2017-03-30 00:14:10 +0800
 comments: true
 categories: work
 ---
-
-#hello,world
 
 这是blog的第一篇测试博客。
 希望能够坚持下来记录博客的习惯↖(^ω^)↗
