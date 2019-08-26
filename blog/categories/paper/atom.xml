@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Paper | Dd's home]]></title>
   <link href="http://dongd.info/blog/categories/paper/atom.xml" rel="self"/>
   <link href="http://dongd.info/"/>
-  <updated>2019-08-26T16:49:37+08:00</updated>
+  <updated>2019-08-26T16:58:52+08:00</updated>
   <id>http://dongd.info/</id>
   <author>
     <name><![CDATA[Dong Du]]></name>
@@ -14,13 +14,11 @@
 
   
   <entry>
-    <title type="html"><![CDATA[OSDI2014]]></title>
+    <title type="html"><![CDATA[OSDI 2014]]></title>
     <link href="http://dongd.info/blog/2018/03/24/osdi2014/"/>
     <updated>2018-03-24T22:56:28+08:00</updated>
     <id>http://dongd.info/blog/2018/03/24/osdi2014</id>
-    <content type="html"><![CDATA[<h1>OSDI 2014</h1>
-
-<h2>最前面</h2>
+    <content type="html"><![CDATA[<h2>最前面</h2>
 
 <p>因为刚好看到youtube上面有OSDI 2014的视频，链接：
 <a href="https://www.youtube.com/watch?v=WG3b2hE4i6U&amp;list=PLbRoZ5Rrl5ldOufH9TxNQYehPQ_lC0tNX&amp;index=1">https://www.youtube.com/watch?v=WG3b2hE4i6U&amp;list=PLbRoZ5Rrl5ldOufH9TxNQYehPQ_lC0tNX&amp;index=1</a>
@@ -82,13 +80,11 @@
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[ATC17 Papers Read 1]]></title>
+    <title type="html"><![CDATA[ATC‘17 Paper 阅读]]></title>
     <link href="http://dongd.info/blog/2017/08/27/ATC17_papers_read_1/"/>
     <updated>2017-08-27T00:00:00+08:00</updated>
     <id>http://dongd.info/blog/2017/08/27/ATC17_papers_read_1</id>
-    <content type="html"><![CDATA[<h1>ATC‘17 paper 阅读（一）</h1>
-
-<p><strong>转载请注明出处</strong></p>
+    <content type="html"><![CDATA[<p><strong>转载请注明出处</strong></p>
 
 <p>会议全称：2017 USENIX Annual Technical Conference，<a href="https://www.usenix.org/conference/atc17">官方链接</a></p>
 
