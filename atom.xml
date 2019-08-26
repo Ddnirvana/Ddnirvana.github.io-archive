@@ -4,7 +4,7 @@
   <title><![CDATA[Dd's home]]></title>
   <link href="http://dongd.info/atom.xml" rel="self"/>
   <link href="http://dongd.info/"/>
-  <updated>2019-08-26T17:18:11+08:00</updated>
+  <updated>2019-08-26T17:21:01+08:00</updated>
   <id>http://dongd.info/</id>
   <author>
     <name><![CDATA[Dong Du]]></name>
@@ -330,7 +330,7 @@ Tail latency is of great importance in user-facing web services. However, mainta
 
 <p>然后倒数第二天去了趟老奶奶烧烤，因为之前人生一串里有，然后感觉一般……</p>
 
-<p>{&ldquo;%img /images/2019-02-02-dongbei-travel/meat.jpg 600 300 %&rdquo;}</p>
+<p><img src="http://dongd.info/images/2019-02-02-dongbei-travel/meat.jpg" width="600" height="300"></p>
 
 <p><img src="http://dongd.info/images/2019-02-02-dongbei-travel/meat.jpg" alt="meat" /></p>
 
