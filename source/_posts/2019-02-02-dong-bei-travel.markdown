@@ -233,37 +233,35 @@ categories: life
 
 
 
+{% img /images/2019-02-02-dongbei-travel/meat.jpg 300 %}
+
+{% img /images/2019-02-02-dongbei-travel/normal-lunch.jpg 300 %}
+
+{% img /images/2019-02-02-dongbei-travel/laobian-dumpling.jpg 300 %}
+
+{% img /images/2019-02-02-dongbei-travel/hotpot.jpg 300 %}
+
+{% img /images/2019-02-02-dongbei-travel/eggplanet.jpg 300 %}
+
+{% img /images/2019-02-02-dongbei-travel/dumpling.jpg 300 %}
+
+{% img /images/2019-02-02-dongbei-travel/cabobs.jpg 300 %}
+
+{% img /images/2019-02-02-dongbei-travel/benben-chicken.jpg 300 %}
+
+{% img /images/2019-02-02-dongbei-travel/barbecue.jpg 300 %}
+
 
 
 ![meat](/images/2019-02-02-dongbei-travel/meat.jpg)
-
-
-
 ![normal-lunch](/images/2019-02-02-dongbei-travel/normal-lunch.jpg)
-
 ![laobian-dumpling](/images/2019-02-02-dongbei-travel/laobian-dumpling.jpg)
 
-
-
-
-
 ![hotpot](/images/2019-02-02-dongbei-travel/hotpot.jpg)
-
-
-
 ![eggplanet](/images/2019-02-02-dongbei-travel/eggplanet.jpg)
-
-
-
 ![easy-noddle](/images/2019-02-02-dongbei-travel/easy-noddle.jpg)
-
 ![dumpling](/images/2019-02-02-dongbei-travel/dumpling.jpg)
-
-
-
 ![cabobs](/images/2019-02-02-dongbei-travel/cabobs.jpg)
-
 ![benben-chicken](/images/2019-02-02-dongbei-travel/benben-chicken.jpg)
-
 ![barbecue](/images/2019-02-02-dongbei-travel/barbecue.jpg)
 
