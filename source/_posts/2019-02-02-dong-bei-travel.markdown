@@ -83,7 +83,7 @@ categories: life
 
 第一顿吃的是大众点评排第一的一家面馆，还可以，很大份。
 
-![noddle-in-the-first-day](/images/2019-02-02-dongbei-travel/noddle-in-the-first-day.jpg)
+{% img /images/2019-02-02-dongbei-travel/noddle-in-the-first-day.jpg 300 %}
 
 
 
@@ -101,19 +101,21 @@ categories: life
 
 下面这个雪坡坡是我们当时觉得玩过的项目里面最好玩的了，要自己拖一个橡胶圈上去，然后从上面滑下来。
 
-![snow-landslide](/images/2019-02-02-dongbei-travel/snow-landslide.jpg)
+{% img /images/2019-02-02-dongbei-travel/snow-landslide.jpg 300 %}
+
+
 
 其他的项目比如下面的雪上的船。
 
-![snow-boat](/images/2019-02-02-dongbei-travel/snow-boat.jpg)
+{% img /images/2019-02-02-dongbei-travel/snow-boat.jpg 300 %}
+
+
 
 以及开雪上的跑车。（这个还可以）
 
-![cdz-in-the-car](/images/2019-02-02-dongbei-travel/cdz-in-the-car.jpg)
+{% img /images/2019-02-02-dongbei-travel/cdz-in-the-car.jpg 300 %}
 
-![lu-in-the-snow-car](/images/2019-02-02-dongbei-travel/lu-in-the-snow-car.jpg)
-
-
+{% img /images/2019-02-02-dongbei-travel/lu-in-the-snow-car.jpg 300 %}
 
 
 
@@ -139,7 +141,7 @@ categories: life
 
 中央大街还是可以的，不过本质上和一般的步行街也没有撒本质的区别。
 
-![centre-avene-at-night](/images/2019-02-02-dongbei-travel/centre-avene-at-night.jpg)
+{% img /images/2019-02-02-dongbei-travel/centre-avene-at-night.jpg 300 %}
 
 特色其实是有很多俄罗斯的餐厅，我们吃的华梅什么的也是，不过我觉得体验一般，没有那种很惊艳的感觉。
 
@@ -147,13 +149,15 @@ categories: life
 
 这边的冰糕是真的可以直接放在外面卖，因为真的很冷：
 
-![cdz-icecream](/images/2019-02-02-dongbei-travel/cdz-icecream.jpg)
+{% img /images/2019-02-02-dongbei-travel/cdz-icecream.jpg 300 %}
+
+
 
 主要是华梅和马迭尔两家的，排队的人都还挺多的，不过轮的很快所以排不了几分钟就能买到，价格也还可以，我们基本上各种口味的都买了下，个人觉得酸奶的最好吃……
 
-![huamei-icecream](/images/2019-02-02-dongbei-travel/huamei-icecream.jpg)
+{% img /images/2019-02-02-dongbei-travel/huamei-icecream.jpg 300 %}
 
-![madier-icecream](/images/2019-02-02-dongbei-travel/madier-icecream.jpg)
+{% img /images/2019-02-02-dongbei-travel/madier-icecream.jpg 300 %}
 
 
 
@@ -161,17 +165,19 @@ categories: life
 
 到沈阳的时候在路边买的第一串糖葫芦当时就觉得贼好吃，到哈尔滨这边马迭尔和华梅的糖葫芦价格其实也差不多，也很好吃。感觉东北的糖葫芦和当时去韩国那边吃到的泡菜的体验是类似的，就是随便哪家都很好吃，不好吃的可能已经被淘汰了吧……
 
-![eating-dd](/images/2019-02-02-dongbei-travel/eating-dd.jpg)
+{% img /images/2019-02-02-dongbei-travel/eating-dd.jpg 300 %}
 
 
 
-![tanghulu-and-icecream](/images/2019-02-02-dongbei-travel/tanghulu-and-icecream.jpg)
+{% img /images/2019-02-02-dongbei-travel/tanghulu-and-icecream.jpg 300 %}
 
 上面大概就是在这条街上转的时候的日常状态了，冰糕+糖葫芦。
 
 
 
 中央大街上随处可见的冰雕还是很酷的，这还是华为的宣传冰雕哈哈~
+
+{% img /images/2019-02-02-dongbei-travel/huawei-ice-arch.jpg 300 %}
 
 ![huawei-ice-arch](/images/2019-02-02-dongbei-travel/huawei-ice-arch.jpg)
 
@@ -185,7 +191,9 @@ categories: life
 
 路上看到的一整片雪原的风光，还是很赞的~
 
-![wilde-land](/images/2019-02-02-dongbei-travel/wilde-land.jpg)
+{% img /images/2019-02-02-dongbei-travel/wilde-land.jpg 300 %}
+
+
 
 
 
@@ -193,15 +201,13 @@ categories: life
 
 过冰原，lulu同学很有天赋啊，直接和驾车的人跳起了舞。
 
-![dance-with-artist](/images/2019-02-02-dongbei-travel/dance-with-artist.jpg)
+{% img /images/2019-02-02-dongbei-travel/dance-with-artist.jpg 300 %}
 
-![horse-in-snow](/images/2019-02-02-dongbei-travel/horse-in-snow.jpg)
+{% img /images/2019-02-02-dongbei-travel/horse-in-snow.jpg 300 %}
 
-![view-in-the-fly](/images/2019-02-02-dongbei-travel/view-in-the-fly.jpg)
+{% img /images/2019-02-02-dongbei-travel/view-in-the-fly.jpg 300 %}
 
-![three-in-the-road](/images/2019-02-02-dongbei-travel/three-in-the-road.jpg) {:height="10%" width="10%"} 
-
-
+{% img /images/2019-02-02-dongbei-travel/three-in-the-road.jpg 300 %}
 
 
 
@@ -215,9 +221,9 @@ categories: life
 
 大教堂，晚上去的，拍了一些照片但是感觉都一般，可能是光线的原因，不过其实还是相当好看的。
 
-![tanghulu-at-road](/images/2019-02-02-dongbei-travel/tanghulu-at-road.jpg)
+{% img /images/2019-02-02-dongbei-travel/tanghulu-at-road.jpg 300 %}
 
-![tanghulu-in-the-road](/images/2019-02-02-dongbei-travel/tanghulu-in-the-road.jpg)
+{% img /images/2019-02-02-dongbei-travel/tanghulu-in-the-road.jpg 300 %}
 
 
 
@@ -251,17 +257,4 @@ categories: life
 
 {% img /images/2019-02-02-dongbei-travel/barbecue.jpg 300 %}
 
-
-
-![meat](/images/2019-02-02-dongbei-travel/meat.jpg)
-![normal-lunch](/images/2019-02-02-dongbei-travel/normal-lunch.jpg)
-![laobian-dumpling](/images/2019-02-02-dongbei-travel/laobian-dumpling.jpg)
-
-![hotpot](/images/2019-02-02-dongbei-travel/hotpot.jpg)
-![eggplanet](/images/2019-02-02-dongbei-travel/eggplanet.jpg)
-![easy-noddle](/images/2019-02-02-dongbei-travel/easy-noddle.jpg)
-![dumpling](/images/2019-02-02-dongbei-travel/dumpling.jpg)
-![cabobs](/images/2019-02-02-dongbei-travel/cabobs.jpg)
-![benben-chicken](/images/2019-02-02-dongbei-travel/benben-chicken.jpg)
-![barbecue](/images/2019-02-02-dongbei-travel/barbecue.jpg)
 
