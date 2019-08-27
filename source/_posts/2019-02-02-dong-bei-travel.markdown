@@ -179,7 +179,7 @@ categories: life
 
 {% img /images/2019-02-02-dongbei-travel/huawei-ice-arch.jpg 300 %}
 
-![huawei-ice-arch](/images/2019-02-02-dongbei-travel/huawei-ice-arch.jpg)
+
 
 
 
