@@ -3,7 +3,7 @@ layout: post
 title: "ATC‘17 paper 阅读"
 doate: 2017-08-27 18:55:10 +0800
 comments: true
-categories: paper reading 
+categories: paper
 ---
 
 

@@ -3,7 +3,7 @@ layout: post
 title: "OSDI archive"
 date: 2019-02-20 21:19:25 +0800
 comments: true
-categories: papers
+categories: paper
 ---
 
 Although the program of each OSDI conference can be easily found in the network, an archive page can help us to soonly review the history published work on OSDI. :)
