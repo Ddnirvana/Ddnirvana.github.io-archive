@@ -17,3 +17,15 @@ footer: false
 {% endif %}
 {% endfor %}
 </div>
+
+<ul>
+	<li>Paper</a>
+	<ul>
+	{% for post in site.posts %}
+	{% if post.categories contains "paper" %}
+	<li><a href="{{ post.url }}">{{ post.title }}</a></li>
+	{% endif %}
+	{% endfor %}
+	</ul>
+        </li>
+</ul>
