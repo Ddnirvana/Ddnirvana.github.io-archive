@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Paper | Dd's home]]></title>
   <link href="http://dongd.info/blog/categories/paper/atom.xml" rel="self"/>
   <link href="http://dongd.info/"/>
-  <updated>2020-03-13T11:42:08+08:00</updated>
+  <updated>2020-03-13T11:44:49+08:00</updated>
   <id>http://dongd.info/</id>
   <author>
     <name><![CDATA[Dong Du]]></name>
@@ -12,6 +12,157 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[OSDI Archive]]></title>
+    <link href="http://dongd.info/blog/2019/02/20/osdi-archive/"/>
+    <updated>2019-02-20T21:19:25+08:00</updated>
+    <id>http://dongd.info/blog/2019/02/20/osdi-archive</id>
+    <content type="html"><![CDATA[<p>Although the program of each OSDI conference can be easily found in the network, an archive page can help us to soonly review the history published work on OSDI. :)</p>
+
+<p>This page will be updated continuously~ (if not, you can notify me through email)</p>
+
+<!-- more -->
+
+
+<h2>Program List</h2>
+
+<p><a href="https://www.usenix.org/conference/osdi18/technical-sessions">OSDI 2018</a></p>
+
+<p><a href="https://www.usenix.org/conference/osdi16/program">OSDI 2016</a></p>
+
+<p><a href="https://www.usenix.org/conference/osdi14/technical-sessions">OSDI 2014</a></p>
+
+<p><a href="https://www.usenix.org/conference/osdi12/technical-sessions">OSDI 2012</a></p>
+
+<p><a href="https://www.usenix.org/legacy/event/osdi10/tech/">OSDI 2010</a></p>
+
+<p><a href="https://www.usenix.org/legacy/events/osdi08/tech/">OSDI 2008</a></p>
+
+<p><a href="https://www.usenix.org/legacy/events/osdi06/tech/">OSDI 2006</a></p>
+
+<p><a href="https://www.usenix.org/legacy/events/osdi04/tech/">OSDI 2004</a></p>
+
+<p><a href="https://www.usenix.org/legacy/events/osdi02/tech.html">OSDI 2002</a></p>
+
+<p><a href="https://www.usenix.org/legacy/events/osdi2000/tech.html">OSDI 2000</a></p>
+
+<p><a href="https://www.usenix.org/legacy/publications/library/proceedings/osdi99/technical.html">OSDI 1999</a></p>
+
+<p><a href="https://www.usenix.org/legacy/publications/library/proceedings/osdi96/">OSDI 1996</a></p>
+
+<p><a href="https://www.usenix.org/legacy/publications/library/proceedings/osdi/index.html">OSDI 1994</a></p>
+
+<p>USENIX has offically maintained an OSDI <a href="https://www.usenix.org/conferences/byname/179">list</a>.</p>
+
+<h2>OSDI 2018</h2>
+
+<h3>Understanding Failures</h3>
+
+<p><strong><font color=#005493>Capturing and Enhancing In Situ System Observability for Failure Detection</font></strong></p>
+
+<p>Peng Huang, <em>Johns Hopkins University;</em> Chuanxiong Guo, <em>ByteDance Inc.;</em> Jacob R. Lorch and Lidong Zhou, <em>Microsoft Research;</em> Yingnong Dang, <em>Microsoft</em></p>
+
+<p><strong>Abstract</strong> Real-world distributed systems suffer unavailability due to various types of failure. But, despite enormous effort, many failures, especially gray failures, still escape detection. In this paper, we argue that the missing piece in failure detection is detecting what the requesters of a failing component see. This insight leads us to the design and implementation of Panorama, a system designed to enhance \emph{system observability} by taking advantage of the interactions between a system&rsquo;s components. By providing a systematic channel and analysis tool, Panorama turns a component into a logical observer so that it not only handles errors, but also \emph{reports} them. Furthermore, Panorama incorporates techniques for making such observations even when indirection exists between components. Panorama can easily integrate with popular distributed systems and detect all 15 \emph{real-world} gray failures that we reproduced in less than 7 s, whereas existing approaches detect only one of them in under 300 s.</p>
+
+<p><a href="https://www.usenix.org/conference/osdi18/presentation/huang">AVAILABLE</a></p>
+
+<p><strong><font color=#005493>REPT: Reverse Debugging of Failures in Deployed Software</font></strong></p>
+
+<p>Weidong Cui and Xinyang Ge, <em>Microsoft Research Redmond;</em> Baris Kasikci, <em>University of Michigan;</em> Ben Niu, <em>Microsoft Research Redmond;</em> Upamanyu Sharma, <em>University of Michigan;</em> Ruoyu Wang, <em>Arizona State University;</em> Insu Yun, <em>Georgia Institute of Technology</em></p>
+
+<p><strong><em>Awarded Best Paper!</em></strong></p>
+
+<p><strong>Abstract</strong> Debugging software failures in deployed systems is important because they impact real users and customers. However, debugging such failures is notoriously hard in practice because developers have to rely on limited information such as memory dumps. The execution history is usually unavailable because high-fidelity program tracing is not affordable in deployed systems.</p>
+
+<p>In this paper, we present REPT, a practical system that enables reverse debugging of software failures in deployed systems. REPT reconstructs the execution history with high fidelity by combining online lightweight hardware tracing of a program&rsquo;s control flow with offline binary analysis that recovers its data flow. It is seemingly impossible to recover data values thousands of instructions before the failure due to information loss and concurrent execution. REPT tackles these challenges by constructing a partial execution order based on timestamps logged by hardware and iteratively performing forward and backward execution with error correction.</p>
+
+<p>We design and implement REPT, deploy it on Microsoft Windows, and integrate it into Windows Debugger. We evaluate REPT on 16 real-world bugs and show that it can recover data values accurately (92% on average) and efficiently (less than 20 seconds) for these bugs. We also show that it enables effective reverse debugging for 14 bugs.</p>
+
+<p><a href="https://www.usenix.org/conference/osdi18/presentation/weidong">AVAILABLE</a></p>
+
+<p><strong><font color=#005493>Finding Crash-Consistency Bugs with Bounded Black-Box Crash Testingn</font></strong></p>
+
+<p>Jayashree Mohan, Ashlie Martinez, Soujanya Ponnapalli, and Pandian Raju, <em>University of Texas at Austin;</em> Vijay Chidambaram, <em>University of Texas at Austin and VMware Research</em></p>
+
+<p><strong>Abstract</strong> We present a new approach to testing file-system crash consistency: bounded black-box crash testing (B3). B3 tests the file system in a black-box manner using workloads of file-system operations. Since the space of possible workloads is infinite, B3 bounds this space based on parameters such as the number of file-system operations or which operations to include, and exhaustively generates workloads within this bounded space. Each workload is tested on the target file system by simulating power-loss crashes while the workload is being executed, and checking if the file system recovers to a correct state after each crash. B3 builds upon insights derived from our study of crash-consistency bugs reported in Linux file systems in the last five years. We observed that most reported bugs can be reproduced using small workloads of three or fewer file-system operations on a newly-created file system, and that all reported bugs result from crashes after fsync() related system calls. We build two tools, CrashMonkey and Ace, to demonstrate the effectiveness of this approach. Our tools are able to find 24 out of the 26 crash-consistency bugs reported in the last five years. Our tools also revealed 10 new crash-consistency bugs in widely-used, mature Linux file systems, seven of which existed in the kernel since 2014. The new bugs result in severe consequences like broken rename atomicity and loss of persisted files.</p>
+
+<p><a href="https://www.usenix.org/conference/osdi18/presentation/mohan">AVAILABLE</a></p>
+
+<p><strong><font color=#005493>An Analysis of Network-Partitioning Failures in Cloud Systems</font></strong></p>
+
+<p>Ahmed Alquraan, Hatem Takruri, Mohammed Alfatafta, and Samer Al-Kiswany, <em>University of Waterloo</em></p>
+
+<p><strong>Abstract</strong> We present a comprehensive study of 136 system failures attributed to network-partitioning faults from 25 widely used distributed systems. We found that the majority of the failures led to catastrophic effects, such as data loss, reappearance of deleted data, broken locks, and system crashes. The majority of the failures can easily manifest once a network partition occurs: They require little to no client input, can be triggered by isolating a single node, and are deterministic. However, the number of test cases that one must consider is extremely large. Fortunately, we identify ordering, timing, and network fault characteristics that significantly simplify testing. Furthermore, we found that a significant number of the failures are due to design flaws in core system mechanisms. We found that the majority of the failures could have been avoided by design reviews, and could have been discovered by testing with network-partitioning fault injection. We built NEAT, a testing framework that simplifies the coordination of multiple clients and can inject different types of network-partitioning faults. We used NEAT to test seven popular systems and found and reported 32 failures.</p>
+
+<p><a href="https://www.usenix.org/conference/osdi18/presentation/alquraan">AVAILABLE</a></p>
+
+<h3>Operating Systems</h3>
+
+<p><strong><font color=#005493>LegoOS: A Disseminated, Distributed OS for Hardware Resource Disaggregation</font></strong></p>
+
+<p>Yizhou Shan, Yutong Huang, Yilun Chen, and Yiying Zhang, <em>Purdue University</em></p>
+
+<p><strong>Abstract</strong> The monolithic server model where a server is the unit of deployment, operation, and failure is meeting its limits in the face of several recent hardware and application trends. To improve heterogeneity, elasticity, resource utilization, and failure handling in datacenters, we believe that datacenters should break monolithic servers into disaggregated, network-attached hardware components. Despite the promising benefits of hardware resource disaggregation, no existing OSes or software systems can properly manage it. We propose a new OS model called the splitkernel to manage disaggregated systems. Splitkernel disseminates traditional OS functionalities into loosely-coupled monitors, each of which runs on and manages a hardware component. Using the splitkernel model, we built LegoOS, a new OS designed for hardware resource disaggregation. LegoOS appears to users as a set of distributed servers. Internally, LegoOS cleanly separates processor, memory, and storage devices both at the hardware level and the OS level. We implemented LegoOS from scratch and evaluated it by emulating hardware components using commodity servers. Our evaluation results show that LegoOS’s performance is comparable to monolithic Linux servers, while largely improving resource packing and failure rate over monolithic clusters.</p>
+
+<p><strong><font color=#005493>The benefits and costs of writing a POSIX kernel in a high-level language</font></strong></p>
+
+<p>Cody Cutler, M. Frans Kaashoek, and Robert T. Morris, MIT CSAIL</p>
+
+<p><strong>Abstract</strong> This paper presents an evaluation of the use of a high-level language (HLL) with garbage collection to implement a monolithic POSIX-style kernel. The goal is to explore if it is reasonable to use an HLL instead of C for such kernels, by examining performance costs, implementation challenges, and programmability and safety benefits.</p>
+
+<p>The paper contributes Biscuit, a kernel written in Go that implements enough of POSIX (virtual memory, mmap, TCP/IP sockets, a logging file system, poll, etc.) to execute significant applications. Biscuit makes lib- eral use of Go&rsquo;s HLL features (closures, channels, maps, interfaces, garbage collected heap allocation), which sub- jectively made programming easier. The most challenging puzzle was handling the possibility of running out of ker- nel heap memory; Biscuit benefited from the analyzability of Go source to address this challenge.</p>
+
+<p>On a set of kernel-intensive benchmarks (including NG- INX and Redis) the fraction of kernel CPU time Biscuit spends on HLL features (primarily garbage collection and thread stack expansion checks) ranges up to 13%. The longest single GC-related pause suffered by NGINX was 115 microseconds; the longest observed sum of GC delays to a complete NGINX client request was 600 microsec- onds. In experiments comparing nearly identical system call, page fault, and context switch code paths written in Go and C, the Go version was 5% to 15% slower.</p>
+
+<p><strong><font color=#005493>Sharing, Protection, and Compatibility for Reconfigurable Fabric with AmorphOS</font></strong></p>
+
+<p>Ahmed Khawaja, Joshua Landgraf, and Rohith Prakash, UT Austin; Michael Wei and Eric Schkufza, VMware Research Group; Christopher J. Rossbach, UT Austin and VMware Research Group</p>
+
+<p><strong>Abstract</strong> Cloud providers such as Amazon and Microsoft have begun to support on-demand FPGA acceleration in the cloud, and hardware vendors will support FPGAs in future processors. At the same time, technology advancements such as 3D stacking, through-silicon vias (TSVs), and FinFETs have greatly increased FPGA density. The massive parallelism of current FPGAs can support not only extremely large applications, but multiple applications simultaneously as well.</p>
+
+<p>System support for FPGAs, however, is in its infancy. Unlike software, where resource configurations are limited to simple dimensions of compute, memory, and I/O, FPGAs provide a multi-dimensional sea of resources known as the FPGA fabric: logic cells, floating point units, memories, and I/O can all be wired together, leading to spatial constraints on FPGA resources. Current stacks either support only a single application or statically partition the FPGA fabric into fixed-size slots. These designs cannot efficiently support diverse workloads: the size of the largest slot places an artificial limit on application size, and oversized slots result in wasted FPGA resources and reduced concurrency.</p>
+
+<p>This paper presents AmorphOS, which encapsulates user FPGA logic in morphable tasks, or Morphlets. Morphlets provide isolation and protection across mutually distrustful protection domains, extending the guarantees of software processes. Morphlets can morph, dynamically altering their deployed form based on resource requirements and availability. To build Morphlets, developers provide a parameterized hardware design that interfaces with AmorphOS, along with a mesh, which specifies external resource requirements. AmorphOS explores the parameter space, generating deployable Morphlets of varying size and resource requirements. AmorphOS multiplexes Morphlets on the FPGA in both space and time to maximize FPGA utilization.</p>
+
+<p>We implement AmorphOS on Amazon F1 and Microsoft Catapult. We show that protected sharing and dynamic scalability support on workloads such as DNN inference and blockchain mining improves aggregate throughput up to 4x and 23x on Catapult and F1 respectively.</p>
+
+<p><strong><font color=#005493>Adaptive Dynamic Checkpointing for Safe Efficient Intermittent Computing</font></strong></p>
+
+<p>Kiwan Maeng and Brandon Lucia, Carnegie Mellon University</p>
+
+<p><strong>Abstract</strong> Energy-harvesting devices have the potential to be the foundation of emerging, sensor-rich application domains where the use of batteries is infeasible, such as in space and civil infrastructure. Programming on an energy-harvesting device is difficult because the device operates only intermittently, as energy is available. Intermittent operation requires the programmer to reason about energy to understand data consistency and forward progress of their program. Energy varies with input and environment, making intermittent programming difficult. Existing systems for intermittent execution provide an unfamiliar programming abstraction and fail to adapt to energy changes forcing a compromise of either performance or assurance of forward progress. This paper presents Chinchilla, a compiler and runtime system that allows running unmodified C code efficiently on an energy-harvesting device with little additional programmer effort and no additional hardware support. Chinchilla overprovisions code with checkpoints to assure the system makes progress, even with scarce energy. Chinchilla disables checkpoints dynamically to efficiently adapt to energy conditions. Experiments show that Chinchilla improves programmability, is performant, and makes it simple to statically check the absence of non-termination. Comparing to two systems from prior work, Alpaca and Ratchet, Chinchilla makes progress when Alpaca cannot, and has 125% mean speedup against Ratchet.</p>
+
+<h3>Scheduling</h3>
+
+<p><em>Session Chair: Christos Kozyrakis, Stanford University</em></p>
+
+<p><strong><font color=#005493>Arachne: Core-Aware Thread Management</font></strong></p>
+
+<p>Henry Qin, Qian Li, Jacqueline Speiser, Peter Kraft, and John Ousterhout, Stanford University</p>
+
+<p><strong>Abstract</strong> Arachne is a new user-level implementation of threads that provides both low latency and high throughput for applications with extremely short-lived threads (only a few microseconds). Arachne is core-aware: each application determines how many cores it needs, based on its load; it always knows exactly which cores it has been allocated, and it controls the placement of its threads on those cores. A central core arbiter allocates cores between applications. Adding Arachne to memcached improved SLO-compliant throughput by 37%, reduced tail latency by more than 10x, and allowed memcached to coexist with background applications with almost no performance impact. Adding Arachne to the RAMCloud storage system increased its write throughput by more than 2.5x. The Arachne threading library is optimized to minimize cache misses; it can initiate a new user thread on a different core (with load balancing) in 320 ns. Arachne is implemented entirely at user level on Linux; no kernel modifications are needed.</p>
+
+<p><strong><font color=#005493>Principled Schedulability Analysis for Distributed Storage Systems using Thread Architecture Models</font></strong></p>
+
+<p>Suli Yang, Ant Financial Services Group; Jing Liu, Andrea C. Arpaci-Dusseau, and Remzi H. Arpaci-Dusseau, UW-Madison
+In this paper, we present an approach to systematically examine the schedulability of distributed storage systems, identify their scheduling problems, and enable effective scheduling in these systems. We use Thread Architecture Models (TAMs) to describe the behavior and interactions of different threads in a system, and show both how to construct TAMs for existing systems and utilize TAMs to identify critical scheduling problems. We identify five common problems that prevent a system from providing schedulability and show that these problems arise in existing systems such as HBase, Cassandra, MongoDB, and Riak, making it difficult or impossible to realize various scheduling disciplines. We demonstrate how to address these schedulability problems by developing Tamed-HBase and Muzzled-HBase, sets of modifications to HBase that can realize the desired scheduling disciplines, including fairness and priority scheduling, even when presented with challenging workloads.</p>
+
+<p><strong><font color=#005493>µTune: Auto-Tuned Threading for OLDI Microservices</font></strong></p>
+
+<p>Akshitha Sriraman and Thomas F. Wenisch, University of Michigan
+<strong>Abstract</strong> Modern On-Line Data Intensive (OLDI) applications have evolved from monolithic systems to instead comprise numerous, distributed microservices interacting via Remote Procedure Calls (RPCs). Microservices face sub-millisecond (sub-ms) RPC latency goals, much tighter than their monolithic counterparts that must meet ≥ 100 ms latency targets. Sub-ms–scale threading and concurrency design effects that were once insignificant for such monolithic services can now come to dominate in the sub-ms–scale microservice regime. We investigate how threading design critically impacts microservice tail latency by developing a taxonomy of threading models—a structured understanding of the implications of how microservices manage concurrency and interact with RPC interfaces under wide-ranging loads. We develop μTune, a system that has two features: (1) a novel framework that abstracts threading model implementation from application code, and (2) an automatic load adaptation system that curtails microservice tail latency by exploiting inherent latency trade-offs revealed in our taxonomy to transition among threading models. We study μTune in the context of four OLDI applications to demonstrate up to 1.9x tail latency improvement over static threading choices and state-of-the-art adaptation techniques.</p>
+
+<p><strong><font color=#005493>RobinHood: Tail Latency Aware Caching &ndash; Dynamic Reallocation from Cache-Rich to Cache-Poor</font></strong></p>
+
+<p>Daniel S. Berger and Benjamin Berg, Carnegie Mellon University; Timothy Zhu, Pennsylvania State University; Siddhartha Sen, Microsoft Research; Mor Harchol-Balter, Carnegie Mellon University
+Tail latency is of great importance in user-facing web services. However, maintaining low tail latency is challenging, because a single request to a web application server results in multiple queries to complex, diverse backend services (databases, recommender systems, ad systems, etc.). A request is not complete until all of its queries have completed. We analyze a Microsoft production system and find that backend query latencies vary by more than two orders of magnitude across backends and over time, resulting in high request tail latencies.</p>
+
+<p><strong>Abstract</strong> We propose a novel solution for maintaining low request tail latency: repurpose existing caches to mitigate the effects of backend latency variability, rather than just caching popular data. Our solution, RobinHood, dynamically reallocates cache resources from the cache-rich (backends which don&rsquo;t affect request tail latency) to the cache-poor (backends which affect request tail latency). We evaluate RobinHood with production traces on a 50-server cluster with 20 different backend systems. Surprisingly, we find that RobinHood can directly address tail latency even if working sets are much larger than the cache size. In the presence of load spikes, RobinHood meets a 150ms P99 goal 99.7% of the time, whereas the next best policy meets this goal only 70% of the time.</p>
+
+<p><strong><font color=red>[TODO]</font></strong></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[OSDI 2014]]></title>
