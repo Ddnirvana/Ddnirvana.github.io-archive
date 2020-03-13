@@ -14,6 +14,7 @@ I have built several systems including OS, compiler, and RISC-V processor (XPC o
 
 
 ## Publications
++ **Dong Du**, Tianyi Yu, Yubin Xia, Binyu Zang, Guanglu Yan, Chenggang Qin, Qixuan Wu, Haibo Chen. Catalyzer: Sub-millisecond Startup for Serverless Computing with Initialization-less Booting. In Proceedings of the Twenty-Fifth International Conference on Architectural Support for Programming Languages and Operating Systems (ASPLOS ’20) 
 
 + Mo Zou, Haoran Ding, **Dong Du**, Ming Fu, Ronghui Gu and Haibo Chen. Using Concurrent Relational Logic with Helpers for Verifying the AtomFS File System. Proceedings of the 27th ACM Symposium on Operating Systems Principles (SOSP '19). Huntsville, Ontario, October 27-30, Canada, 2019
 
