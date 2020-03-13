@@ -10,7 +10,7 @@ footer: false
 {% if site.description %}<meta itemprop="description" content="{{site.description}}" />{% endif %}
 <meta itemprop="url" content="{{site.url}}" />
 {% for post in site.posts %}
-{% if post.categories contains "paper" or "work" %}
+{% if post.categories contains "paper" or post.categories contains "work" %}
 <article class="page-header" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
   {% include archive_post.html %}
 </article>
