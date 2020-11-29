@@ -3,7 +3,7 @@ layout: post
 title: "Recommented websites for system researchers"
 date: 2020-11-26 21:41:08 +0800
 comments: true
-categories: 
+categories: work
 ---
 
 Here is a list of (my personally) recommented websites for system researchers, and the reasons.
