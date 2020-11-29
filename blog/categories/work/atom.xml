@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Work | Dd's home]]></title>
   <link href="http://dongd.info/blog/categories/work/atom.xml" rel="self"/>
   <link href="http://dongd.info/"/>
-  <updated>2020-11-29T19:49:56+08:00</updated>
+  <updated>2020-11-29T19:55:00+08:00</updated>
   <id>http://dongd.info/</id>
   <author>
     <name><![CDATA[Dong Du]]></name>
@@ -12,6 +12,27 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Recommented Websites for System Researchers]]></title>
+    <link href="http://dongd.info/blog/2020/11/26/recommented-websites-for-system-researchers/"/>
+    <updated>2020-11-26T21:41:08+08:00</updated>
+    <id>http://dongd.info/blog/2020/11/26/recommented-websites-for-system-researchers</id>
+    <content type="html"><![CDATA[<p>Here is a list of (my personally) recommented websites for system researchers, and the reasons.</p>
+
+<ul>
+<li><a href="https://lwn.net/">LWN</a>: LWN presents the news about Linux (and actually more than Linux). It will introduces recent discussions on interesting patches, hot topics on OSes, and quickly reviews on related news. It&rsquo;s strongly recommented to periodically check the website to learn things. All the contents on LWN is free, but you need to be subscriber to get the latest things (If you don&rsquo;t want, just wait 2 weeks).</li>
+<li><a href="https://blog.acolyer.org/">The morning papers</a>: It will give a quick introduction on interesting papers. Just follow it and read things you'are interested.</li>
+<li><a href="https://www.nextplatform.com/">The Next Platform</a>: You can learn about hardware things, e.g., the newly interconnection designs, on this website.</li>
+<li><a href="https://news.ycombinator.com/">Hacker News</a>: News and discussions of a wide topics.</li>
+<li><a href="https://www.usenix.org/conferences">Usernix Conference News</a>: Just check the recent events on Usenix conferences. It&rsquo;s always helpful to learn the most reserach topics and technqies :).</li>
+</ul>
+
+
+<p>I will update the list when I recall some websites.
+Besides, if you have websites want to share, just let me know through my email.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Hello,world]]></title>
