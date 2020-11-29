@@ -4,7 +4,7 @@
   <title><![CDATA[Dd's home]]></title>
   <link href="http://dongd.info/atom.xml" rel="self"/>
   <link href="http://dongd.info/"/>
-  <updated>2020-11-29T19:55:00+08:00</updated>
+  <updated>2020-11-29T20:09:39+08:00</updated>
   <id>http://dongd.info/</id>
   <author>
     <name><![CDATA[Dong Du]]></name>
@@ -12,6 +12,23 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Recommented Courses for System Researchers]]></title>
+    <link href="http://dongd.info/blog/2020/11/29/recommented-courses-for-system-researchers/"/>
+    <updated>2020-11-29T20:05:19+08:00</updated>
+    <id>http://dongd.info/blog/2020/11/29/recommented-courses-for-system-researchers</id>
+    <content type="html"><![CDATA[<p>Here is a list of (my personally) recommented courses for system researchers, and the reasons.</p>
+
+<ul>
+<li><a href="https://6004.mit.edu/web/fall20/resources/sp20">MIT 6.004: Computation Structure</a>: This course will introduce basic knowledge about modern Processors, and take RISC-V as an example for Labs/Demos. <a href="https://www.youtube.com/watch?v=c23MThWhXMw">Lectures</a> and <a href="https://6004.mit.edu/web/_static/silvina-test/resources/fa19/L14.pdf">Slides</a>.</li>
+</ul>
+
+
+<p>I will update the list when I recall or meet interesting courses.
+Besides, if you have interesting courses want to share, just let me know through my email.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Recommented Websites for System Researchers]]></title>
