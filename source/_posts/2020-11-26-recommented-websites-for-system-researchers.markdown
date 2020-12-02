@@ -13,6 +13,8 @@ Here is a list of (my personally) recommented websites for system researchers, a
 - [The Next Platform](https://www.nextplatform.com/): You can learn about hardware things, e.g., the newly interconnection designs, on this website.
 - [Hacker News](https://news.ycombinator.com/): News and discussions of a wide topics.
 - [Usernix Conference News](https://www.usenix.org/conferences): Just check the recent events on Usenix conferences. It's always helpful to learn the most reserach topics and technqies :).
+- [CCF recommented conferences/journals](https://www.ccf.org.cn/Academic_Evaluation/ARCH_DCP_SS/).
+- [Deadlines of conferences by Dan Tsafirr](http://www.cs.technion.ac.il/~dan/index_sysvenues_deadline.html): The page list the deadlines for most system conferences. Just following the line!
 
 I will update the list when I recall some websites.
 Besides, if you have websites want to share, just let me know through my email.
