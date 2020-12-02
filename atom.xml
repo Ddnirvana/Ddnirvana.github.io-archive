@@ -4,7 +4,7 @@
   <title><![CDATA[Dd's home]]></title>
   <link href="http://dongd.info/atom.xml" rel="self"/>
   <link href="http://dongd.info/"/>
-  <updated>2020-11-29T20:09:39+08:00</updated>
+  <updated>2020-12-02T22:31:36+08:00</updated>
   <id>http://dongd.info/</id>
   <author>
     <name><![CDATA[Dong Du]]></name>
@@ -43,6 +43,8 @@ Besides, if you have interesting courses want to share, just let me know through
 <li><a href="https://www.nextplatform.com/">The Next Platform</a>: You can learn about hardware things, e.g., the newly interconnection designs, on this website.</li>
 <li><a href="https://news.ycombinator.com/">Hacker News</a>: News and discussions of a wide topics.</li>
 <li><a href="https://www.usenix.org/conferences">Usernix Conference News</a>: Just check the recent events on Usenix conferences. It&rsquo;s always helpful to learn the most reserach topics and technqies :).</li>
+<li><a href="https://www.ccf.org.cn/Academic_Evaluation/ARCH_DCP_SS/">CCF recommented conferences/journals</a>.</li>
+<li><a href="http://www.cs.technion.ac.il/~dan/index_sysvenues_deadline.html">Deadlines of conferences by Dan Tsafirr</a>: The page list the deadlines for most system conferences. Just following the line!</li>
 </ul>
 
 
