@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Work | Dd's home]]></title>
   <link href="http://dongd.info/blog/categories/work/atom.xml" rel="self"/>
   <link href="http://dongd.info/"/>
-  <updated>2020-12-03T11:30:38+08:00</updated>
+  <updated>2020-12-11T06:28:51+08:00</updated>
   <id>http://dongd.info/</id>
   <author>
     <name><![CDATA[Dong Du]]></name>
@@ -12,6 +12,106 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Git Hook加强代码文档的尝试]]></title>
+    <link href="http://dongd.info/blog/2020/12/09/git-hookjia-qiang-dai-ma-wen-chang-shi/"/>
+    <updated>2020-12-09T15:16:09+08:00</updated>
+    <id>http://dongd.info/blog/2020/12/09/git-hookjia-qiang-dai-ma-wen-chang-shi</id>
+    <content type="html"><![CDATA[<h2>Motivation</h2>
+
+<p>给自己的代码写文档是件很容易被忽略的事情。
+不过没有文档的话，不管是为了事后维护项目，还是帮助后续参与进来合作的小伙伴来说，都是很麻烦的事情。</p>
+
+<p>这篇Blog是一个<strong>非常简单的</strong>用git hook中的pre-commit来做检查，强制对code和doc同时更新的一个小实验吧。</p>
+
+<h2>Design</h2>
+
+<h3>显示的文档清单</h3>
+
+<p>显示的文档清单，记录代码文件（比如.c, .h文件）和他们对应的文档文件（比如某.md）。</p>
+
+<p>在git commit的时候，脚本去检查是否修改了该清单上的代码文件，如果有。
+那么要么对应的文档文件也有更新，要么在commit的时候传入参数显示的告知脚本某些文档文件不需要更新。</p>
+
+<h3>为撒这么设计？</h3>
+
+<p>虽然文档很重要，但是对于大型项目，特别是在别人的系统上二次开发时，我们很难显示指定要对所有的代码文件做文档管理的。
+（当然，如果能做到这肯定是件很好的事情）。
+所以该清单其实是指定的一个要检查的列表。
+这样，我们可以在创建新的相关的代码的时候，去更新该list和代码对应的文档。
+后续的对代码的修改会通过脚本来提示我们需要去更新对应的文档内容。</p>
+
+<h2>Implementation</h2>
+
+<p>Demo的<a href="https://github.com/Ddnirvana/codeWithDoc.git">Github地址</a>。</p>
+
+<p><strong>doclist.json</strong>:
+<code>
+{
+        "hello.c" : "docs/helloworld.md",
+        "world.c" : "helloworld.md",
+        "bye.c"   : "bye.md"
+}
+</code></p>
+
+<p>DocList的格式就简单按照Json，一组简单的键值对。
+并且现在的假设是，一个代码文件<strong>最多只有一个</strong>对应的文档文件。
+而一个文档文件可以被多个代码文件所关联。</p>
+
+<p><strong>precommit的检查</strong>：
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>changed_files = []
+</span><span class='line'>changed_files_dict = {}
+</span><span class='line'>for status, fname in git.status(filter=&ldquo;MA&rdquo;, cached=True):
+</span><span class='line'>    if args.verbose:
+</span><span class='line'>        print(&ldquo;Checking {}&hellip;&rdquo;.format(fname))
+</span><span class='line'>    if check_ignores(fname):
+</span><span class='line'>        continue
+</span><span class='line'>    changed_files.append(fname)
+</span><span class='line'>    changed_files_dict[fname] = 1&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;for fname in changed_files:
+</span><span class='line'>    doc = doc_of_the_code(fname)
+</span><span class='line'>    if (doc!=&lsquo;OMGNoDocFound&rsquo;) and (not changed_files_dict.get(doc)):
+</span><span class='line'>        print(&ldquo;Source file: &rdquo;, fname,
+</span><span class='line'>                &ldquo;is updated while its doc:&rdquo;, doc,
+</span><span class='line'>                &ldquo;is not updated!\n&rdquo;)
+</span><span class='line'>        sys.exit(1)&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;sys.exit(0)</span></code></pre></td></tr></table></div></figure>
+核心代码如上。
+简单来说，就是读取修改的文件到一个List和Dict中（可能可以实现得更干净，先不管了），然后和doclist中的代码-文档对进行匹配和检查。
+如果发现对应的代码有相关联的文档文件，但是没有同时更新的，就报错。</p>
+
+<p>报错的log通常是：</p>
+
+<pre><code>Source file:  hello.c is updated while its doc: helloworld.md is not updated!
+</code></pre>
+
+<h2>Evaluation</h2>
+
+<p>具体效果咋样，过一段时间再来更新~</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[OpenWhisk简单介绍与使用]]></title>
