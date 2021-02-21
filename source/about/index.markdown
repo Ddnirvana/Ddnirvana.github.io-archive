@@ -34,6 +34,14 @@ I have built several systems including OS, compiler, and RISC-V processor (XPC o
 + [Penglai Enclave](https://penglai-enclave.systems/)
 + [ServerlessBench](https://serverlessbench.systems/)
 
+## Honors & Awards
+
++ Intel Fellowship, 2020
++ Ph.D National scholarships (国家奖学金), 2019
++ Outstanding graduates in SJTU (上海交通大学优秀毕业生), 2017
++ Undergraduate National scholarships (国家奖学金), 2016
++ Intel Cup National Collegiate Software Innovation Contest, the first prize, 2015
+
 ## Contact Me
 If you have any question, please contact me through my email.
 
