@@ -15,6 +15,8 @@ I have built several systems including OS, compiler, and RISC-V processor (XPC o
 
 ## Publications
 
++ **Dong Du**, Qingyuan Liu, Xueqiang Jiang, Yubin Xia, Binyu Zang, Haibo Chen. Serverless Computing on Heterogeneous Computers. The 27th ACM International Conference on Architectural Support for Programming Languages and Operating Systems (ASPLOS'22)
+
 + Erhu Feng, Xu Lu, **Dong Du**, Bicheng Yang, Xueqiang Jiang, Yubin Xia, Binyu Zang, Haibo Chen. Penglai: Scalable Enclaves for Modular Applications. The 15th USENIX Symposium on Operating Systems Design and Implementation, 2021.
 
 + Tianyi Yu, Qingyuan Liu, **Dong Du**, Yubin Xia, Binyu Zang, Ziqian Lu, Pingchao Yang, Chenggang Qin, Haibo Chen. Characterizing Serverless Platforms with ServerlessBench. In Proceedings of the ACM Symposium on Cloud Computing (SoCC'20), Renton, WA, USA. Oct 2020.
