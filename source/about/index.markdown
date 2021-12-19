@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "about"
-date: 2021-06-18 16:44
+date: 2021-12-19 16:44
 comments: true
 sharing: true
 footer: true
@@ -37,6 +37,11 @@ I have built several systems including OS, compiler, and RISC-V processor (XPC o
 
 + [Penglai Enclave](https://penglai-enclave.systems/)
 + [ServerlessBench](https://serverlessbench.systems/)
+
+## Community Works
+
++ [SOSP'21 Artifact Evaluation Committee](https://sysartifacts.github.io/sosp2021/organizers.html)
++ [RISC-V TEE TaskGroup](https://github.com/riscv/riscv-tee)
 
 ## Honors & Awards
 

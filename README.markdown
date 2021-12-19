@@ -1,3 +1,43 @@
+## Dong Du's Personal WebSite
+
+The template is based on Octopress 3.0. The original README content is the the end of the file.
+
+### Quick Start
+
+For the 1st time building, try prepare dependeices:
+
+	bundle install
+	mkdir -p _deploy # the script is not smart-enough to create the _deploy dir automatically
+
+Now build:
+
+	bundle exec rake generate
+	bundle exec rake deploy
+
+You can preview the generate blog by:
+
+	bundle exec rake preview
+
+The above command will start the server in the localhost, which listens 4000 (by default) port.
+You can view the website through 127.0.0.1:4000 or LOCAL_IP:4000.
+
+### Helper commands
+
+To quickly update the website:
+	
+	./update.sh
+
+The help info may help sometimesL
+
+	bundle exec rake help
+
+You can also refer Rakefile for useful commands.
+
+Layouts explaination:
+
+* The source branch is the source code of the blog.
+* The master branch is the generated pages of the blog.
+
 ## Octopress 3.0
 
 Note: Octopress 3.0 is in development at https://github.com/octopress/octopress
