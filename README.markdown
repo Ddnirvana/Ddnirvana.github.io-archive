@@ -7,7 +7,7 @@ The template is based on Octopress 3.0. The original README content is the the e
 For the 1st time building, try prepare dependeices:
 
 	bundle install
-	mkdir -p _deploy # the script is not smart-enough to create the _deploy dir automatically
+	git clone git@github.com:Ddnirvana/Ddnirvana.github.io.git _deploy # the script is not smart-enough to create the _deploy dir automatically
 
 Now build:
 
