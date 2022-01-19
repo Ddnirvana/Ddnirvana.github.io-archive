@@ -42,6 +42,7 @@ and RISC-V IPC extension (XPC).
 
 ## Community Works
 
++ [Eurosys'22 Artifact Evaluation Committee](https://sysartifacts.github.io/eurosys2022/organizers.html)
 + [SOSP'21 Artifact Evaluation Committee](https://sysartifacts.github.io/sosp2021/organizers.html)
 + [RISC-V TEE TaskGroup](https://github.com/riscv/riscv-tee)
 
