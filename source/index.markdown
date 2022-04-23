@@ -42,6 +42,7 @@ and RISC-V IPC extension (XPC).
 
 ## Community Works
 
++ [MICRO'22 External Review Committee](https://www.microarch.org/micro55/index.php)
 + [Usenix Security'22 Artifact Evaluation Committee](https://www.usenix.org/conference/usenixsecurity22/call-for-artifacts)
 + [Eurosys'22 Artifact Evaluation Committee](https://sysartifacts.github.io/eurosys2022/organizers.html)
 + [SOSP'21 Artifact Evaluation Committee](https://sysartifacts.github.io/sosp2021/organizers.html)
