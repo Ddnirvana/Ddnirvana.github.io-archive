@@ -50,6 +50,7 @@ and RISC-V IPC extension (XPC).
 
 ## Honors & Awards
 
++ Outstanding Doctoral Graduate of Shanghai (上海市优秀博士毕业生), 2022
 + Intel Fellowship, 2020
 + Ph.D National scholarships (国家奖学金), 2019
 + Outstanding graduates in SJTU (上海交通大学优秀毕业生), 2017
