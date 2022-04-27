@@ -13,6 +13,7 @@ My research interests include operating systems, system security (TEE), serverle
 I have built several systems including Penglai TEE (state-of-the-art RISC-V TEE),
 serverless systems (Catalyzer, ServerlessBench, and Molecule),
 and RISC-V IPC extension (XPC).
+I am also working on open-sourced communities, including RISC-V (SMPU TG chair), openEuler (RISC-V SIG maintainer) and openHarmony (RISC-V and TEE SIG maintainer).
 
 
 ## Publications
