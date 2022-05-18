@@ -1,13 +1,12 @@
 ---
 layout: page
-title: "about"
+title: "Dong Du"
 date: 2022-01-05 16:44
 comments: true
 sharing: true
 footer: true
 ---
 
-# About ME
 My name is Dong Du, a researcher at the Institute of parallel and distributed systems (IPADS), Shanghai Jiao Tong University.
 My research interests include operating systems, system security (TEE), serverless computing and HW/SW co-design. 
 I have built several systems including Penglai TEE (state-of-the-art RISC-V TEE),
